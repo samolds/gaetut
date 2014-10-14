@@ -1,6 +1,6 @@
 SAMSITE
 =======
-This is the original personal Django site I've been building for myself.
+A personal website using Django, but restructured to work with Google App Engine.
 
 System Requirements
 -------------------
@@ -13,7 +13,7 @@ Setup Instructions
 ------------------
 * Clone the repository
 ```
-git clone https://github.com/samolds/samsite.git
+git clone https://github.com/samolds/samsite-nonrel.git samsite
 ```
 * Sandbox the app with VirtualEnv
 ```
