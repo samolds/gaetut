@@ -1,4 +1,5 @@
 from django.core.exceptions import ValidationError
+from djangotoolbox.fields import ListField
 from django.core.mail import send_mail
 from HTMLParser import HTMLParser
 from django.conf import settings
@@ -115,6 +116,7 @@ class SiteImage(models.Model):
     description = models.TextField(blank=True, null=True)
     description_markdown = models.TextField("Description", blank=True, null=True, help_text='<a href="http://daringfireball.net/projects/markdown/syntax">Markdown Help</a>')
     image = models.ImageField(upload_to="images", height_field="height", width_field="width")
+    #Just removed ImageFields? Use this?: https://djangosnippets.org/snippets/1805/
     content_type = models.CharField(max_length=40)
     width = models.IntegerField()
     height = models.IntegerField()
@@ -187,6 +189,7 @@ class Post(models.Model):
     embedded_link = models.CharField(max_length=500, blank=True, null=True)
     private = models.BooleanField()
     comments = models.ManyToManyField(Comment, related_name='post', blank=True, null=True)
+    #comments = ListField(models.ForeignKey(Comment))
     creation_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
     view_count = models.IntegerField(default=0, blank=True, null=True)
