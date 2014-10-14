@@ -1,6 +1,7 @@
 SAMSITE
 =======
 A personal website using Django, but restructured to work with Google App Engine.
+(Not yet restructured to work with Google App Engine. But soon.)
 
 System Requirements
 -------------------
