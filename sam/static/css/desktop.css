@@ -1,0 +1,79 @@
+html, body {
+  min-width: 675px;
+}
+
+.body {
+  margin: 10px;
+  margin-top: 20px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: #ffffff;
+  border-radius: 5px;
+}
+
+.wide {
+  margin-left: 9%;
+  margin-right: 9%;
+}
+
+.medium {
+  margin-left: 18%;
+  margin-right: 18%;
+}
+
+.narrow {
+  margin-left: 27%;
+  margin-right: 27%;
+}
+
+.content {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* -------------- NAVBAR -------------- */
+
+#navbar {
+  background-color: #000;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#navbar a {
+  color: #fff;
+  padding: 11px;
+  line-height: 40px;
+}
+
+.navtop li {
+  position: relative;
+  display: inline;
+}
+
+.navtop ul {
+  white-space: nowrap;
+  position: absolute;
+  display: none;
+  z-index: 10;
+  margin-top: -2.5px;
+}
+
+.navtop ul li {
+  display: block;
+}
+
+.navtop li:hover ul {
+  display: block;
+  background-color: #000;
+}
+
+#navbar li:hover > a {
+  color: #000;
+  background-color: #e0e0e0;
+}
+
+.navtop ul li:hover {
+  background-color: #e0e0e0;
+}

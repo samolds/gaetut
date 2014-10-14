@@ -1,0 +1,23 @@
+<div class="body medium">
+  <div class="content">
+    {% if post %}
+      <h1>{{ post.title }}</h1>
+      {% include "blog_post_inners.html" %}
+    {% else %}
+      <h2>{{ EMPTY_TEXT }}</h2>
+    {% endif %}
+  </div>
+</div>
+
+
+{% if posts %}
+  <div class="body medium">
+    {% for post in posts %}
+      <div class="content">
+        {% include "blog_post_stub.html" %}
+      </div>
+      <div class="content inbetween"></div>
+    {% endfor %}
+    <div class="content"></div>
+  </div>
+{% endif %}

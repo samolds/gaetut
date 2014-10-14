@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>{{ SITENAME }} - About</title>{% endblock %}
+
+{% block content %}
+<div class="body medium">
+  <div class="content">
+    {% if post %}
+      <h1>{{ post.title }}</h1>
+      {% include "blog_post_inners.html" %}
+    {% else %}
+      <h2>{{ EMPTY_TEXT }}</h2>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>{{ SITENAME }} - Art</title>{% endblock %}
+
+{% block content %}
+<div class="body wide">
+  <div class="content">
+    <div class="inline">
+      <a class="right" href="/art/archive">View Art Archive</a>
+      <h1 class="left">Recent Art Work</h1>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+  <div class="content inbetween"></div>
+
+  {% for post in art %}
+    <div class="content">
+      {% load type %}
+      {% if post|type == "SiteImage" %}
+        {% include "art_work_stub.html" %}
+      {% elif post|type == "Post" %}
+        {% include "blog_post_stub.html" %}
+      {% endif %}
+      <div class="clear"></div>
+    </div>
+    <div class="content inbetween"></div>
+  {% endfor %}
+
+  <div class="content">
+    <a href="/art/archive">View Art Archive</a>
+  </div>
+</div>
+{% endblock %}

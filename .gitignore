@@ -1,0 +1,11 @@
+*.swp
+*.db
+*.pyc
+.Python
+/bin/
+/lib/
+/include/
+/local/
+.DS_Store
+/images/
+/sam/static/img/backgrounds/
