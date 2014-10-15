@@ -10,8 +10,6 @@ DATABASES['native'] = DATABASES['default']
 DATABASES['default'] = {'ENGINE': 'dbindexer', 'TARGET': 'native'}
 AUTOLOAD_SITECONF = 'indexes'
 
-SECRET_KEY = '=r-$b*8hglm+858&9t043hlm6-&6-3d3vfc4((7yd0dbrakhvi'
-
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.contenttypes',
@@ -23,6 +21,7 @@ INSTALLED_APPS = (
 
     # djangoappengine should come last, so it can override a few manage.py commands
     'djangoappengine',
+    'sam'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -49,3 +48,8 @@ STATIC_URL = '/static/'
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates'),)
 
 ROOT_URLCONF = 'urls'
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
