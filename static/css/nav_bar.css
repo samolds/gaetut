@@ -1,0 +1,42 @@
+#navbar {
+  background-color: #000;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#navbar a {
+  color: #fff;
+  padding: 12px;
+  line-height: 40px;
+}
+
+.navtop li {
+  position: relative;
+  display: inline;
+}
+
+.navtop ul {
+  white-space: nowrap;
+  position: absolute;
+  display: none;
+  z-index: 10;
+  margin-top: -1.5px;
+}
+
+.navtop ul li {
+  display: block;
+}
+
+.navtop li:hover ul {
+  display: block;
+  background-color: #000;
+}
+
+#navbar li:hover > a {
+  color: #000;
+  background-color: #e0e0e0;
+}
+
+.navtop ul li:hover {
+  background-color: #e0e0e0;
+}
