@@ -1,16 +1,17 @@
 from django.conf.urls.defaults import *
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import admin
+import dbindexer
 
 handler500 = 'djangotoolbox.errorviews.server_error'
 
-urlpatterns = patterns('',
-    (r'^$', 'django.views.generic.simple.redirect_to', {'url': '/', }),
-    (r'^/', include('sam.urls'))
+# django admin
+admin.autodiscover()
 
-    #(r'^accounts/create_user/$', 'sam.views.create_new_user'),
-    #(r'^accounts/login/$', 'django.contrib.auth.views.login',
-    #    {'authentication_form': AuthenticationForm,
-    #    'template_name': 'sam/login.html',}),
-    (r'^admin/logout/$', 'django.contrib.auth.views.logout',
-        {'next_page': '/',}),
+# search for dbindexes.py in all INSTALLED_APPS and load them
+dbindexer.autodiscover()
+
+urlpatterns = patterns('',
+    ('^_ah/warmup$', 'djangoappengine.views.warmup'),
+    ('^$', 'django.views.generic.simple.direct_to_template', {'template': 'home.html'}),
+    ('^admin/', include(admin.site.urls)),
 )
