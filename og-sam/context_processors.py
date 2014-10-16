@@ -4,10 +4,10 @@ from django.conf import settings
 def is_mobile(request):
     """ See if it's mobile mode
     """
-    #if request.MOBILE == 1:
-    #    return {'is_mobile': True}
-    #else:
-    return {'is_mobile': False}
+    if request.MOBILE == 1:
+        return {'is_mobile': True}
+    else:
+        return {'is_mobile': False}
 
 
 def is_admin(request):
