@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>{{ SITENAME }} - The Hub</title>{% endblock %}
+
+{% block content %}
+<div class="body narrow">
+  <div class="content">
+    <h1>The Hub</h1>
+    <small>A comprehensive list of everything I am on the interwebs</small>
+  </div>
+
+  {% if personals or maintains or develops %}
+    {% if personals %}
+      <div class="content inbetween"></div>
+      <div class="content">
+        <h3>Apps on the web where I have an account or profile, or apps that I developed for my personal use</h3>
+        <ul class="content">
+          {% for personal in personals %}
+            <li class="website"><a href="{{ personal.url }}">{{ personal.display }}</a>{% if personal.note %} {{ personal.note }}{% endif %}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    {% if maintains %}
+      <div class="content inbetween"></div>
+      <div class="content">
+        <h3>Apps that are not personally mine, but I have created, maintain, and/or contribute to them</h3>
+        <ul class="content">
+          {% for maintain in maintains %}
+            <li class="website"><a href="{{ maintain.url }}">{{ maintain.display }}</a>{% if maintain.note %} {{ maintain.note }}{% endif %}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    {% if develops %}
+      <div class="content inbetween"></div>
+      <div class="content">
+        <h3>Apps that I have helped develop while employed</h3>
+        <ul class="content">
+          {% for develop in develops %}
+            <li class="website"><a href="{{ develop.url }}">{{ develop.display }}</a>{% if develop.note %} {{ develop.note }}{% endif %}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  {% else %}
+    <div class="content inbetween"></div>
+    <div class="content">Nothing to display</div>
+  {% endif %}
+</div>
+{% endblock %}
