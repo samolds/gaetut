@@ -15,13 +15,13 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.auth',
     'django.contrib.sessions',
+
     'djangotoolbox',
     'autoload',
     'dbindexer',
 
     # djangoappengine should come last, so it can override a few manage.py commands
     'djangoappengine',
-    'sam'
 )
 
 MIDDLEWARE_CLASSES = (
