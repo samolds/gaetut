@@ -40,4 +40,4 @@ python manage.py syncdb
 path/to/google_appengine/dev_appserver.py --port=8000 samsite
 ```
 
-Suppose all of the previous commands worked, you should have a Django app running locally on GAE. At this point, you could set up a project online with Google and theoretically deploy this app and and have a Django site running on <whaterrr>.appspot.com
+Suppose all of the previous commands worked, you should have a Django app running locally on GAE. At this point, you could set up a project online with Google and theoretically deploy this app and and have a Django site running on whaterrrr.appspot.com

@@ -15,7 +15,7 @@ Realistic
 * !- Add blog posts from samsite to the river
 * !- Restructure model.py to work with a non-relational database http://www.allbuttonspressed.com/projects/djangoappengine (Remove ManyToManyField and ImageField)
 * !- DEPLOY TO GOOGLE APP ENGINE
-* !- Make a better background image the uses repeats or figure out optimal size for background image
+* !- Make a better background image the uses repeats or figure out optimal size for background image (Maybe just have it served from a static directory? Load faster?)
 * !- Make a better favicon
 * !- Standardize camelCase and under_score variable names (according to language being used: python: low_dash, javascript: camelCase, html/css: mid-dash)
 * !- Clean up basic.css and embed.js
