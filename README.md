@@ -1,13 +1,16 @@
 SAMSITE
 =======
-A personal website using Django, but restructured to work with Google App Engine.
-(Not yet restructured to work with Google App Engine. But soon.)
+A personal website using Django, but restructured to work with Google App Engine (GAE).
+(Not yet fully restructured to work with GAE. But soon.)
 
-System Requirements
+
+Project Requirements
 -------------------
 * Python 2.7
 * Pip
 * VirtualEnv
+* Linkenv (Maybe? Still figuring out how to get dependencies working with GAE)
+* GAE
 
 
 Setup Instructions
@@ -20,21 +23,21 @@ git clone https://github.com/samolds/samsite-nonrel.git samsite
 ```
 virtualenv --no-site-packages samsite
 ```
-* Activate the sandbox and install dependencies with Pip
+* Activate the sandbox and install dependencies with Pip (Not fully fleshed out... GAE doesn't play nicely with VirtualEnv and dependencies in requirements.txt...)
 ```
 cd samsite
 source bin/activate
 pip install -r sam/requirements.txt
 ```
 * Change variable values accordingly in samsite/local_settings.py
-* Establish a database with a superuser
+* Establish a database with a superuser (Maybe this will work. But models.py is definitely not ready to be supported by Google's nonrel db)
 ```
 python manage.py syncdb
 ```
-* Run the site
+
+* Run the site (Haven't made it this far yet)
 ```
-python manage.py runserver 8000
+path/to/google_appengine/dev_appserver.py --port=8000 samsite
 ```
 
-
-You should now have a skeleton of the site up and running on localhost:8000. Go to 'localhost:8000/admin', log in with the user established with the 'syncdb' command, and add posts to see content appear.
+Suppose all of the previous commands worked, you should have a Django app running locally on GAE. At this point, you could set up a project online with Google and theoretically deploy this app and and have a Django site running on <whaterrr>.appspot.com

@@ -12,19 +12,15 @@ Hopes
 
 Realistic
 ---------
+* !- Add blog posts from samsite to the river
 * !- Restructure model.py to work with a non-relational database http://www.allbuttonspressed.com/projects/djangoappengine (Remove ManyToManyField and ImageField)
 * !- DEPLOY TO GOOGLE APP ENGINE
+* !- Make a better background image the uses repeats or figure out optimal size for background image
+* !- Make a better favicon
 * !- Standardize camelCase and under_score variable names (according to language being used: python: low_dash, javascript: camelCase, html/css: mid-dash)
 * !- Clean up basic.css and embed.js
-* !- Make a better favicon
-* !- Re-opensource the project
 * !- https://docs.djangoproject.com/en/1.5/howto/static-files/
-* !- .git/info/exclude samsite/local_settings.py
-* !- Better background color without image
-* !- Make a better background image the uses repeats or figure out optimal size for background image
-* !- Fix footer to not need nav_bar css, then break out nav_bar css to separate file
-* !- Add blog posts from samsite to the river
-* !- Update readme for gae
+* .git/info/exclude samsite/local_settings.py
 * Update how imgurs are displayed with whether or not it is an album, and include the description if it exists
 * Get Imgur API working: https://api.imgur.com/oauth2#auth_url
 * Get the real email stuff set up and working with comments
@@ -38,6 +34,10 @@ Realistic
 
 Done/Cancelled
 ==============
+* Re-opensource the project
+* Update readme for gae
+* Better background color without image
+* Fix footer to not need nav_bar css, then break out nav_bar css to separate file
 * Add views counter to blog posts
 * Clean up javascript embed function. Break up into multiple functions
 * Break layouts.css into multiple css files
