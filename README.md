@@ -2,6 +2,7 @@ SAMSITE
 =======
 A personal website using Django, but restructured to work with Google App Engine (GAE).
 (Not yet fully restructured to work with GAE. But soon.)
+Been looking [here for some reference](http://djangoappengine.readthedocs.org/en/latest/installation.html)
 
 
 Project Requirements
@@ -34,7 +35,6 @@ mkdir gaenv
 * Make sure "PIL" (without quotes) is the first line of lib/python2.7/site-packages/PIL/PIL-x.x.x-pyx.x.egg-info/top_level.txt
 ```
 linkenv lib/python2.7/site-packages gaenv
-
 ```
 * Change variable values accordingly in samsite/local_settings.py
 * ------------ Haven't made it past this point... ------------------------------------
