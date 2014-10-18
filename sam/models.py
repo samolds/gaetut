@@ -1,6 +1,5 @@
 from django.conf import settings
 from django.db import models
-#import markdown
 
 
 class Website(models.Model):

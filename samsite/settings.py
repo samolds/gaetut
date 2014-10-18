@@ -131,15 +131,13 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.sites',
+    #'django.contrib.sites',  # not sure why, but commenting this out allows for the admin panel to work... kind of
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'sam',
-    #'dajaxice',
 
     'djangotoolbox',
     'autoload',
@@ -147,6 +145,9 @@ INSTALLED_APPS = (
 
     # djangoappengine should come last, so it can override a few manage.py commands
     'djangoappengine',
+
+    'sam',
+    #'dajaxice',
 )
 
 CACHES = {

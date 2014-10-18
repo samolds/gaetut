@@ -9,8 +9,9 @@ Project Requirements
 * Python 2.7
 * Pip
 * VirtualEnv
-* Linkenv (Maybe? Still figuring out how to get dependencies working with GAE)
-* GAE
+* Git
+* [Linkenv](http://github.com/ze-phyr-us/linkenv)
+* [GAE](http://cloud.google.com/appengine/docs/python)
 
 
 Setup Instructions
@@ -23,13 +24,20 @@ git clone https://github.com/samolds/samsite-nonrel.git samsite
 ```
 virtualenv --no-site-packages samsite
 ```
-* Activate the sandbox and install dependencies with Pip (Not fully fleshed out... GAE doesn't play nicely with VirtualEnv and dependencies in requirements.txt...)
+* Activate the sandbox and install dependencies with Pip and symlink them with Linkenv
 ```
 cd samsite
 source bin/activate
 pip install -r sam/requirements.txt
+mkdir gaenv
+```
+* Make sure "PIL" (without quotes) is the first line of lib/python2.7/site-packages/PIL/PIL-x.x.x-pyx.x.egg-info/top_level.txt
+```
+linkenv lib/python2.7/site-packages gaenv
+
 ```
 * Change variable values accordingly in samsite/local_settings.py
+* ------------ Haven't made it past this point... ------------------------------------
 * Establish a database with a superuser (Maybe this will work. But models.py is definitely not ready to be supported by Google's nonrel db)
 ```
 python manage.py syncdb
