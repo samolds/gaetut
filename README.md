@@ -1,5 +1,15 @@
 SAMSITE
 =======
+So I'm abandoning this endeavor. I think I'm just going to deploy the pure Django site on AWS.
+
+I'm thinking I might try to revamp this repo to just be an example of getting a simple Django app running on GAE, but my current samsite project is too complex for GAE.
+
+
+
+---------
+
+ABANDONED
+=========
 A personal website using Django, but restructured to work with Google App Engine (GAE).
 (Not yet fully restructured to work with GAE. But soon.)
 Been looking [here for some reference](http://djangoappengine.readthedocs.org/en/latest/installation.html)
