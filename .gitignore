@@ -9,5 +9,5 @@
 .DS_Store
 /images/
 /samsite/local_settings.py
-/gaenv/
+/samsite/gaenv/
 .gaedata/

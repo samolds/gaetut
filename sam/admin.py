@@ -1,0 +1,146 @@
+from django.contrib import admin
+from djangotoolbox.fields import ListField
+from django.forms import TextInput, Textarea, SelectMultiple
+from django.db import models
+from sam.models import *
+
+
+class TagAdmin(admin.ModelAdmin):
+    """ The admin model for a Tag
+    """
+admin.site.register(Tag, TagAdmin)
+
+
+class WebsiteAdmin(admin.ModelAdmin):
+    """ The admin model for a Website
+    """
+    list_display = ("display",
+                    "url",
+                    "private")
+    #list_filter = ["display",
+    #               "private"]
+
+    formfield_overrides = {
+        models.CharField: {'widget': TextInput(attrs={'size':'168'})},
+        models.TextField: {'widget': Textarea(attrs={'rows':40, 'cols':120})},
+    }
+
+admin.site.register(Website, WebsiteAdmin)
+
+
+#class SiteImageAdmin(admin.ModelAdmin):
+#    """ The admin model for a SiteImage.
+#    Content-type, width, and height, are all filled in on Image save.
+#    """
+#    list_filter = ['name']
+#    list_display = ("name", "private")
+#    exclude = ('content_type', 'width', 'height', 'comments', 'description')
+#    readonly_fields = ('view_count',)
+#    actions = ['delete_model']
+#
+#    formfield_overrides = {
+#        models.CharField: {'widget': TextInput(attrs={'size':'168'})},
+#        models.TextField: {'widget': Textarea(attrs={'rows':40, 'cols':120})},
+#        models.ManyToManyField: {'widget': SelectMultiple(attrs={'size':'15'})}
+#    }
+#
+#    def get_actions(self, request):
+#        actions = super(SiteImageAdmin, self).get_actions(request)
+#        del actions['delete_selected']
+#        return actions
+#
+#    def delete_model(self, request, queryset):
+#        if type(queryset) == SiteImage:
+#            queryset.delete()
+#        else:
+#            for image in queryset.all():
+#                image.delete()
+#    delete_model.short_description = "Delete selected images"
+#
+#admin.site.register(SiteImage, SiteImageAdmin)
+
+
+class QuoteAdmin(admin.ModelAdmin):
+    """ The admin model for a Quote.
+    """
+    list_display = ("author",)
+    #list_filter = ['quote', 'author']
+
+    formfield_overrides = {
+        models.CharField: {'widget': TextInput(attrs={'size':'168'})},
+        models.TextField: {'widget': Textarea(attrs={'rows':40, 'cols':120})},
+        #models.ManyToManyField: {'widget': SelectMultiple(attrs={'size':'15'})}
+        #ListField: {'widget': SelectMultiple(attrs={'size':'15'})}
+    }
+
+admin.site.register(Quote, QuoteAdmin)
+
+
+#class CommentAdmin(admin.ModelAdmin):
+#    """ The admin model for a Comment.
+#    """
+#    list_display = ("name",
+#                    "subject",
+#                    "email",
+#                    "date")
+#    list_filter = ["name",
+#                   "email",
+#                   "date"]
+#
+#    actions = ['delete_model']
+#
+#    formfield_overrides = {
+#        models.CharField: {'widget': TextInput(attrs={'size':'168'})},
+#        models.TextField: {'widget': Textarea(attrs={'rows':40, 'cols':120})},
+#        models.ManyToManyField: {'widget': SelectMultiple(attrs={'size':'15'})}
+#    }
+#
+#    def get_actions(self, request):
+#        actions = super(CommentAdmin, self).get_actions(request)
+#        del actions['delete_selected']
+#        return actions
+#
+#    def delete_model(self, request, comments):
+#        if type(comments) is Comment:
+#            comments.delete()
+#        else:
+#            for comment in comments.all():
+#                comment.delete()
+#    delete_model.short_description = "Delete selected comments"
+#
+##admin.site.register(Comment, CommentAdmin)
+#
+#
+#class PostAdmin(admin.ModelAdmin):
+#    """ The admin model for a Blog Post.
+#    """
+#    exclude = ('content', 'comments')
+#    readonly_fields = ('view_count',)
+#    list_display = ("title",
+#                    "creation_date")
+#    list_filter = ["title",
+#                   "tags",
+#                   "creation_date"]
+#
+#    actions = ['delete_model']
+#
+#    formfield_overrides = {
+#        models.CharField: {'widget': TextInput(attrs={'size':'168'})},
+#        models.TextField: {'widget': Textarea(attrs={'rows':40, 'cols':120})},
+#        models.ManyToManyField: {'widget': SelectMultiple(attrs={'size':'15'})}
+#    }
+#
+#    def get_actions(self, request):
+#        actions = super(PostAdmin, self).get_actions(request)
+#        del actions['delete_selected']
+#        return actions
+#
+#    def delete_model(self, request, posts):
+#        if type(posts) is Post:
+#            posts.delete()
+#        else:
+#            for post in posts.all():
+#                post.delete()
+#    delete_model.short_description = "Delete selected posts"
+#
+#admin.site.register(Post, PostAdmin)

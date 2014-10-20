@@ -1,5 +1,9 @@
 # Django settings for samsite project.
 
+# To allow imports from requirements
+import os, sys
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'gaenv'))
+
 # Initialize App Engine and import the default settings (DB backend, etc.).
 # If you want to use a different backend you have to remove all occurences
 # of "djangoappengine" from this file.
@@ -65,7 +69,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    #??
+    '/sam/static',
 )
 
 # List of finder classes that know how to find static files in
@@ -74,7 +78,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
-    #'dajaxice.finders.DajaxiceFinder',
+    'dajaxice.finders.DajaxiceFinder',
 )
 
 # List of callables that know how to import templates from various sources.
@@ -147,7 +151,7 @@ INSTALLED_APPS = (
     'djangoappengine',
 
     'sam',
-    #'dajaxice',
+    'dajaxice',
 )
 
 CACHES = {
