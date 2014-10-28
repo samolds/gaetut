@@ -8,6 +8,5 @@
 /local/
 .DS_Store
 /images/
-/samsite/local_settings.py
-/samsite/gaenv/
+/theriver/local_settings.py
 .gaedata/

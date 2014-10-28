@@ -1,0 +1,11 @@
+Django==1.5
+oauth2
+simplejson
+PIL
+pytz
+markdown
+
+TwitterAPI
+soundcloud
+flickrapi
+github3.py

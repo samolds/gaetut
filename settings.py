@@ -1,1 +1,1 @@
-from samsite.settings import *
+from theriver.settings import *

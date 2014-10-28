@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link href="{{ STATIC_URL }}css/base.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/basic.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/nav_bar.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/footer.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/desktop.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}img/favicon.ico" rel="icon" type="image/x-icon">
+    <title>{{ SITENAME }}</title>
+    {% block script %}{% endblock %}
+</head>
+<body>
+    <div id="bodywrap">
+      {% include "nav_bar.html" %}
+      {% block content %}{% endblock %}
+      <div class="footspace"></div>
+    </div>
+    <div id="footer">
+      {% include "footer.html" %}
+    </div>
+</body>
+</html>
