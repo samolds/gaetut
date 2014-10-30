@@ -1,10 +1,10 @@
 html, body {
   margin: 0px;
   padding: 0px;
-  background-color: #888;
+  background-color: #666;
   color: #000;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
   height: 100%;
 }
 
@@ -22,11 +22,11 @@ a:hover {color: #fff;}
 
 table {width: 100%;}
 img {max-width: 100%;}
-.tdtitle {width: 75%;}
+.tdtitle {width: 70%;}
 .tdtitle h2 {font-size: 175%;}
+.post-header-right {min-width: 160px;}
 
 #bodywrap {
-  background-image: url('/static/img/backgrounds/bg.png');
   background-size: 100% 100%;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -110,7 +110,7 @@ img {max-width: 100%;}
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center -100px;
-  background-color: #000;
+  //background-color: #000;
   background-size: cover;
 }
 
@@ -130,14 +130,14 @@ img {max-width: 100%;}
 }
 
 .bannerfiller {
-  height: 225px;
+  height: 300px;
 }
 
 .helpbox {
   text-align: left;
   border-style: solid;
   border-radius: 5px;
-  border-width: 5px;
+  border-width: 2px;
   border-color: #ffffff;
   margin-top: 2px;
   padding: 5px;
@@ -161,7 +161,7 @@ img {max-width: 100%;}
 }
 
 .hbtop {
-  margin-top: -165px;
+  margin-top: -195px;
 }
 
 .hoverhelp:hover .helpbox {
@@ -274,7 +274,7 @@ img {max-width: 100%;}
   margin: 10px;
   border-style: solid;
   border-radius: 5px;
-  border-width: 5px;
+  border-width: 2px;
   border-color: #fff;
   background-color: #f0f0f0;
   //box-shadow: 0px 5px 10px rgba(0, 0, 0, .5);
@@ -288,6 +288,10 @@ img {max-width: 100%;}
   border-radius: 5px;
   margin-bottom: 2px;
   padding: 5px;
+  background-color: #ffffff;
+}
+
+.oembedded .content {
   background-color: #ffffff;
 }
 
@@ -345,28 +349,32 @@ img {max-width: 100%;}
 }
 
 .oembedded li.twitter {
-  border-color: #002280; //#0044ff #002280
+  border-color: #002280; /*#0044ff #002280*/
 }
 
 .oembedded li.imgur {
-  border-color: #426012; //#85bf25 #426012
+  border-color: #426012; /*#85bf25 #426012*/
 }
 
 .oembedded li.lastfm {
-  border-color: #800000; //#ff0000 #800000
+  border-color: #800000; /*#ff0000 #800000*/
 }
 
 .oembedded li.soundcloud {
-  border-color: #804400; //#ff8800 #804400
+  border-color: #804400; /*#ff8800 #804400*/
 }
 
 .oembedded li.flickr {
-  //background-color: #000000;
-  border-color: #cc22cc; //#cc22cc #661166
+  /*background-color: #000000;*/
+  border-color: #cc22cc; /*#cc22cc #661166*/
 }
 
 .oembedded li.github {
   border-color: #666666;
+}
+
+.oembedded li.blog {
+  border-color: #000000;
 }
 
 .table-pad {
