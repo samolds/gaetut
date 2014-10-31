@@ -7,7 +7,6 @@ System Requirements
 -------------------
 * Python 2.7
 * VirtualEnv
-* [Linkenv](http://github.com/ze-phyr-us/linkenv)
 * [GAE](http://cloud.google.com/appengine/docs/python)
 
 Setup Instructions

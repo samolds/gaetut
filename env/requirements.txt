@@ -2,8 +2,8 @@ Django==1.5
 oauth2
 simplejson
 PIL
-pytz
 markdown
+git+https://github.com/ze-phyr-us/linkenv.git
 
 TwitterAPI
 soundcloud

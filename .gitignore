@@ -8,5 +8,5 @@
 /local/
 .DS_Store
 /images/
-/theriver/local_settings.py
+/theriver/gaenv/
 .gaedata/
