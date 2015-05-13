@@ -2,11 +2,5 @@
 *.db
 *.pyc
 .Python
-/bin/
-/lib/
-/include/
-/local/
 .DS_Store
-/images/
-/theriver/gaenv/
 .gaedata/
