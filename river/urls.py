@@ -1,7 +1,8 @@
 from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('river.views',
-    url(r'^$', 'home.home'),
+    url(r'^$', 'home.bootstrap'),
+    url(r'^bootstrap$', 'home.bootstrap'),
     #url(r'^hub$', 'hub.hub'),
     #url(r'^about$', 'about.about'),
     #url(r'^contact$', 'contact.contact'),

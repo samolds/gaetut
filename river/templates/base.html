@@ -3,10 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta name="content-type" content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
   <title>{% block title %}{% endblock %}</title>
   {% block script %}{% endblock %}
 </head>
 <body>
   {% block content %}{% endblock %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script href="{{ STATIC_URL }}js/bootstrap.min.js"></script>
 </body>
 </html>

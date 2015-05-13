@@ -10,3 +10,12 @@ def home(request):
       "message": message, 
       "sitename": settings.SITENAME
   }, context_instance=RequestContext(request))
+
+
+def bootstrap(request):
+  message = "bootstrap"
+
+  return render_to_response('bootstrap.html', {
+      "message": message, 
+      "sitename": settings.SITENAME
+  }, context_instance=RequestContext(request))

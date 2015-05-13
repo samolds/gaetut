@@ -12,22 +12,18 @@ unclear or poorly documented, send me a message or open up an Issue on GitHub.
 
 
 ### Setup Instructions
+
+* Change variable values accordingly in riv/local_settings.py
 ```
 git clone https://github.com/samolds/riv.git
 cd riv
 python manage.py syncdb
-```
-* Change variable values accordingly in theriver/local_settings.py to get The River working
-```
 python manage.py runserver
-```
---- OR ---
-```
-path/to/google_appengine/dev_appserver.py .
 ```
 
 You should now have a skeleton of the site up and running on localhost:8080. Go to 'localhost:8080/admin', log in with the user established with the 'syncdb' command, and add posts to see content appear.
 
 
 ### Useful Links
-* [Django-nonrel](https://cloud.google.com/appengine/articles/django-nonrel)
+* [Django-nonrel](http://cloud.google.com/appengine/articles/django-nonrel)
+* [All Buttons Pressed](http://www.allbuttonspressed.com/projects/djangoappengine)
