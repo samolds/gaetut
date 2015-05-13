@@ -1,4 +1,4 @@
-# Django local_settings for samster project.
+# Django local_settings for theriver project.
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG

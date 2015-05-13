@@ -38,3 +38,8 @@ path/to/google_appengine/dev_appserver.py --port=8000 theriver
 ```
 
 You should now have a skeleton of the site up and running on localhost:8000. Go to 'localhost:8000/admin', log in with the user established with the 'syncdb' command, and add posts to see content appear.
+
+
+Useful Links
+------------
+* [Django-nonrel](https://cloud.google.com/appengine/articles/django-nonrel)
