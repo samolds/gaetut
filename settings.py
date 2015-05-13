@@ -1,1 +1,1 @@
-from theriver.settings import *
+from riv.settings import *

@@ -1,8 +1,0 @@
-{% include "blog_post_header.html" %}
-
-{% if post.content %}
-  <div class="content">
-    <div class="postcontent">{{ post.content|slice:":750"|safe }}{% if post.content|length > 750 %}...{% endif %}</div>
-    <div class="clear"></div>
-  </div>
-{% endif %}

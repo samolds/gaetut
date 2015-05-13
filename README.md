@@ -1,38 +1,27 @@
-The River
-=========
-A very simple blogging example app using Django and Google App Engine.
-Contains a page called The River, which collects your activity streams from Twitter, Flickr, GitHub, Last.fm, Soundcloud, and this Blogging app
+# Riv
+A very barebones Django app designed to be used as a tutorial for getting a simple site
+hosted on [Google App Engine](http://cloud.google.com/appengine/docs/python). Uses the
+[Django-nonrel](http://django-nonrel.org) project, and includes a page called The River.
+See The River in action [here](http://samolds.com/river). If there is anything that is
+unclear or poorly documented, send me a message or open up an Issue on GitHub.
 
-System Requirements
--------------------
+
+### System Requirements
 * Python 2.7
-* VirtualEnv
-* [GAE](http://cloud.google.com/appengine/docs/python)
+* [Google App Engine SDK](http://developers.google.com/appengine/downloads)
 
-Setup Instructions
-------------------
-* Clone the repository
+
+### Setup Instructions
 ```
-git clone https://github.com/samolds/theriver.git
-```
-* Sandbox the app with VirtualEnv
-```
-virtualenv --no-site-packages theriver
-```
-* Activate the sandbox and install dependencies with Pip
-```
-cd theriver
-source bin/activate
-pip install -r env/requirements.txt
-mkdir theriver/gaenv
-linkenv lib/python2.7/site-packages theriver/gaenv
-```
-* Change variable values accordingly in theriver/local_settings.py to get The River working
-* Establish a database with a superuser
-```
+git clone https://github.com/samolds/riv.git
+cd riv
 python manage.py syncdb
 ```
-* Run the site
+* Change variable values accordingly in theriver/local_settings.py to get The River working
+```
+python manage.py runserver 8000
+```
+--- OR ---
 ```
 path/to/google_appengine/dev_appserver.py --port=8000 theriver
 ```

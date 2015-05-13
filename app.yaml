@@ -1,4 +1,4 @@
-application: gae-project-name
+application: riv
 version: 1
 runtime: python27
 api_version: 1
@@ -7,8 +7,8 @@ threadsafe: yes
 builtins:
 - remote_api: on
 
-#inbound_services:
-#- warmup
+inbound_services:
+- warmup
 
 handlers:
 - url: /_ah/queue/deferred

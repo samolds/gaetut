@@ -1,13 +1,15 @@
-# Django settings for theriver project.
-
-# To allow imports from requirements
-import os, sys
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'gaenv'))
+# Django settings for riv project.
 
 # Initialize App Engine and import the default settings (DB backend, etc.).
 # If you want to use a different backend you have to remove all occurences
 # of "djangoappengine" from this file.
 from djangoappengine.settings_base import *
+
+ADMINS = (
+    # ('Your Name', 'your_email@example.com'),
+)
+
+MANAGERS = ADMINS
 
 # Activate django-dbindexer for the default database
 DATABASES['default'] = {'ENGINE': 'dbindexer', 'TARGET': DATABASES['default']}
@@ -18,15 +20,11 @@ AUTOLOAD_SITECONF = 'indexes'
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = []
 
-
-#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # Real email server
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # Prints emails to console
-
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
 # In a Windows environment this must be set to your system time zone.
-TIME_ZONE = 'US/Mountain'
+TIME_ZONE = 'America/Chicago'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -47,12 +45,12 @@ USE_TZ = False
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = 'images/'
+MEDIA_ROOT = ''
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = '/images/'
+MEDIA_URL = ''
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -69,7 +67,6 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    #??
 )
 
 # List of finder classes that know how to find static files in
@@ -80,20 +77,14 @@ STATICFILES_FINDERS = (
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
+# Make this unique, and don't share it with anybody.
+SECRET_KEY = 'e8&dhg8y7885jk4ov&!7)f4dqxtm_g-i1-q9j@)4ms@bg^c-t3'
+
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 #     'django.template.loaders.eggs.Loader',
-)
-
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.media',
-    'django.core.context_processors.static',
-    'django.core.context_processors.request',
-    'django.contrib.messages.context_processors.messages',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -107,14 +98,9 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
-    'django.middleware.cache.FetchFromCacheMiddleware',
-    'django.middleware.cache.UpdateCacheMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
-ROOT_URLCONF = 'theriver.urls'
+ROOT_URLCONF = 'riv.urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -130,11 +116,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
-    'django.contrib.admin',
+    # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'env',
-
     'djangotoolbox',
     'autoload',
     'dbindexer',
@@ -142,12 +126,6 @@ INSTALLED_APPS = (
     # djangoappengine should come last, so it can override a few manage.py commands
     'djangoappengine',
 )
-
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
-    }
-}
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -177,8 +155,3 @@ LOGGING = {
         },
     }
 }
-
-try:
-    from local_settings import *
-except ImportError:
-    pass
