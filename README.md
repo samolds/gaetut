@@ -8,15 +8,22 @@ unclear or poorly documented, send me a message or open up an Issue on GitHub.
 
 ### System Requirements
 * Python 2.7
+* VirtualEnv
 * [Google App Engine SDK](http://developers.google.com/appengine/downloads)
 
 
 ### Setup Instructions
 
 * Change variable values accordingly in riv/local_settings.py
+
 ```
 git clone https://github.com/samolds/riv.git
+virtualenv --no-site-packages riv
 cd riv
+source bin/activate
+pip install -r river/requirements.txt
+mkdir gaenv
+linkenv lib/python2.7/site-packages gaenv
 python manage.py syncdb
 python manage.py runserver
 ```

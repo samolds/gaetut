@@ -3,4 +3,14 @@
 *.pyc
 .Python
 .DS_Store
+
+/bin/
+/lib/
+/include/
+/local/
+/images/
+/static/
+/share/
+
 .gaedata/
+gaenv/
