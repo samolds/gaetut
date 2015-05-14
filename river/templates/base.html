@@ -3,12 +3,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta name="content-type" content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <link href="{{ STATIC_URL }}img/favicon.ico" rel="icon" type="image/x-icon">
   <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ STATIC_URL }}css/dashboard.css" rel="stylesheet">
   <title>{% block title %}{% endblock %}</title>
   {% block script %}{% endblock %}
 </head>
 <body>
-  {% block content %}{% endblock %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+        <h1 id="site-title">Riv</h1>
+        <ul class="nav nav-sidebar">
+          <li><a href="/">Home</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        {% block content %}{% endblock %}
+      </div>
+    </div>
+  </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script href="{{ STATIC_URL }}js/bootstrap.min.js"></script>
 </body>

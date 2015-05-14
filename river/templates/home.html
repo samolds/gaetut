@@ -1,38 +1,47 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ sitename }} - {{ message }}{% endblock %}
+{% block title %}{{ sitename }}{% endblock %}
+
+{% block script %}
+  <script async="" src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="{{ STATIC_URL }}js/embed.js" language="javascript" type="text/javascript"></script>
+{% endblock %}
 
 {% block content %}
-  <div class="site-wrapper">
-    <div class="site-wrapper-inner">
-      <div class="cover-container">
-        <div class="masthead clearfix">
-          <div class="inner">
-            <h3 class="masthead-brand">Cover</h3>
-            <nav>
-              <ul class="nav masthead-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Contact</a></li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-
-        <div class="inner cover">
-          <h1 class="cover-heading">Cover your page.</h1>
-          <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-          <p class="lead">
-            <a href="#" class="btn btn-lg btn-default">Learn more</a>
-          </p>
-        </div>
-
-        <div class="mastfoot">
-          <div class="inner">
-            <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-          </div>
-        </div>
-      </div>
+<div class="row">
+  <div class="col-md-9">
+    <h2 class="page-header">Welcome</h2>
+    <div id="hide" class="aligncenter">
+      <img class="aligncenter" src="{{ STATIC_URL }}img/loading.gif" style="display: none;"/>
     </div>
+    <ul id="embeds" class="oembedded" style="display: none;"></ul>
+    {% for x in "123456789012345678901234567890" %}
+      <p>hi</p>
+    {% endfor %}
   </div>
+
+  <div class="col-md-2 toggle-area">
+    <label for="toggle-select">Streams displayed</label>
+    <select multiple class="form-control" id="toggle-select" onclick="toggleDisplay()">
+      <option value="blog-toggle">Blog</option>
+      <option value="github-toggle">GitHub</option>
+      <option value="flickr-toggle">Flickr</option>
+      <option value="twitter-toggle">Twitter</option>
+      <option value="lastfm-toggle">LastFm</option>
+      <option value="soundcloud-toggle">Soundcloud</option>
+    </select>
+  </div>
+</div>
+
+
+<script language="javascript">
+  ajaxCall('soundclouds');
+  ajaxCall('flickrs');
+  ajaxCall('twitters');
+  ajaxCall('githubs');
+  ajaxCall('lastfms');
+  //ajaxCall('blogs');
+</script>
+
 {% endblock %}

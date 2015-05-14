@@ -25,6 +25,11 @@ handlers:
 - url: /.*
   script: djangoappengine.main.application
 
+- url: /favicon\.ico
+  static_files: static/img/favicon.ico
+  upload: static/img/favicon\.ico
+
+
 libraries:
 - name: ssl
   version: latest
