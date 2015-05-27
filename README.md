@@ -1,37 +1,48 @@
-# GAETut
-A very barebones app designed to be used as a tutorial for getting a simple site
-hosted on [Google App Engine](http://cloud.google.com/appengine/docs/python). If
-there is anything that is unclear or poorly documented, send me a message or
-open up an Issue on GitHub.
+# Gate
+Beyond this Gate is your very own personal website that you learned to code from the
+ground up. This tutorial is aimed towards those with very minimal amounts of coding
+background, but who are interested in coding their own personal website. Topics that
+are covered include getting a development environment set up on Linux and OS X (and
+kind of Windows), navigating with the command line, and using Vim as a text editor.
+Python, HTML, CSS, and a small amount of Javascript will make up the bulk of the
+tutorial, along with putting it all together using Google's webapp2 framework. This
+will allow for the app to easily be hosted with Google App Engine with very minimal
+further effort. By the end of the tutorial, you should have a simple blogging app
+where you understand how all of the parts fit together and how to tweak them to make
+it your own.
+
+If there is anything that is unclear or poorly documented, send me a message or
+open up an Issue on GitHub. And here's the corresponding tutorial on 
+[GitHub Pages](#).
+
+
+### [Click Here To Get Started](guides/overview.md)
 
 
 ### System Requirements
+* [Google App Engine SDK](http://developers.google.com/appengine/downloads)
 * Python 2.7
 * VirtualEnv
-* [Google App Engine SDK](http://developers.google.com/appengine/downloads)
 
 
-### Guides
-* [Overview](guide/overview.md)
-* [Getting Started](guide/getting_started.md)
-* [MVC Pattern](guide/mvc.md)
-* [Controllers](guide/controllers.md)
-* [Views](guide/views.md)
-* [Models](guide/models.md)
+### Resources
+Guides | Checkpoints | References
+--- | --- | ---
+[Overview](guides/overview.md) | [Barebone](checkpoints/barebone) | [Python](guides/python_ref.md)
+[Getting Started](guides/getting_started.md) | [Scaffolded](checkpoints/scaffolded) | [HTML](guides/html_ref.md)
+[MVC Pattern](guides/mvc.md) | [Bootstrapped](checkpoints/bootstrapped) | [CSS](guides/css_ref.md)
+[Controllers](guides/controllers.md) |  | [Javascript](guides/js_ref.md)
+[Views](guides/views.md) |  | [Vim](guides/vim_ref.md)
+[Models](guides/models.md) |  | 
 
 
-### Checkpoints
-1. [Barebones](checkpoints/barebone)
-2. [Scaffolded](checkpoints/scaffolded)
-3. [Bootstrapped](checkpoints/bootstrapped)
-4. [Final](checkpoints/final)
-
-
-### References
-* [Python Reference](guide/python_ref.md)
-* [HTML Reference](guide/html_ref.md)
-* [CSS Reference](guide/css_ref.md)
-* [Javascript Reference](guide/js_ref.md)
+### External Resources
+* [Python Tutorial](#)
+* [HTML Tutorial](#)
+* [CSS Tutorial](#)
+* [Javascript Tutorial](#)
+* [Vim Tutorial](#)
+* [HTML Tutorial](#)
 
 
 ### Setup Instructions
@@ -41,8 +52,8 @@ acheived with this tutorial:
 * Change variable values accordingly in app/settings.py
 
 ```
-git clone http://github.com/samolds/gaetut.git
-cd gaetut
+git clone http://github.com/samolds/gate.git
+cd gate
 virtualenv --no-site-packages env
 source env/bin/activate
 cd app
@@ -53,5 +64,4 @@ cd ..
 ```
 
 You should now have a skeleton of the site up and running on localhost:8080.
-
-
+Thanks for playing!
