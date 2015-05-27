@@ -21,7 +21,7 @@ open up an Issue on GitHub.
 
 
 ### Checkpoints
-1. [Barebones](checkpoints/barebones)
+1. [Barebones](checkpoints/barebone)
 2. [Scaffolded](checkpoints/scaffolded)
 3. [Bootstrapped](checkpoints/bootstrapped)
 4. [Final](checkpoints/final)
