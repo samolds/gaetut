@@ -1,1 +1,0 @@
-from riv.settings import *
