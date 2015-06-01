@@ -17,14 +17,14 @@ message or open up an Issue on GitHub.
 
 
 ### Resources
-Guides | Checkpoints | References
+[Guides](http://samolds.github.io/gate) | [Checkpoints](checkpoints) | [References](http://samolds.github.io/gate)
 --- | --- | ---
-[Overview](guides/overview.md) | [Barebone](checkpoints/barebone) | [Python](guides/python_ref.md)
-[Getting Started](guides/getting_started.md) | [Scaffolded](checkpoints/scaffolded) | [HTML](guides/html_ref.md)
-[MVC Pattern](guides/mvc.md) | [Bootstrapped](checkpoints/bootstrapped) | [CSS](guides/css_ref.md)
-[Controllers](guides/controllers.md) |  | [Javascript](guides/js_ref.md)
-[Views](guides/views.md) |  | [Vim](guides/vim_ref.md)
-[Models](guides/models.md) |  | 
+[Overview](http://samolds.github.io/gate) | [Barebone](checkpoints/barebone) | [Python](http://samolds.github.io/gate)
+[Getting Started](http://samolds.github.io/gate) | [Scaffolded](checkpoints/scaffolded) | [HTML](http://samolds.github.io/gate)
+[MVC Pattern](http://samolds.github.io/gate) | [Bootstrapped](checkpoints) | [CSS](http://samolds.github.io/gate)
+[Controllers](http://samolds.github.io/gate) |  | [Javascript](http://samolds.github.io/gate)
+[Views](http://samolds.github.io/gate) |  | [Vim](http://samolds.github.io/gate)
+[Models](http://samolds.github.io/gate) |  | [Useful Command Line Tools](http://samolds.github.io/gate)
 
 
 ### External Resources
