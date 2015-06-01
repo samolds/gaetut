@@ -1,4 +1,4 @@
-# Gate
+# Gate - GitHub Pages
 Beyond this Gate is your very own personal website that you learned to code from the
 ground up. This tutorial is aimed towards those with very minimal amounts of coding
 background, but who are interested in coding their own personal website. Topics that
