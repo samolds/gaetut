@@ -9,20 +9,11 @@ tutorial, along with putting it all together using Google's webapp2 framework. T
 will allow for the app to easily be hosted with Google App Engine with very minimal
 further effort. By the end of the tutorial, you should have a simple blogging app
 where you understand how all of the parts fit together and how to tweak them to make
-it your own.
-
-If there is anything that is unclear or poorly documented, send me a message or
-open up an Issue on GitHub. And here's the corresponding tutorial on 
-[GitHub Pages](#).
+it your own. If there is anything that is unclear or poorly documented, send me a
+message or open up an Issue on GitHub.
 
 
 ### [Click Here To Get Started](guides/overview.md)
-
-
-### System Requirements
-* [Google App Engine SDK](http://developers.google.com/appengine/downloads)
-* Python 2.7
-* VirtualEnv
 
 
 ### Resources
@@ -43,6 +34,12 @@ Guides | Checkpoints | References
 * [Javascript Tutorial](#)
 * [Vim Tutorial](#)
 * [HTML Tutorial](#)
+
+
+### System Requirements
+* [Google App Engine SDK](http://developers.google.com/appengine/downloads)
+* Python 2.7
+* VirtualEnv
 
 
 ### Setup Instructions
