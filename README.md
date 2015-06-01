@@ -13,7 +13,7 @@ it your own. If there is anything that is unclear or poorly documented, send me 
 message or open up an Issue on GitHub.
 
 
-### [Click Here To Get Started](guides/overview.md)
+### [Click Here To Get Started](http://samolds.github.io/gate)
 
 
 ### Resources
