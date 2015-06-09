@@ -3,5 +3,6 @@
 *.pyc
 .Python
 .DS_Store
+index.yaml
 
 /env/
