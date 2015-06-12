@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+<h2>Admin Panel</h2>
+{% if admin %}
+  <ul class="list-unstyled">
+    <li><a href="/admin/blog">Blog</a>
+      <ul>
+        <li><a href="/admin/blog/all">All Posts</a></li>
+        <li><a href="/admin/blog/new">New Post</a></li>
+      </ul>
+    </li>
+    <li><a href="/admin#">Other 1</a></li>
+    <li><a href="/admin#">Other 2</a></li>
+  </ul>
+{% else %}
+  <p>Please <a href="{{ url }}">{{ url_linktext}}</a> to proceed.</p>
+{% endif %}
+{% endblock %}

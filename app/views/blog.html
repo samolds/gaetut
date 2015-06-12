@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}All Blog Posts{% endblock %}
+
+{% block body %}
+<h2>Blog</h2>
+
+<div>
+  {% for post in posts %}
+      <hr />
+      <h4><a href="/blog/post/{{ post.key.urlsafe() }}">{{ post.title }}</a></h4>
+      <p>{{ post.content|truncate(100, True) }}</p>
+  {% endfor %}
+</div>
+{% endblock %}

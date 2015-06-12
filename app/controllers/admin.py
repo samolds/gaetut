@@ -1,19 +1,55 @@
 from controllers.base import BaseRequestHandler
 from google.appengine.api import users
+from google.appengine.ext import ndb
+from models import BLOG_NAME
+from models import blog_key
+from models import Post
 
 
-class Admin(BaseRequestHandler):
+
+
+class Panel(BaseRequestHandler):
   def get(self):
-    user = users.get_current_user()
+    self.generate("admin/panel.html")
 
-    if user:
-      url = users.create_logout_url(self.request.uri)
-      url_linktext = 'Logout'
-    else:
-      url = users.create_login_url(self.request.uri)
-      url_linktext = 'Login'
 
-    self.generate("admin.html", {
-      "url": url,
-      "url_linktext": url_linktext,
+class Blog_All(BaseRequestHandler):
+  def get(self):
+    query = Post.query(ancestor=blog_key(BLOG_NAME)).order(-Post.date)
+    posts = query.fetch()
+
+    self.generate("admin/blog_all.html", {
+      "posts": posts,
     })
+
+
+class Blog_New(BaseRequestHandler):
+  def get(self):
+    self.generate("admin/blog_new.html")
+
+  def post(self):
+    post = Post(parent=blog_key(BLOG_NAME))
+    post.title = self.request.get('title')
+    post.content = self.request.get('content')
+    key = post.put()
+    urlkey = key.urlsafe()
+    self.redirect('/blog/post/%s' % urlkey)
+
+
+class Blog_Edit(BaseRequestHandler):
+  def get(self, post_id):
+    post_key = ndb.Key(urlsafe=post_id)
+    post = post_key.get()
+
+    self.generate("admin/blog_edit.html", {
+      "post": post
+    })
+
+  def post(self, post_id):
+    post_key = ndb.Key(urlsafe=post_id)
+    post = post_key.get()
+
+    post.title = self.request.get('title')
+    post.content = self.request.get('content')
+    post.put()
+    self.redirect('/admin/blog')

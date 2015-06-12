@@ -1,0 +1,18 @@
+<div class="col-sm-3 col-md-2 sidebar">
+  <h1 id="site-title">Gate</h1>
+  <ul class="nav nav-sidebar">
+    <li><a href="/">Home</a></li>
+    <li><a href="/blog">Blog</a></li>
+  </ul>
+  <div class="pushed-bottom">
+    {% if admin %}<h4>Admin</h4>{% endif %}
+    <ul class="list-unstyled">
+      {% if admin %}
+        <li><a href="/admin">Panel</a></li>
+        <li><a href="{{ url }}">{{ url_linktext }}</a></li>
+      {% else %}
+        <li><small><a href="{{ url }}">{{ url_linktext }}</a></small></li>
+      {% endif %}
+    </ul>
+  </div>
+</div>

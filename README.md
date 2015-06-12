@@ -23,7 +23,7 @@ message or open up an Issue on GitHub.
 [Getting Started](http://samolds.github.io/gate) | [Scaffolded](checkpoints/scaffolded) | [HTML](http://samolds.github.io/gate)
 [MVC Pattern](http://samolds.github.io/gate) | [Bootstrapped](checkpoints/bootstrapped) | [CSS](http://samolds.github.io/gate)
 [Controllers](http://samolds.github.io/gate) | [Interactive](checkpoints/interactive) | [Javascript](http://samolds.github.io/gate)
-[Views](http://samolds.github.io/gate) | [Admin](checkpoints) | [Vim](http://samolds.github.io/gate)
+[Views](http://samolds.github.io/gate) | [Admin](checkpoints/admin) | [Vim](http://samolds.github.io/gate)
 [Models](http://samolds.github.io/gate) | [Built Out](checkpoints) | [Useful Command Line Tools](http://samolds.github.io/gate)
 
 
@@ -32,6 +32,7 @@ message or open up an Issue on GitHub.
 * [HTML Tutorial](#)
 * [Jinja Documentation](http://jinja.pocoo.org/docs/dev/templates)
 * [CSS Tutorial](#)
+* [Bootstrap Documentation](http://getbootstrap.com/css)
 * [Javascript Tutorial](#)
 * [Vim Tutorial](#)
 * [HTML Tutorial](#)

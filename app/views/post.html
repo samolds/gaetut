@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Blog Post{% endblock %}
+
+{% block body %}
+<h2>{{ post.title }}</h2>
+<p>{{ post.content }}</p>
+<div class="pushed-bottom">
+<p>Back to <a href="/blog">Blog</a>.</p>
+</div>
+{% endblock %}
