@@ -24,7 +24,7 @@ message or open up an Issue on GitHub.
 [MVC Pattern](http://samolds.github.io/gate) | [Bootstrapped](checkpoints/bootstrapped) | [CSS](http://samolds.github.io/gate)
 [Controllers](http://samolds.github.io/gate) | [Interactive](checkpoints/interactive) | [Javascript](http://samolds.github.io/gate)
 [Views](http://samolds.github.io/gate) | [Admin](checkpoints/admin) | [Vim](http://samolds.github.io/gate)
-[Models](http://samolds.github.io/gate) | [Built Out](checkpoints) | [Useful Command Line Tools](http://samolds.github.io/gate)
+[Models](http://samolds.github.io/gate) | [Built Out](app) | [Useful Command Line Tools](http://samolds.github.io/gate)
 
 
 ### External Resources
