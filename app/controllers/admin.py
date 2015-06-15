@@ -31,9 +31,8 @@ class Blog_New(BaseRequestHandler):
     post = Post(parent=blog_key(DB_NAME))
     post.title = self.request.get('title')
     post.content = self.request.get('content')
-    key = post.put()
-    urlkey = key.urlsafe()
-    self.redirect('/blog/post/%s' % urlkey)
+    post.put()
+    self.redirect('/admin/blog')
 
 
 class Blog_Edit(BaseRequestHandler):

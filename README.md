@@ -14,17 +14,21 @@ message or open up an Issue on GitHub.
 
 
 ### [Click Here To Get Started](http://samolds.github.io/gate)
+### [Click Here To See "app" In Production](http://appengine.google.com)
 
 
 ### Resources
 [Guides](http://samolds.github.io/gate) | [Checkpoints](checkpoints) | [References](http://samolds.github.io/gate)
 --- | --- | ---
-[Overview](http://samolds.github.io/gate) | [Barebone](checkpoints/barebone) | [Python](http://samolds.github.io/gate)
-[Getting Started](http://samolds.github.io/gate) | [Scaffolded](checkpoints/scaffolded) | [HTML](http://samolds.github.io/gate)
-[MVC Pattern](http://samolds.github.io/gate) | [Bootstrapped](checkpoints/bootstrapped) | [CSS](http://samolds.github.io/gate)
-[Controllers](http://samolds.github.io/gate) | [Interactive](checkpoints/interactive) | [Javascript](http://samolds.github.io/gate)
-[Views](http://samolds.github.io/gate) | [Admin](checkpoints/admin) | [Vim](http://samolds.github.io/gate)
-[Models](http://samolds.github.io/gate) | [Built Out](app) | [Useful Command Line Tools](http://samolds.github.io/gate)
+[Overview](http://samolds.github.io/gate) | [Barebone](checkpoints/1-barebone) | [Python](http://samolds.github.io/gate)
+[Getting Started](http://samolds.github.io/gate) | [Scaffolded](checkpoints/2-scaffolded) | [HTML](http://samolds.github.io/gate)
+[Python and HTML Basics](http://samolds.github.io/gate) | [Bootstrapped](checkpoints/3-bootstrapped) | [CSS](http://samolds.github.io/gate)
+[Hello World](http://samolds.github.io/gate) | [Interactive](checkpoints/4-interactive) | [Javascript](http://samolds.github.io/gate)
+[MVC Pattern](http://samolds.github.io/gate) | [Admin](checkpoints/5-admin) | [Vim](http://samolds.github.io/gate)
+[Design](http://samolds.github.io/gate) | [Built Out](app) | [Useful Command Line Tools](http://samolds.github.io/gate)
+[Databases](http://samolds.github.io/gate) | |
+[Building Out](http://samolds.github.io/gate) | |
+[Publishing on GAE](http://samolds.github.io/gate) | |
 
 
 ### External Resources
