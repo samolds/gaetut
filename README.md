@@ -14,7 +14,7 @@ message or open up an Issue on GitHub.
 
 
 ### [Click Here To Get Started](http://samolds.github.io/gate)
-### [Click Here To See "app" In Production](http://appengine.google.com)
+### [Click Here To See `app` In Production](http://appengine.google.com)
 
 
 ### Resources
@@ -32,14 +32,13 @@ message or open up an Issue on GitHub.
 
 
 ### External Resources
-* [Python Tutorial](#)
-* [HTML Tutorial](#)
-* [Jinja Documentation](http://jinja.pocoo.org/docs/dev/templates)
-* [CSS Tutorial](#)
+* [Vim Tutorial](http://vim.wikia.com/wiki/Tutorial)
+* [Python 2.7 Tutorial](http://docs.python.org/2/tutorial)
+* [HTML Tutorial](http://www.codecademy.com/en/tracks/web)
+* [CSS Tutorial](http://www.csstutorial.net/css-intro/introductioncss-part1.php)
+* [Javascript Tutorial](http://www.codecademy.com/en/tracks/javascript)
 * [Bootstrap Documentation](http://getbootstrap.com/css)
-* [Javascript Tutorial](#)
-* [Vim Tutorial](#)
-* [HTML Tutorial](#)
+* [Jinja Documentation](http://jinja.pocoo.org/docs/dev/templates)
 
 
 ### System Requirements
@@ -50,7 +49,7 @@ message or open up an Issue on GitHub.
 
 ### Setup Instructions
 The following will set up the final checkpoint as an example for what can be
-acheived with this tutorial:
+achieved with this tutorial:
 
 * Change variable values accordingly in app/settings.py
 

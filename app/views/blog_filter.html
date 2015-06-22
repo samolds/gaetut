@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Blog Filter{% endblock %}
+
+{% block body %}
+<h2>Blog Filter</h2>
+<small>Back to <a href="/blog">Blog</a></small>
+
+{% if posts %}
+  <p>Blog Posts with the tag <em>{{ tag }}</em></p>
+  <div>
+  {% for post in posts %}
+    <hr />
+    <small class="pull-right">Posted {{ post.date.strftime("%m/%d/%Y") }}</small>
+    <h4><a href="/blog/post/{{ post.key.urlsafe() }}">{{ post.title }}</a></h4>
+    <div class="clearfix"></div>
+    <p>{{ post.content|truncate(200, True) }}</p>
+    <small>{% for tag in post.tags %}<a href="/blog/filter/{{ tag }}">{{ tag }}</a> {% endfor %}</small>
+  {% endfor %}
+  </div>
+{% else %}
+  <hr />
+  <p>No Blog Posts exist with the tag <em>{{ tag }}</em>.</p>
+{% endif %}
+{% endblock %}

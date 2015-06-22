@@ -1,8 +1,9 @@
 from controllers.base import BaseRequestHandler
 from google.appengine.api import users
+from google.appengine.api import images
 from google.appengine.ext import ndb
 from models import DB_NAME
-from models import blog_key
+from models import db_key 
 from models import Post
 
 
@@ -15,7 +16,7 @@ class Panel(BaseRequestHandler):
 
 class Blog_All(BaseRequestHandler):
   def get(self):
-    query = Post.query(ancestor=blog_key(DB_NAME)).order(-Post.date)
+    query = Post.query(ancestor=db_key(DB_NAME)).order(-Post.date)
     posts = query.fetch()
 
     self.generate("admin/blog_all.html", {
@@ -28,9 +29,26 @@ class Blog_New(BaseRequestHandler):
     self.generate("admin/blog_new.html")
 
   def post(self):
-    post = Post(parent=blog_key(DB_NAME))
+    post = Post(parent=db_key(DB_NAME))
     post.title = self.request.get('title')
     post.content = self.request.get('content')
+
+    file_upload = self.request.get('file-upload')
+    if file_upload:
+      post.file_upload = file_upload
+
+    public = self.request.get('public')
+    if public == 'true':
+      post.public = True
+    else:
+      post.public = False
+
+    raw_tags = self.request.get('tags').split(' ')
+    tags = []
+    for tag in raw_tags:
+      tags.append(tag.strip().lower())
+    post.tags = tags
+
     post.put()
     self.redirect('/admin/blog')
 
@@ -50,6 +68,21 @@ class Blog_Edit(BaseRequestHandler):
 
     post.title = self.request.get('title')
     post.content = self.request.get('content')
+    file_upload = self.request.get('file-upload')
+    if file_upload:
+      post.file_upload = file_upload
+
+    public = self.request.get('public')
+    if public == 'true':
+      post.public = True
+    else:
+      post.public = False
+
+    raw_tags = self.request.get('tags').split(' ')
+    tags = []
+    for tag in raw_tags:
+      tags.append(tag.strip().lower())
+    post.tags = tags
     post.put()
     self.redirect('/admin/blog')
 

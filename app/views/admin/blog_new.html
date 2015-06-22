@@ -4,16 +4,44 @@
 
 {% block body %}
 <h2>New Blog Post</h2>
+<small>Back to <a href="/admin/blog">Blog</a>.</small>
+<hr />
 
-<form action="/admin/blog/new" method="post">
-  <div class="form-group">
-    <label for="title">Title</label>
-    <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title">
+<form action="/admin/blog/new" enctype="multipart/form-data" method="post">
+  <div class="row">
+    <div class="col-md-5 form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" required="required" id="title" name="title" placeholder="Enter Title">
+    </div>
+    <div class="col-md-5 form-group">
+      <label for="tags">Tags</label>
+      <input type="text" class="form-control" id="tags" name="tags" placeholder="Enter Tags Separated with a Space">
+    </div>
   </div>
-  <div class="form-group">
-    <label for="content">Content</label>
-    <textarea class="form-control" id="content" name="content" rows="20"></textarea>
+  <div class="row">
+    <div class="col-md-10 form-group">
+      <label for="content">Content</label>
+      <textarea class="form-control" required="required" id="content" name="content" rows="20"></textarea>
+    </div>
   </div>
-  <button type="submit" class="btn btn-default">Post</button>
+  <div class="row">
+    <div class="col-md-5 form-group">
+      <label for="public">Visibility</label>
+      <select class="form-control" id="public" name="public">
+        <option value="true" selected="selected">Public</option>
+        <option value="false">Private</option>
+      </select>
+    </div>
+    <div class="col-md-5 form-group">
+      <label for="file-upload">File Upload</label>
+      <input type="file" id="file-upload" name="file-upload">
+      <p class="help-block">Upload any file to include.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5">
+      <button type="submit" class="btn btn-default">Post</button>
+    </div>
+  </div>
 </form>
 {% endblock %}

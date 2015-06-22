@@ -129,3 +129,16 @@ body {
   position: absolute;
   bottom: 0px;
 }
+
+.post-content {
+  padding: 20px;
+  line-height: 2em; 
+}
+
+.glyphicon-color.glyphicon-ok {
+  color: #0f2;
+}
+
+.glyphicon-color.glyphicon-remove {
+  color: #f24;
+}

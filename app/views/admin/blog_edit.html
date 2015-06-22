@@ -2,19 +2,70 @@
 
 {% block title %}Edit{% endblock %}
 
+{% block script %}
+<script language="javascript">
+function deletePost(urlId) {
+  if (confirm("Delete fo' sho'?")) {
+    $.ajax({
+      type: "GET",
+      url: "/admin/blog/delete/" + urlId,
+      success: function(data) {
+        location.reload();
+      },
+      error: function() {
+        console.log('failed');
+      }
+    })
+  }
+}
+</script>
+{% endblock %}
+
 {% block body %}
 <h2>Edit <em>{{ post.title }}</em></h2>
+<small>Back to <a href="/admin/blog">Blog</a>.</small>
+<hr />
 
-<form action="/admin/blog/edit/{{ post.key.urlsafe() }}" method="post">
-  <div class="form-group">
-    <label for="title">Title</label>
-    <input type="text" class="form-control" id="title" name="title" value="{{ post.title }}">
+<form action="/admin/blog/edit/{{ post.key.urlsafe() }}" enctype="multipart/form-data" method="post">
+  <div class="row">
+    <div class="col-md-5 form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" name="title" value="{{ post.title }}">
+    </div>
+    <div class="col-md-5 form-group">
+      <label for="tags">Tags</label>
+      <input type="text" class="form-control" id="tags" name="tags" value="{% for tag in post.tags %}{{ tag }} {% endfor %}">
+    </div>
   </div>
-  <div class="form-group">
-    <label for="content">Content</label>
-    <textarea class="form-control" id="content" name="content" rows="20">{{ post.content }}</textarea>
+  <div class="row">
+    <div class="col-md-10 form-group">
+      <label for="content">Content</label>
+      <textarea class="form-control" id="content" name="content" rows="20">{{ post.content }}</textarea>
+    </div>
   </div>
-  <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> Update</button>
-  <a class="btn btn-default pull-right" href="/admin/blog/delete/{{ post.key.urlsafe() }}" role="button"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+  <div class="row">
+    <div class="col-md-5 form-group">
+      <label for="public">Visibility</label>
+      <select class="form-control" id="public" name="public">
+        <option value="true" {% if post.public %}selected="selected"{% endif %}>Public</option>
+        <option value="false" {% if not post.public %}selected="selected"{% endif %}>Private</option>
+      </select>
+    </div>
+    <div class="col-md-5 form-group">
+      <label for="file-upload">File Upload</label>
+      <input type="file" id="file-upload" name="file-upload">
+      {% if post.file_upload %}
+        <p class="help-block">Upload new file to change.</p>
+      {% else %}
+        <p class="help-block">Upload any file to include.</p>
+      {% endif %}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10">
+      <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> Update</button>
+      <button class="btn btn-default pull-right" onclick="deletePost('{{ post.key.urlsafe() }}')"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+    </div>
+  </div>
 </form>
 {% endblock %}

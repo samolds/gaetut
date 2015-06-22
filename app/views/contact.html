@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+<h2>Contact Me</h2>
+
+<form action="/contact" method="post">
+  <div class="row">
+    <div class="col-md-5 form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name (Optional)">
+    </div>
+    <div class="col-md-5 form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email (Optional)">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 form-group">
+      <label for="title">Header</label>
+      <input type="text" class="form-control" required="required" id="header" name="header" placeholder="Enter Header">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 form-group">
+      <label for="message">Message</label>
+      <textarea class="form-control" required="required" id="message" name="message" rows="8" placeholder="Enter Message"></textarea>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+{% if comments %}
+<div class="comments">
+  {% for comment in comments %}
+    <div class="row">
+      <div class="col-md-10">
+        <hr />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <strong>{{ comment.header }}</strong>
+      </div>
+      <div class="col-md-4">
+        {% if comment.author.name %}
+          <p>{{ comment.author.name }}</p>
+        {% else %}
+          <p>Anonymous</p>
+        {% endif %}
+      </div>
+      <div class="col-md-2">
+        <small>Posted {{ comment.date.strftime("%m/%d/%Y") }}</small>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-9">
+        <p>{{ comment.message }}</p>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}

@@ -4,7 +4,13 @@
 
 {% block body %}
 <h2>{{ post.title }}</h2>
-<p>{{ post.content }}</p>
-<hr />
+<small>Posted {{ post.date.strftime("%m/%d/%Y") }}</small><br />
+<small>Tags {% for tag in post.tags %}<a href="/blog/filter/{{ tag }}">{{ tag }}</a> {% endfor %}</small>
+<div class="post-content">
+  <p>{{ post.content|safe }}</p>
+  {% if post.file_upload %}
+    <img src="/file/{{ post.key.urlsafe() }}" width="100"></img>
+  {% endif %}
+</div>
 <p>Back to <a href="/blog">Blog</a>.</p>
 {% endblock %}
