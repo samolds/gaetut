@@ -14,7 +14,7 @@ message or open up an Issue on GitHub.
 
 
 ### [Click Here To Get Started](http://samolds.github.io/gate)
-### [Click Here To See `app` In Production](http://appengine.google.com)
+### [Click Here To See `app` In Production](http://gate-example.appspot.com)
 
 
 ### Resources
