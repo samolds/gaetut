@@ -141,3 +141,35 @@ body {
 .list-item > a {
   padding-left: 30px !important;
 }
+
+
+
+
+body {
+  background-color: #444;
+  background-image: url("../img/bg.png");
+  background-size: 100%;
+  color: #fff;
+}
+
+.sidebar {
+  background-color: #222;
+  color: #fff;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+  background-color: #000;
+}
+
+.table-hover>tbody>tr:hover {
+  background-color: #222;
+}
+
+a:link {color: #adf}
+a:visited {color: #adf}
+a:hover {color: #adf}
+a:active {color: #adf}
+
+a.btn {
+  color: #000;
+}

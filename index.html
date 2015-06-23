@@ -6,45 +6,27 @@
   <link href="/gate/styles/img/favicon.ico" rel="icon" type="image/x-icon">
   <link href="/gate/styles/css/bootstrap.min.css" rel="stylesheet">
   <link href="/gate/styles/css/dashboard.css" rel="stylesheet">
-  <link href="http://fonts.googleapis.com/css?family=Questrial" rel="styleshee" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Questrial" rel="stylesheet" type="text/css">
+  <script href="/gate/styles/js/sidebar.js"></script>
+
+  <!-- For Local Development
+  <link href="styles/img/favicon.ico" rel="icon" type="image/x-icon">
+  <link href="styles/css/bootstrap.min.css" rel="stylesheet">
+  <link href="styles/css/dashboard.css" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Questrial" rel="stylesheet" type="text/css">
+  <script src="styles/js/sidebar.js"></script>
+  -->
   <title>Gate</title>
 </head>
-<body>
+<body onLoad="buildSidebar()">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-3 col-md-2 sidebar">
-        <h1 id="site-title">Gate</h1>
-        <ul class="nav nav-sidebar">
-          <li class="list-header"><a href="/gate">Guides</a></li>
-          <li class="list-item"><a href="#">Overview</a></li>
-          <li class="list-item"><a href="#">Gettings Started</a></li>
-          <li class="list-item"><a href="#">MVC Pattern</a></li>
-          <li class="list-item"><a href="#">Controllers</a></li>
-          <li class="list-item"><a href="#">Views</a></li>
-          <li class="list-item"><a href="#">Models</a></li>
-          <li class="list-header"><a href="http://github.com/samolds/gate/tree/master/checkpoints">Checkpoints</a></li>
-          <li class="list-item"><a href="http://github.com/samolds/gate/tree/master/checkpoints/1-barebone">Barebone</a></li>
-          <li class="list-item"><a href="http://github.com/samolds/gate/tree/master/checkpoints/2-scaffolded">Scaffolded</a></li>
-          <li class="list-item"><a href="http://github.com/samolds/gate/tree/master/checkpoints/3-bootstrapped">Bootstrapped</a></li>
-          <li class="list-item"><a href="http://github.com/samolds/gate/tree/master/checkpoints">Interactive</a></li>
-          <li class="list-item"><a href="http://github.com/samolds/gate/tree/master/checkpoints">Built Out</a></li>
-          <li class="list-header"><a href="/gate">References</a></li>
-          <li class="list-item"><a href="#">Python</a></li>
-          <li class="list-item"><a href="#">HTML</a></li>
-          <li class="list-item"><a href="#">CSS</a></li>
-          <li class="list-item"><a href="#">JavaScript</a></li>
-          <li class="list-item"><a href="#">Vim</a></li>
-          <li class="list-item"><a href="#">Useful Command Line Tools</a></li>
-          <li class="list-header"><a href="#">Other</a></li>
-          <li class="list-item"><a href="http://github.com/samolds/gate">GitHub Repository</a></li>
-        </ul>
-      </div>
+      <div id="sidebar"></div>
       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-      <!---------------------------------------------------------------->
         <h2>Welcome</h2>
         <h4>Build your own website with no previous experience</h4>
         <div>
-          <p>
+          <p style="padding-top: 75px;">
             Beyond this Gate is your very own personal website that you learned to code from the
             ground up. This tutorial is aimed towards those with very minimal amounts of coding
             background, but who are interested in coding their own personal website. Topics that
@@ -59,19 +41,9 @@
             message or open up an Issue on GitHub.
           </p>
 
-          <h4><a href="/gate">Click Here To Get Started</a></h4>
-
-          <p>External Resources</p>
-          <ul>
-            <li><a href="#">Python Tutorial</a></li>
-            <li><a href="#">HTML Tutorial</a></li>
-            <li><a href="#">CSS Tutorial</a></li>
-            <li><a href="#">JavaScript Tutorial</a></li>
-            <li><a href="#">Vim Tutorial</a></li>
-            <li><a href="#">Useful Command Line Tools</a></li>
-          </ul>
+          <h4 style="padding-top: 75px;"><a href="/gate">Click Here To Get Started</a></h4>
+          <h4><a href="http://gate-example.appspot.com">View the Final Code in Production</a></h4>
         </div>
-      <!---------------------------------------------------------------->
       </div>
     </div>
   </div>
