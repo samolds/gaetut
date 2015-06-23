@@ -14,7 +14,7 @@ message or open up an Issue on GitHub.
 
 
 ### [Click Here To Get Started](http://samolds.github.io/gate)
-### [Click Here To See `app` In Production](http://gate-example.appspot.com)
+### [Click Here To See 'app' In Production](http://gate-example.appspot.com)
 
 
 ### Resources
@@ -44,7 +44,6 @@ message or open up an Issue on GitHub.
 ### System Requirements
 * [Google App Engine SDK](http://developers.google.com/appengine/downloads)
 * Python 2.7
-* VirtualEnv
 
 
 ### Setup Instructions
@@ -56,12 +55,6 @@ achieved with this tutorial:
 ```
 git clone http://github.com/samolds/gate.git
 cd gate
-virtualenv --no-site-packages env
-source env/bin/activate
-cd app
-mkdir lib
-pip install -t lib -r requirements.txt
-cd ..
 /usr/local/google_appengine/dev_appserver.py app
 ```
 
