@@ -12,3 +12,4 @@
     * `gcloud components update gae-python`
   * `appcfg.py -A <project-name> update gate/app`
 * Go to [<project-name>.appspot.com](http://<project-name>.appspot.com) to use your project
+* Follow [this guide](http://cloud.google.com/appengine/docs/domain) to use a custom domain instead of <project-name>.appspot.com
