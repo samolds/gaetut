@@ -1,4 +1,4 @@
 For this checkpoint, thank you to the following:
-* Brett Yamada (http://github.com/brettyam) for the template to this single page portfolio scrolling example, the javascript, and the css
+* Brett Yamada (http://github.com/brettyam/portfolio) for the template to this single page portfolio scrolling example, the javascript, and the css
 * Oxygenna (http://dribbble.com/oxygenna) for the incredible background images
 * E.VAX and Ratatat for the groovy dancing chick gif

@@ -9,6 +9,7 @@ from controllers import admin
 app = webapp2.WSGIApplication([
   webapp2.Route(r'/', home.Home),
   webapp2.Route(r'/about', home.About),
+  webapp2.Route(r'/portfolio', home.Portfolio),
   webapp2.Route(r'/blog', blog.All),
   webapp2.Route(r'/blog/all', blog.All),
   webapp2.Route(r'/blog/post/<post_id:[A-Za-z0-9_\-]+$>', blog.Blog_Post),

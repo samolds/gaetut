@@ -15,6 +15,11 @@ class About(BaseRequestHandler):
     self.generate("about.html")
 
 
+class Portfolio(BaseRequestHandler):
+  def get(self):
+    self.generate("portfolio.html")
+
+
 class Contact(BaseRequestHandler):
   def get(self):
     query = Comment.query(ancestor=db_key(DB_NAME)).order(-Comment.date)

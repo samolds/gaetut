@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta name="content-type" content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <link href="/static/img/favicon.ico" rel="icon" type="image/x-icon">
+  <title>{{ APP_NAME }}</title>
+
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/portfolio.css">
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/js/portfolio.js"></script>
+  <script type="text/javascript" src="/static/js/jquery.stellar.min.js"></script>
+  <script type="text/javascript" src="/static/js/waypoints.min.js"></script>
+  <script type="text/javascript" src="/static/js/jquery.easing.1.3.js"></script>
+
+  <!--
+    For this page, thank you to the following:
+      * Brett Yamada (http://github.com/brettyam/portfolio) for the template to this
+        single page portfolio scrolling example, the javascript, and the css
+      * Oxygenna (http://dribbble.com/oxygenna) for the incredible background images
+      * E.VAX and Ratatat for the groovy dancing chick gif
+  -->
+</head>
+<body>
+  <ul class="navigation">
+    <li data-slide="1">Title</li>
+    <li data-slide="2">About</li>
+    <li data-slide="3">Contact</li>
+  </ul>
+   
+  <!--Slide 1-->
+  <div class="slide" id="slide1" data-slide="1" data-stellar-background-ratio="0.00001">
+    <div id="title">
+      <div id="title-content">
+        <h1>First Last</h1>
+        <h2>Subtitle</h2>
+      </div>
+    </div>
+    <p id="home-footer1"class="slideno">tag line - line 1</p>
+    <p id="home-footer2"class="slideno">tag line - line 2</p>
+    <a class="button" data-slide="2" title=""></a>
+  </div>
+  <!--End Slide 1-->
+
+  <!--Slide 2-->
+  <div class="slide" id="slide2" data-slide="2" data-stellar-background-ratio="0.00001">
+    <div class="wrapper">
+      <div class="slide2-content">
+        <div class="slide2-text">
+          <p>This is the about me text.</p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec odio sem,
+            feugiat non libero ut, maximus fringilla risus. Nullam ultricies magna non
+            nibh laoreet, vitae luctus velit lacinia. Proin eget mi eu odio malesuada
+            posuere. Nullam iaculis turpis dolor, in consequat neque finibus viverra.
+            Fusce euismod lorem ligula, at lacinia justo euismod luctus. Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit. Donec euismod felis nec
+            pretium dictum. Donec eu ante odio. Nullam placerat sit amet dui eu
+            bibendum.
+          </p>
+        </div>
+        <div class="slide2-screen"></div>
+      </div>
+      <img id="profile" src="/static/img/slide2/dance.gif" alt="profile picture">
+    </div>
+    <span class="slideno">About</span>
+    <a class="button" data-slide="3" title=""></a>
+  </div>
+  <!--End Slide 2-->
+
+  <!--Slide 3-->
+  <div class="slide" id="slide3" data-slide="3" data-stellar-background-ratio="0">
+    <div class="wrapper">
+      <div class="icon-content">
+        <div class="contact-item">
+          <a href="mailto:example@test.com" target="_top">
+            <img class="contact-icon" src="/static/img/slide3/email.png" alt="email icon">
+            <p class="contact-caption">Email</p>
+          </a>
+        </div>
+        <div class="contact-item">
+          <a href="http://www.github.com/samolds" target="_blank">
+            <img class="contact-icon" src="/static/img/slide3/github.png" alt="github icon">
+            <p class="contact-caption">Github</p>
+          </a>
+        </div>
+        <div class="contact-item">
+          <a href="/static/img/slide3/resume.pdf" target="_blank">
+            <img class="contact-icon" src="/static/img/slide3/resume.png" alt="resume icon">
+            <p class="contact-caption">Resume</p>
+          </a>
+        </div>
+      </div>
+    </div>
+    <span class="slideno">Contact</span>
+  </div>
+  <!--End Slide 3-->
+</body>
+</html>
