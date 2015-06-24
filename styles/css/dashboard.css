@@ -67,7 +67,7 @@ body {
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
     background-color: #f5f5f5;
-    border-right: 1px solid #eee;
+    border-right: 1px solid #000;
   }
 }
 
@@ -144,16 +144,24 @@ body {
 
 
 
-
 body {
-  background-color: #444;
-  background-image: url("../img/bg.png");
+  background-color: #bbb;
+  background-image: url("../img/bg-light.png");
   background-size: 100%;
+  background-attachment: fixed;
+}
+
+/* For Dark Version
+body {
+  background-color: #bbb;
+  background-image: url("../img/bg-dark.png");
+  background-size: 100%;
+  background-attachment: fixed;
   color: #fff;
 }
 
 .sidebar {
-  background-color: #222;
+  background-color: #444;
   color: #fff;
 }
 
@@ -170,6 +178,25 @@ a:visited {color: #adf}
 a:hover {color: #adf}
 a:active {color: #adf}
 
+//a:link {color: #6f8}
+//a:visited {color: #6f8}
+//a:hover {color: #6f8}
+//a:active {color: #6f8}
+
 a.btn {
   color: #000;
+}
+*/
+
+code {
+  white-space: normal;
+}
+
+p, .main li {
+  line-height: 1.75em;
+}
+
+.content {
+  background-color: #fff;
+  border: 1px solid #000;
 }
