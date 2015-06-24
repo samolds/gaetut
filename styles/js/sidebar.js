@@ -10,7 +10,7 @@ var sidebarHtml = '' +
 '<div class="col-sm-3 col-md-2 sidebar">'+
 '  <h1 id="site-title">Gate</h1>'+
 '  <ul class="nav nav-sidebar">'+
-'    <li class="list-header"><a href="#">Guides</a></li>'+
+'    <li class="list-header"><a href="/gate">Guides</a></li>'+
 '    <li class="list-item"><a href="/gate/guides/overview.html">Overview</a></li>'+
 '    <li class="list-item"><a href="/gate/guides/getting_started.html">Getting Started</a></li>'+
 '    <li class="list-item"><a href="/gate/guides/#">Python and HTML Basics</a></li>'+
