@@ -1,32 +1,12 @@
-/*
- * Base structure
- */
-
-/* Move down content because we have a fixed navbar that is 50px tall */
-/*
-body {
-  padding-top: 50px;
-}
-*/
-
 body {
   font-family: 'Questrial', sans-serif;
 }
-
-
-/*
- * Global add-ons
- */
 
 .sub-header {
   padding-bottom: 10px;
   border-bottom: 1px solid #eee;
 }
 
-/*
- * Top navigation
- * Hide default border to remove 1px line.
- */
 .navbar-fixed-top {
   border: 0;
 }
@@ -46,15 +26,11 @@ body {
   margin-top: 0px;
 }
 
-/*
- * Sidebar
- */
-
-
 /* Hide for mobile, show later */
 .sidebar {
   display: none;
 }
+
 @media (min-width: 768px) {
   .sidebar {
     position: fixed;
@@ -77,10 +53,12 @@ body {
   margin-bottom: 20px;
   margin-left: -20px;
 }
+
 .nav-sidebar > li > a {
   padding-right: 20px;
   padding-left: 20px;
 }
+
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
@@ -96,12 +74,14 @@ body {
 .main {
   padding: 30px 20px;
 }
+
 @media (min-width: 768px) {
   .main {
     padding-right: 40px;
     padding-left: 40px;
   }
 }
+
 .main .page-header {
   margin-top: 0;
 }
@@ -110,7 +90,6 @@ body {
 /*
  * Placeholder dashboard ideas
  */
-
 .placeholders {
   margin-bottom: 30px;
   text-align: center;
@@ -130,19 +109,9 @@ body {
 
 
 .nav > li > a {
-  padding: 0px 20px;
+  padding: 5px 25px;
+  font-size: 1.1em;
 }
-
-.list-header {
-  padding-top: 10px;
-  font-size: 1.3em;
-}
-
-.list-item > a {
-  padding-left: 30px !important;
-}
-
-
 
 body {
   background-color: #bbb;
@@ -150,43 +119,6 @@ body {
   background-size: 100%;
   background-attachment: fixed;
 }
-
-/* For Dark Version
-body {
-  background-color: #bbb;
-  background-image: url("../img/bg-dark.png");
-  background-size: 100%;
-  background-attachment: fixed;
-  color: #fff;
-}
-
-.sidebar {
-  background-color: #444;
-  color: #fff;
-}
-
-.nav>li>a:focus, .nav>li>a:hover {
-  background-color: #000;
-}
-
-.table-hover>tbody>tr:hover {
-  background-color: #222;
-}
-
-a:link {color: #adf}
-a:visited {color: #adf}
-a:hover {color: #adf}
-a:active {color: #adf}
-
-//a:link {color: #6f8}
-//a:visited {color: #6f8}
-//a:hover {color: #6f8}
-//a:active {color: #6f8}
-
-a.btn {
-  color: #000;
-}
-*/
 
 code {
   white-space: normal;
@@ -199,4 +131,9 @@ p, .main li {
 .content {
   background-color: #fff;
   border: 1px solid #000;
+}
+
+p.pad-top-bot {
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
