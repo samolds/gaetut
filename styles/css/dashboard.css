@@ -119,6 +119,12 @@ code {
   white-space: normal;
 }
 
+code.button {
+  color: #040;
+  font-family: monospace;
+  background-color: #dfd;
+}
+
 p, .main li {
   line-height: 1.75em;
 }

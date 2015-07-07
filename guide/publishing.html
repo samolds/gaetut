@@ -35,19 +35,37 @@
       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <div class="col-md-9 content">
           
-<h2>Guide</h2>
+<h2>Publishing webapp2 Project to GAE</h2>
+<h4>Show it off</h4>
 <hr />
-<ul class="list-unstyled">
-  <li><a href="/gate/guide/overview.html">Overview</a></li>
-  <li><a href="/gate/guide/getting_started.html">Getting Started</a></li>
-  <li><a href="/gate/guide/#">Python and HTML Basics</a></li>
-  <li><a href="/gate/guide/#">Hello World</a></li>
-  <li><a href="/gate/guide/#">MVC Pattern</a></li>
-  <li><a href="/gate/guide/#">Design</a></li>
-  <li><a href="/gate/guide/#">Databases</a></li>
-  <li><a href="/gate/guide/#">Building Out</a></li>
-  <li><a href="/gate/guide/publishing.html">Publishing on GAE</a></li>
-</ul>
+<ol>
+  <li>Sign onto the <a href="http://console.developers.google.com">Google developer console</a></li>
+  <li>Click <code class="button">Create Project</code> and give it a 'project-name'</li>
+  <li>Click <code class="button">Try App Engine</code></li>
+  <li>Select <code class="button">Python</code></li>
+  <li>Install the Google Cloud SDK
+    <ol>
+      <li><code>curl https://sdk.cloud.google.com/ | bash</code>
+        <ul>
+          <li>If using OSX, store the Cloud SDK in <code>/usr/local</code></li>
+        </ul>
+      </li>
+      <li>Restart the shell</li>
+    </ol>
+  </li>
+  <li><code>gcloud auth login</code>
+    <ul>
+      <li>The Google Account you allow access will become the only Google Account that can log into the "Admin" portion</li>
+    </ul>
+  </li>
+  <li><code>gcloud components update gae-python</code></li>
+  <li><code>appcfg.py -A 'project-name' update gate/app</code></li>
+      
+  <li>Go to <a href="#">'project-name'.appspot.com</a> to use your project</li>
+  <li>Follow <a href="http://cloud.google.com/appengine/docs/domain">this guide</a> to use a custom domain instead of 'project-name'.appspot.com</li>
+</ol>
+
+<h4 class="pull-left"><a href="/gate/guide/#"><span class="glyphicon glyphicon-arrow-left"></span> Building Out</a></h4>
 
         </div>
       </div>
