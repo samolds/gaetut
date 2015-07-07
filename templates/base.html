@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta name="content-type" content="text/html; charset=UTF-8" http-equiv="content-type" />
+  {% block head %}{% endblock %}
+
+  {% if False %}
+  <link href="/gate/styles/img/favicon.ico" rel="icon" type="image/x-icon">
+  <link href="/gate/styles/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/gate/styles/css/dashboard.css" rel="stylesheet">
+  <link href="/gate/styles/css/prism.css" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Questrial" rel="stylesheet" type="text/css">
+  <script src="/gate/styles/js/prism.js"></script>
+  {% else %}
+  <link href="file:///Users/samolds/Desktop/projects/gate/styles/img/favicon.ico" rel="icon" type="image/x-icon">
+  <link href="file:///Users/samolds/Desktop/projects/gate/styles/css/bootstrap.min.css" rel="stylesheet">
+  <link href="file:///Users/samolds/Desktop/projects/gate/styles/css/dashboard.css" rel="stylesheet">
+  <link href="file:///Users/samolds/Desktop/projects/gate/styles/css/prism.css" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Questrial" rel="stylesheet" type="text/css">
+  <script src="file:///Users/samolds/Desktop/projects/gate/styles/js/prism.js"></script>
+  {% endif %}
+
+  <title>{% block title %}Gate{% endblock %}</title>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div id="sidebar">
+        {% include 'sidebar.html' %}
+      </div>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div class="col-md-9 content">
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  {% if False %}
+  <script href="/gate/styles/js/bootstrap.min.js"></script>
+  {% else %}
+  <script src="file:///Users/samolds/Desktop/projects/gate/styles/js/bootstrap.min.js"></script>
+  {% endif %}
+</body>
+</html>

@@ -1,7 +1,8 @@
 *.swp
-*.db
 *.pyc
 .Python
 .DS_Store
 
-/env/
+bin
+include
+lib

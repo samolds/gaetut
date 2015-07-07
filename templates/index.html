@@ -1,34 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-  <meta name="content-type" content="text/html; charset=UTF-8" http-equiv="content-type" />
-  <link href="/gate/styles/img/favicon.ico" rel="icon" type="image/x-icon">
-  <link href="/gate/styles/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/gate/styles/css/dashboard.css" rel="stylesheet">
-  <link href="/gate/styles/css/prism.css" rel="stylesheet">
-  <link href="http://fonts.googleapis.com/css?family=Questrial" rel="stylesheet" type="text/css">
-  <script src="/gate/styles/js/sidebar.js"></script>
-  <script src="/gate/styles/js/prism.js"></script>
+{% extends "base.html" %}
 
-  <!--
-  <link href="styles/img/favicon.ico" rel="icon" type="image/x-icon">
-  <link href="styles/css/bootstrap.min.css" rel="stylesheet">
-  <link href="styles/css/dashboard.css" rel="stylesheet">
-  <link href="styles/css/prism.css" rel="stylesheet">
-  <link href="http://fonts.googleapis.com/css?family=Questrial" rel="stylesheet" type="text/css">
-  <script src="styles/js/sidebar.js"></script>
-  <script src="styles/js/prism.js"></script>
-  -->
-  <title>Gate</title>
-</head>
-<body onLoad="buildSidebar()">
-  <div class="container-fluid">
-    <div class="row">
-      <div id="sidebar"></div>
-      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <div class="col-md-9 content">
-        <!---------------------------------------------------------------->
+{% block title %}Gate{% endblock %}
+
+{% block content %}
 <h2>Hello</h2>
 <h4>Build your own website with no previous experience</h4>
 <hr />
@@ -117,12 +91,4 @@
     </tr>
   </tbody>
 </table>
-        <!---------------------------------------------------------------->
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script href="/gate/styles/js/bootstrap.min.js"></script>
-</body>
-</html>
+{% endblock %}
