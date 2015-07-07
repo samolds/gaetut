@@ -107,6 +107,9 @@ body {
 
 
 
+.nav li {
+  list-style-type: none;
+}
 
 body {
   background-color: #bbb;
