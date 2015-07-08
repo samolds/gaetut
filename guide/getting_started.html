@@ -29,7 +29,7 @@
       <ul id="gui" class="collapse out">
         <li><a href="/gate/guide/overview.html">Overview</a></li>
         <li><a href="/gate/guide/getting_started.html">Getting Started</a></li>
-        <li><a href="/gate/guide/#">Python and HTML Basics</a></li>
+        <li><a href="/gate/guide/python_html.html">Python and HTML Basics</a></li>
         <li><a href="/gate/guide/#">Hello World</a></li>
         <li><a href="/gate/guide/#">MVC Pattern</a></li>
         <li><a href="/gate/guide/#">Design</a></li>
@@ -83,62 +83,188 @@
 <h4>Let's Get Rolling</h4>
 <hr />
 <p>
-  This tutorial is advertised as covering everything you need to get a
-  website built from the ground up without any previous experience. So
-  here's what I'm going to try and do and the assumptions I'm making:
+  The first thing you're going to need is a development environment, or a way to write
+  and run your code. I prefer using the Terminal. It might have a bit of a learning curve,
+  but that's why you're here - to learn!
+</p>
+<p>
+  I use the Terminal to navigate through my computer system. You can achieve the exact same
+  results as dragging and dropping folders, creating new files, and moving stuff to the
+  trash all by typing a few simple commands. Later on, I'll cover using the Terminal to
+  create and edit files using Vim. But first, let's go over the basic tools you'll need to
+  know to use the Command Line.
+</p>
+<p>
+  I'm going to assume that for this tutorial you will have the Terminal open and are
+  following along as I describe some of the basic commands.
 </p>
 
-<p>Goals:</p>
+<br />
+<h4>Command Line Navigation</h4>
+<hr />
+<h5>cd</h5>
+  <p class="indent2">
+    <code>cd</code> is used to change directories. Usually, you might double click on a
+    folder to open it, but if you type <code>cd folder-name</code>, you will place yourself
+    into that directory. You can also use <kbd>tab</kbd> to autocomplete 'folder-name'
+    by simply pressing <kbd>tab</kbd> if you have typed the first few letters of the name.
+    It's important to remember that <code>cd</code> is always in reference to the current
+    active directory.
+  </p>
+  <p class="indent2">
+    There are a handful of symbols that have special meanings. <code>.</code> means the
+    current directory. <code>..</code> means the parent directory. <code>~</code> means
+    the home directory. And it is possible to string together a series of <code>cd</code>
+    commands using <code>/</code> between directory names.
+  </p>
+  <p class="indent2">
+    For example, <code>cd example</code> will change the active directory to 'example',
+    as long as there is a directory called example within your current directory. But
+    <code>cd ~</code> will change the active directory to Home regardless of where you
+    are. And by stringing together some commands like <code>cd ~/Desktop/example</code>
+    you can change to the example directory within Desktop from anywhere.
+  </p>
+<h5>ls</h5>
+  <p class="indent2">
+    <code>ls</code> will simply list all of the items within the active directory.
+  </p>
+<h5>mkdir</h5>
+  <p class="indent2">
+    <code>mkdir</code> will create a new directory wherever you specify. The new directory
+    will be named whatever you put after the command (and avoid naming it something with
+    a space). So <code>mkdir example</code> will create a directory called example in the
+    active directory, and <code>mkdir ~/Desktop/example</code> will create a new directory
+    in Desktop (as long as Desktop already exists).
+  </p>
+<h5>mv</h5>
+  <p class="indent2">
+    <code>mv</code> can be used in two general ways. It can be used to move a file from
+    one directory to another, and it can also be used to rename files. The first string
+    given after <code>mv</code> will be the file or directory to rename or move, and the
+    second string given will be the new name or the new location.
+  </p>
+  <p class="indent2">
+    So <code>mv old.txt new.txt</code> will rename old.txt to new.txt. <code>mv dir1
+    dir2</code> will rename the directory dir1 to dir2. But if dir2 already existed,
+    the previous command would place dir1 inside of dir2. <code>mv document.txt dir1</code>
+    will move document.txt into the directory dir1.
+  </p>
+  <p class="indent2">
+    And if you would like to move a directory full of other directories and files, change
+    the command to be <code>mv -r dir1 dir2</code>, as long as dir2 already exists.
+  </p>
+<h5>cp</h5>
+  <p class="indent2">
+    <code>cp</code> is used in the exact same manner as <code>mv</code>, only it will copy
+    a file from one location to another, and can rename the file in the process. So
+    <code>cp hello.txt dir/goodbye.txt</code> will copy the file contents from hello.txt
+    to inside of the dir directory and rename it to goodbye.txt. But if you want to just
+    copy it to a new location without renaming it, you could use one of the special
+    symbols mentioned before, such as <code>cp hello.txt dir/.</code> to just copy the
+    file, including the name, into the dir directory.
+  </p>
+<h5>rm</h5>
+  <p class="indent2">
+    <code>rm</code> is used to delete files and directories. But be careful, because this
+    will actually just delete files without an "are you sure" prompt or putting them into
+    the trash to be cleared later. Use <code>rm hello.txt</code> to delete the hello.txt
+    file. If you would like to remove a directory and all of its contents modify the
+    command to be <code>rm -r dir</code>.
+  </p>
+
+<br />
+<h4>Vim</h4>
+<hr />
+<p>
+  Make sure to check out the Vim tutorial in the External Resources. But here's a quick
+  (poorly done) tutorial.
+</p>
+<p class="indent1">
+Vim is a program used for creating and editing files within Terminal. Simply entering
+<code>vim file.txt</code> into the Command Line will open a Vim session where you can
+create or edit file.txt. Vim is known as an IDE, and if you'd like to use another one
+like Emacs or Eclipse, that's fine - but I'm going to cover Vim because I think it's an
+incredibly useful tool.
+</p>
+<p class="indent1">
+Vim also has a bit of a learning curve and might seem a bit basic or lame at first, but
+it is very powerful and customizable. The first thing you might notice is that nothing
+you type will show up. There are a handful of different modes that you can enter while
+editing a document. When you first enter Vim, you are in visual mode which provides a
+handful of unique tools. If you would like to type anything, you must enter insert mode.
+To do this, simply hit <kbd>i</kbd> on the keyboard. To end any active mode, hit
+<kbd>esc</kbd>. The next thing you might notice is that you cannot use your cursor, you
+have to navigate with the arrow keys. And if you would like to save your new or updated
+file exit your active mode (<kbd>esc</kbd>) and type <code>:w</code> followed by
+<kbd>enter</kbd>. To quit Vim, exit the active mode as above and type <code>:q</code>
+followed by <kbd>enter</kbd>. The above commands can be combined to save and quit by
+entering <code>:wq</code>. After saving and quiting Vim file.txt will be a new file,
+or the existing file will have been updated.
+</p>
+
+<br />
+<h4>Review</h4>
+<hr />
+<p>
+  You should now have a good understand of what the following series of commands will
+  accomplish.
+</p>
+<pre class="line-numbers"><code class="language-bash">
+cd ~/Desktop
+ls
+mkdir gatetest
+ls
+cd gatetest
+vim test1.txt
+vim test2.txt
+ls
+rm test1.txt
+ls
+cd ..
+rm -r gatetest</code></pre>
+
+<p>But to review each line:</p>
+<ol>
+  <li>Changes your active directory to 'Desktop'</li>
+  <li>Lists the items within the 'Desktop' directory</li>
+  <li>Makes a new directory in 'Desktop' called gatetest</li>
+  <li>Lists the items within the 'Desktop' directory</li>
+  <li>Changes your active directory to 'gatetest'</li>
+  <li>Begins a Vim session for a file called test1.txt</li>
+  <li>Begins a Vim session for a file called test2.txt</li>
+  <li>Lists the items within the 'gatetest' directory</li>
+  <li>Deletes the test1.txt file</li>
+  <li>Lists the items within the 'gatetest' directory</li>
+  <li>Changes the directory to gatetest's parent directory (Desktop)</li>
+  <li>Delete the gatetest directory and all of its content</li>
+</ol>
+
+<!--
+<h4>System Requirements</h4>
 <ul>
-  <li>Help you get a development environment set up on your machine</li>
-  <li>Get you familiar with working in the shell (AKA the command line)</li>
-  <li>Get you familiar with some basic code; specifically Python</li>
-  <li>Get you familiar with HTML and CSS and how to create a webpage</li>
-  <li>Explain some of the basic architecture and patterns behind most modern websites</li>
-  <li>How to combine all of these ideas with the webapp2 framework into a full website</li>
-  <li>Explain how to actually get your project pushed up to Google App Engine</li>
+  <li><a href="http://developers.google.com/appengine/downloads">Google App Engine SDK</a></li>
+  <li>Python 2.7</li>
 </ul>
 
-<p>Assumptions:</p>
-<ul>
-  <li>You have little to no coding experience</li>
-  <li>You have briefly skimmed over the Vim, Python, and HTML tutorials</li>
-  <li>You have no web development experience</li>
-  <li>You have your own computer to develop things on</li>
-</ul>
+<br />
 
-<p>This is just example code... ignore</p>
-<pre><code class="language-python">
-class Blog_New(BaseRequestHandler):
-  def get(self):
-    self.generate("admin/blog_new.html")
-
-  def post(self):
-    post = Post(parent=db_key(DB_NAME))
-    post.title = self.request.get('title')
-    post.content = self.request.get('content')
-
-    file_upload = self.request.get('file-upload')
-    if file_upload:
-      post.file_upload = file_upload
-
-    public = self.request.get('public')
-    if public == 'true':
-      post.public = True
-    else:
-      post.public = False
-
-    raw_tags = self.request.get('tags').split(' ')
-    tags = []
-    for tag in raw_tags:
-      tags.append(tag.strip().lower())
-    post.tags = tags
-
-    post.put()
-    self.redirect('/admin/blog')
+<h4>Setup Instructions</h4>
+<p>
+  The following will set up the final checkpoint as an example for what can be
+  achieved with this tutorial. A version of the final checkpoint is already
+  deployed on Google App Engine <a href="http://gate-example.appengine.com">here</a>.
+</p>
+<pre><code class="language-clike">
+git clone http://github.com/samolds/gate.git
+cd gate
+/usr/local/google_appengine/dev_appserver.py app
 </code></pre>
+<p>
+  You should now have a skeleton of the site up and running on localhost:8080.
+</p>
+-->
 
-<h4 class="pull-right"><a href="#">Python and HTML <span class="glyphicon glyphicon-arrow-right"></span></a></h4>
+<h4 class="pull-right"><a href="/gate/guide/python_html.html">Python and HTML <span class="glyphicon glyphicon-arrow-right"></span></a></h4>
 <h4 class="pull-left"><a href="/gate/guide/overview.html"><span class="glyphicon glyphicon-arrow-left"></span> Overview</a></h4>
 
         </div>

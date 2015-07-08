@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Gate{% endblock %}
+
+{% block content %}
+<h2>Python and HTML Basics</h2>
+<h4>Getting down to business</h4>
+<hr />
+<p>
+  By now, you should be familiar with how to use Terminal to navigate through
+  directories and create and edit files with Vim, even if it's just barely.
+  But lets start playing around with some actual code to see why the hassle
+  of learning the Command Line is actually worth while.
+</p>
+<p>
+  Here is an example of some python code.
+</p>
+
+<pre><code class="language-python">
+def repeat(times):
+  for i in range(times):
+    print "Hello"
+
+repeat(4)
+</code></pre>
+
+<p><a href="#" onclick="toggleCollapse('output1')">Verify Output</a></p>
+<div id="output1" class="collapse out">
+<pre><code>Hello
+Hello
+Hello
+Hello</code></pre>
+</div>
+
+<h4 class="pull-right"><a href="#">Hello World <span class="glyphicon glyphicon-arrow-right"></span></a></h4>
+<h4 class="pull-left"><a href="/gate/guide/getting_started.html"><span class="glyphicon glyphicon-arrow-left"></span> Getting Started</a></h4>
+{% endblock %}

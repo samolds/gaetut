@@ -79,37 +79,37 @@
       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <div class="col-md-9 content">
           
-<h2>Overview</h2>
-<h4>What to expect</h4>
+<h2>Python and HTML Basics</h2>
+<h4>Getting down to business</h4>
 <hr />
 <p>
-  This tutorial is advertised as covering everything you need to get a
-  website built from the ground up without any previous experience. So
-  here's what I'm going to try and do and the assumptions I'm making:
+  By now, you should be familiar with how to use Terminal to navigate through
+  directories and create and edit files with Vim, even if it's just barely.
+  But lets start playing around with some actual code to see why the hassle
+  of learning the Command Line is actually worth while.
+</p>
+<p>
+  Here is an example of some python code.
 </p>
 
-<p>Goals:</p>
-<ul>
-  <li>Help you get a development environment set up on your machine</li>
-  <li>Get you familiar with working in the shell (AKA the command line)</li>
-  <li>Get you familiar with some basic code; specifically Python</li>
-  <li>Get you familiar with HTML and CSS and how to create a webpage</li>
-  <li>Explain some of the basic architecture and patterns behind most modern websites</li>
-  <li>How to combine all of these ideas with the webapp2 framework into a full website</li>
-  <li>Explain how to actually get your project pushed up to Google App Engine</li>
-</ul>
+<pre><code class="language-python">
+def repeat(times):
+  for i in range(times):
+    print "Hello"
 
-<p>Assumptions:</p>
-<ul>
-  <li>You have little to no coding experience</li>
-  <li>You have briefly skimmed over the Vim, Python, and HTML tutorials (the External Resources to the left)</li>
-  <li>You have no web development experience</li>
-  <li>You have your own computer to develop things on</li>
-  <li>You are using the OSX or Linux operating systems (this tutorial will still be useful
-      for Windows users, but untested)</li>
-</ul>
+repeat(4)
+</code></pre>
 
-<h4 class="pull-right"><a href="/gate/guide/getting_started.html">Getting Started <span class="glyphicon glyphicon-arrow-right"></span></a></h4>
+<p><a href="#" onclick="toggleCollapse('output1')">Verify Output</a></p>
+<div id="output1" class="collapse out">
+<pre><code>Hello
+Hello
+Hello
+Hello</code></pre>
+</div>
+
+<h4 class="pull-right"><a href="#">Hello World <span class="glyphicon glyphicon-arrow-right"></span></a></h4>
+<h4 class="pull-left"><a href="/gate/guide/getting_started.html"><span class="glyphicon glyphicon-arrow-left"></span> Getting Started</a></h4>
 
         </div>
       </div>

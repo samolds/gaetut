@@ -4,31 +4,34 @@
 
 {% block content %}
 <h2>Overview</h2>
-<h4>Basically just the README</h4>
+<h4>What to expect</h4>
 <hr />
+<p>
+  This tutorial is advertised as covering everything you need to get a
+  website built from the ground up without any previous experience. So
+  here's what I'm going to try and do and the assumptions I'm making:
+</p>
 
-<h4>System Requirements</h4>
+<p>Goals:</p>
 <ul>
-  <li><a href="http://developers.google.com/appengine/downloads">Google App Engine SDK</a></li>
-  <li>Python 2.7</li>
+  <li>Help you get a development environment set up on your machine</li>
+  <li>Get you familiar with working in the shell (AKA the command line)</li>
+  <li>Get you familiar with some basic code; specifically Python</li>
+  <li>Get you familiar with HTML and CSS and how to create a webpage</li>
+  <li>Explain some of the basic architecture and patterns behind most modern websites</li>
+  <li>How to combine all of these ideas with the webapp2 framework into a full website</li>
+  <li>Explain how to actually get your project pushed up to Google App Engine</li>
 </ul>
 
-<br />
-
-<h4>Setup Instructions</h4>
-<p>
-  The following will set up the final checkpoint as an example for what can be
-  achieved with this tutorial:
-</p>
-<pre><code class="language-clike">
-git clone http://github.com/samolds/gate.git
-cd gate
-/usr/local/google_appengine/dev_appserver.py app
-</code></pre>
-<p>
-  You should now have a skeleton of the site up and running on localhost:8080.
-  Thanks for playing!
-</p>
+<p>Assumptions:</p>
+<ul>
+  <li>You have little to no coding experience</li>
+  <li>You have briefly skimmed over the Vim, Python, and HTML tutorials (the External Resources to the left)</li>
+  <li>You have no web development experience</li>
+  <li>You have your own computer to develop things on</li>
+  <li>You are using the OSX or Linux operating systems (this tutorial will still be useful
+      for Windows users, but untested)</li>
+</ul>
 
 <h4 class="pull-right"><a href="/gate/guide/getting_started.html">Getting Started <span class="glyphicon glyphicon-arrow-right"></span></a></h4>
 {% endblock %}
