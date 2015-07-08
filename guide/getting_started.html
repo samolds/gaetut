@@ -12,6 +12,7 @@
   <link href="/gate/styles/css/prism.css" rel="stylesheet">
   <link href="http://fonts.googleapis.com/css?family=Questrial" rel="stylesheet" type="text/css">
   <script src="/gate/styles/js/prism.js"></script>
+  <script src="/gate/styles/js/sidebar.js"></script>
   
 
   <title>Gate</title>
@@ -24,8 +25,8 @@
   <h1 id="site-title">Gate</h1>
   <ul class="nav nav-sidebar">
     <li><a href="/gate">Home</a></li>
-    <li id="guide"><a href="#guide_coll" data-toggle="collapse">Guide <span class="caret"></span></a>
-      <ul id="guide_coll" class="collapse out">
+    <li><a href="#" onclick="toggleCollapse('gui')">Guide <span class="caret"></span></a>
+      <ul id="gui" class="collapse out">
         <li><a href="/gate/guide/overview.html">Overview</a></li>
         <li><a href="/gate/guide/getting_started.html">Getting Started</a></li>
         <li><a href="/gate/guide/#">Python and HTML Basics</a></li>
@@ -38,8 +39,8 @@
       </ul>
     </li>
 
-    <li id="checkpoints"><a href="#checkpoints_coll" data-toggle="collapse">Checkpoints <span class="caret"></span></a>
-      <ul id="checkpoints_coll" class="collapse out">
+    <li><a href="#" onclick="toggleCollapse('che')">Checkpoints <span class="caret"></span></a>
+      <ul id="che" class="collapse out">
         <li><a href="http://github.com/samolds/gate/tree/master/checkpoints/1-barebone">Barebone</a></li>
         <li><a href="http://github.com/samolds/gate/tree/master/checkpoints/2-scaffolded">Scaffolded</a></li>
         <li><a href="http://github.com/samolds/gate/tree/master/checkpoints/3-bootstrapped">Bootstrapped</a></li>
@@ -49,8 +50,8 @@
       </ul>
     </li>
 
-    <li id="references"><a href="#references_coll" data-toggle="collapse">References <span class="caret"></span></a>
-      <ul id="references_coll" class="collapse out">
+    <li><a href="#" onclick="toggleCollapse('ref')">References <span class="caret"></span></a>
+      <ul id="ref" class="collapse out">
         <li><a href="/gate/refs/#">Python</a></li>
         <li><a href="/gate/refs/#">HTML</a></li>
         <li><a href="/gate/refs/#">CSS</a></li>
@@ -60,8 +61,8 @@
       </ul>
     </li>
 
-    <li id="resources"><a href="#resources_coll" data-toggle="collapse">External Resources <span class="caret"></span></a>
-      <ul id="resources_coll" class="collapse out">
+    <li><a href="#" onclick="toggleCollapse('res')">External Resources <span class="caret"></span></a>
+      <ul id="res" class="collapse out">
         <li><a href="http://vim.wikia.com/wiki/Tutorial">Vim Tutorial</a></li>
         <li><a href="http://docs.python.org/2/tutorial">Python 2.7 Tutorial</a></li>
         <li><a href="http://www.codecademy.com/en/tracks/web">HTML Tutorial</a></li>
