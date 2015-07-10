@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Gate{% endblock %}
+
+{% block content %}
+<h2>Vim</h2>
+<h4>A reference</h4>
+<hr />
+
+<h4>Open existing file</h4>
+  <p class="indent1"><code>vim &lt;existing-file.txt&gt;</code></p>
+  <p class="indent1">Starts a new Vim session to edit the existing file</p>
+
+<br />
+<h4>Open new file</h4>
+  <p class="indent1"><code>vim &lt;new-file.txt&gt;</code></p>
+  <p class="indent1">Starts a new Vim session to create a new file</p>
+
+<br />
+<h4>Enter Insert mode</h4>
+  <p class="indent1"><kbd>i</kbd></p>
+  <p class="indent1">Puts you into Insert mode so you can type</p>
+
+<br />
+<h4>Exit any active mode</h4>
+  <p class="indent1"><kbd>esc</kbd></p>
+  <p class="indent1">Exits any mode you might be in</p>
+
+<br />
+<h4>Save document</h4>
+  <p class="indent1"><code>:w</code></p>
+  <p class="indent1">After exiting any active modes, type <code>:w</code> to save</p>
+
+<br />
+<h4>Quit Vim</h4>
+  <p class="indent1"><code>:q</code></p>
+  <p class="indent1">After exiting any active modes, type <code>:q</code> to quit</p>
+
+<br />
+<h4>Save and quit</h4>
+  <p class="indent1"><code>:wq</code></p>
+  <p class="indent1">After exiting any active modes, type <code>:wq</code> to save and quit</p>
+{% endblock %}

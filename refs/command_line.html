@@ -80,37 +80,97 @@
       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <div class="col-md-9 content">
           
-<h2>Publishing webapp2 Project to GAE</h2>
-<h4>Show it off</h4>
+<h2>Command Line</h2>
+<h4>A reference</h4>
 <hr />
-<ol>
-  <li>Sign onto the <a href="http://console.developers.google.com">Google developer console</a></li>
-  <li>Click <code class="button">Create Project</code> and give it a 'project-name'</li>
-  <li>Click <code class="button">Try App Engine</code></li>
-  <li>Select <code class="button">Python</code></li>
-  <li>Install the Google Cloud SDK
-    <ol>
-      <li><code>curl https://sdk.cloud.google.com/ | bash</code>
-        <ul>
-          <li>If using OSX, store the Cloud SDK in <code>/usr/local</code></li>
-        </ul>
-      </li>
-      <li>Restart the shell</li>
-    </ol>
-  </li>
-  <li><code>gcloud auth login</code>
-    <ul>
-      <li>The Google Account you allow access will become the only Google Account that can log into the "Admin" portion</li>
-    </ul>
-  </li>
-  <li><code>gcloud components update gae-python</code></li>
-  <li><code>appcfg.py -A 'project-name' update gate/app</code></li>
-      
-  <li>Go to <a href="#">'project-name'.appspot.com</a> to use your project</li>
-  <li>Follow <a href="http://cloud.google.com/appengine/docs/domain">this guide</a> to use a custom domain instead of 'project-name'.appspot.com</li>
-</ol>
 
-<h4 class="pull-left"><a href="/gate/guide/#"><span class="glyphicon glyphicon-arrow-left"></span> Building Out</a></h4>
+<h4>cd</h4>
+  <p class="indent1"><code>cd &lt;directory-name&gt;</code></p>
+  <ul>
+    <li>Changes directory to "directory-name" within current directory</li>
+    <li>Changing directories is always relative to your current directory</li>
+    <li>Use <kbd>tab</kbd> to autocomplete directory names</li>
+    <li><code>.</code> refers to the current directory</li>
+    <li><code>..</code> refers to the parent of the current directory</li>
+    <li><code>~</code> refers to the user's home directory</li>
+    <li>Use <code>/</code> to string multipe commands together</li>
+  </ul>
+  <p class="indent1">Examples:</p>
+  <ul>
+    <li><code>cd example</code></li>
+    <li><code>cd ../..</code></li>
+    <li><code>cd ~/Desktop</code></li>
+  </ul>
+
+<br />
+<h4>ls</h4>
+  <p class="indent1"><code>ls</code></p>
+  <ul>
+    <li>Lists all items within the current directory</li>
+  </ul>
+  <p class="indent1">Examples:</p>
+  <ul>
+    <li><code>ls</code></li>
+  </ul>
+
+<br />
+<h4>mkdir</h4>
+  <p class="indent1"><code>mkdir &lt;dir-name&gt;</code></p>
+  <ul>
+    <li>Creates a new directory named "dir-name"</li>
+    <li>Can be used to create new directory within a different directory</li>
+  </ul>
+  <p class="indent1">Examples:</p>
+  <ul>
+    <li><code>mkdir new</code></li>
+    <li><code>mkdir example/new</code></li>
+  </ul>
+
+<br />
+<h4>mv</h4>
+  <p class="indent1"><code>mv &lt;one&gt; &lt;two&gt;</code></p>
+  <ul>
+    <li>Used to move or rename files or directories</li>
+    <li><code>mv -r</code> should be used to move entire directories</li>
+  </ul>
+  <p class="indent1">Examples:</p>
+  <ul>
+    <li><code>mv old.txt new.txt</code></li>
+    <li><code>mv dir-old/ dir-new/</code></li>
+    <li><code>mv hello.txt ~/Desktop/example/.</code></li>
+    <li><code>mv hello.txt ~/Desktop/example/goodbye.txt</code></li>
+    <li><code>mv -r full-dir ~/Desktop/stuff</code></li>
+  </ul>
+
+<br />
+<h4>cp</h4>
+  <p class="indent1"><code>cp &lt;one.txt&gt; &lt;two.txt&gt;</code></p>
+  <ul>
+    <li>Used to copy files or directories</li>
+    <li><code>cp -r</code> should be used to copy entire directories</li>
+  </ul>
+  <p class="indent1">Examples:</p>
+  <ul>
+    <li><code>cp one.txt two.txt</code></li>
+    <li><code>cp -r dir-one/ dir-two/</code></li>
+    <li><code>cp hello.txt ~/Desktop/example/.</code></li>
+    <li><code>cp hello.txt ~/Desktop/example/goodbye.txt</code></li>
+    <li><code>cp -r full-dir ~/Desktop/stuff</code></li>
+  </ul>
+
+<br />
+<h4>rm</h4>
+  <p class="indent1"><code>rm &lt;one.txt&gt;</code></p>
+  <ul>
+    <li>Used to delete files or directories</li>
+    <li>Be careful with <code>rm</code>. Once deleted, it's gone!</li>
+    <li><code>rm -r</code> should be used to delete entire directories</li>
+  </ul>
+  <p class="indent1">Examples:</p>
+  <ul>
+    <li><code>rm one.txt</code></li>
+    <li><code>rm -r dir-one/</code></li>
+  </ul>
 
         </div>
       </div>
