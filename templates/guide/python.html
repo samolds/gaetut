@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Gate{% endblock %}
+
+{% block content %}
+<h2>Python Basics</h2>
+<h4>Learning the logic</h4>
+<hr />
+
+<p>
+  Python is a very friendly programming language, and has numerous applications.
+  It is also a great language to use if learning how to code for this first time.
+  This will not be even close to a complete tutorial in Python, because there is
+  so much to cover (and others have done it before, much better than I). But
+  hopefully I can cover some of the basics well enough for you to understand how
+  it is being used to build a web app.
+</p>
+
+<p>
+  So let's begin by covering the basic 'utility belt' at your disposal with Python.
+</p>
+
+<br />
+<h4>Control Flow Tools</h4>
+<p class="indent1">
+  <code>if elif else</code> statements
+</p>
+
+<p class="indent1">
+  <code>for</code> loops
+</p>
+
+<p class="indent1">
+  <code>while</code> loops
+</p>
+
+<p class="indent1">
+  The <code>range()</code> function
+</p>
+
+<p class="indent1">
+  <code>def</code>ining functions
+</p>
+
+<p class="indent1">
+  function arguments
+</p>
+
+
+<p>
+  So let's review that block of code from before.
+
+</p>
+
+<pre><code class="language-python">
+def repeat(times):
+  for i in range(times):
+    print "Hello"
+
+repeat(4)
+</code></pre>
+
+<h4 class="pull-right"><a href="#/gate/guide/html.html">HTML Basics <span class="glyphicon glyphicon-arrow-right"></span></a></h4>
+<h4 class="pull-left"><a href="/gate/guide/developing_shell.html"><span class="glyphicon glyphicon-arrow-left"></span> Developing in the Shell</a></h4>
+{% endblock %}

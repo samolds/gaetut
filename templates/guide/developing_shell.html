@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}Gate{% endblock %}
+
+{% block content %}
+<h2>Developing in the Shell</h2>
+<h4>Getting down to business</h4>
+<hr />
+<p>
+  By now, you should be familiar with how to use Terminal to navigate through
+  directories and create and edit files with Vim, even if it's just barely.
+  But lets start playing around with some actual code to see why the hassle
+  of learning the Command Line is actually worth while.
+</p>
+<p>
+  This tutorial requires any version of Python 2.7. Type <code>python -V</code>
+  to check your version of Python.
+</p>
+<p>
+  Let's start by writing our first Python program! It will be very simple, but
+  hopefully it will be enough to whet your appetite so that you can go above
+  and beyond this tutorial. We'll begin by opening Terminal and navigating to
+  a directory where you will store all of your work. Then, let's create a new
+  Python file using Vim.
+</p>
+
+<pre><code class="language-bash">
+cd ~
+mkdir gate-tutorial
+vim example.py
+</pre></code>
+
+<p>
+  Inside of your Vim session, type the following block of code and see if you
+  can figure out what it's going to do before you execute it. I recommend
+  typing it all in to help you remember, but if you'd like to copy and paste
+  into Vim enter Insert mode (hit <kbd>i</kbd>) and paste like you normally
+  would. Don't worry if you don't understand what this code is doing, we're
+  going to cover some Python basics next!
+</p>
+
+<pre><code class="language-python">
+def repeat(times):
+  for i in range(times):
+    print "Hello"
+
+repeat(4)
+</code></pre>
+
+<p>
+  To execute your new Python script save and quit Vim (<code>:wq</code>), and
+  then do the following:
+</p>
+
+<pre><code class="language-bash">
+python example.py
+</pre></code>
+
+<p>
+  Any Python script you write can be executed at the Command Line by typing
+  <code>python &lt;file_name.py&gt;</code>. Click
+  <a href="#output1" onclick="toggleCollapse('output1')">here</a> to verify your
+  output.
+</p>
+
+<div id="output1" class="collapse out">
+<pre><code>Hello
+Hello
+Hello
+Hello</code></pre>
+</div>
+
+<h4 class="pull-right"><a href="/gate/guide/python.html">Python Basics <span class="glyphicon glyphicon-arrow-right"></span></a></h4>
+<h4 class="pull-left"><a href="/gate/guide/getting_started.html"><span class="glyphicon glyphicon-arrow-left"></span> Getting Started</a></h4>
+{% endblock %}
