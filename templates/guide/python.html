@@ -20,45 +20,364 @@
   So let's begin by covering the basic 'utility belt' at your disposal with Python.
 </p>
 
+
 <br />
-<h4>Control Flow Tools</h4>
+<h3>Variables</h3>
+<p>strings, ints, doubles, and booleans</p>
 <p class="indent1">
-  <code>if elif else</code> statements
+  Variables are an essential part of your "complete breakfast". Variables are used
+  to store data, whether it's data you're manipulating or information from the user
+  that is to be remembered. Variables have a handful of <span class="vocab">primary
+  types</span> which are the kinds of data that can be stored in a variable. Some
+  languages are <span class="vocab">strongly typed</span>, but Python is not so you
+  generally don't have to worry about keeping your variable types consistent.
+  Variables in Python can be named anything you want, as long as the name begins
+  with a character or underscore, and not a number.
+</p>
+<p class="indent1">
+  However, there are only a handful of different primary types. They are <span
+  class="vocab">strings</span>, <span class="vocab">ints</span>, <span class="vocab">
+  doubles</span>, and <span class="vocab">booleans</span>. String variables are used
+  to store any series of characters. Strings can represent a letter, a word, a sentence,
+  a paragraph, numbers, equations, etc. Integers are used to represent whole numbers,
+  and can be very useful for mathematic situations. Doubles are used to represent
+  numbers with decimal points. Booleans are used to represent true and false and are
+  used in <a href="http://en.wikipedia.org/wiki/Boolean_algebra">boolean logic</a>.
+</p>
+<p class="indent1">
+  Let's go through a quick
+  <a href="https://docs.python.org/2/tutorial/interpreter.html#interactive-mode">Python interactive</a>
+  example. If you'd like to follow along (which I recommend) just type
+  <code>python</code> into the Terminal to start an interactive session. If you're
+  not following along <code>&gt;&gt;&gt;</code> indicates the prompt for the next
+  command. Interactive mode is very useful to quickly prototype what a small piece
+  of code is going to do without writing an entire program.
 </p>
 
+<div class="indent1">
+<pre class="line-numbers"><code class="language-python">
+>>> num_x = 4
+>>> num_x
+4
+>>> num_y = num_x + 2
+>>> num_y
+6
+>>> str_x = "Hello, World!"
+>>> str_x
+Hello, World!
+>>> dbl_x = 4.14
+>>> dbl_y = 1.00
+>>> dbl_z = dbl_x + dbl_y
+>>> dbl_z
+5.14</code></pre>
+</div>
+
+
+<br />
+<h3>Data Structures</h3>
+<p>lists, and dicts</p>
 <p class="indent1">
-  <code>for</code> loops
+  Now, keeping a variable for every piece of information you want to keep might be
+  unruly. Especially if you are looping through a piece of code and need to programatically
+  create new variables. This is where data structures become useful. You then can use one
+  variable to represent a <code>list</code> or <code>dict</code> of information. And these
+  structure come with all sorts of fun helper functions. 
+</p>
+<p class="indent1">
+  Lists are essentially just a series of variables. Lists, in Python, are similar to arrays
+  in other languages. If you're not familiar with an array, they store a series of variables
+  together. If you want to access a single element in the list you reference its index.
+  Lists are 0-indexed, meaning that the first element has an index of 0, the second has an
+  index of 1, and so on.
+</p>
+<p class="indent1">
+  Dicts are similar to lists except each entry has a key and a value, similar to a dictionary.
+  Dicts are similar to maps in other languages. If you want to access a single value, you
+  have to use the provided key. All keys have to be unique within a single dict. The key can
+  be thought of as a custom index in the list example. Lets do another interactive example.
 </p>
 
+<div class="indent1">
+<pre class="line-numbers"><code class="language-python">
+>>> list_x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+>>> list_y = ["Hello", "World!"]
+>>> list_z = [True, False]
+>>> dict_x = {"a": "hello", "r": "world"}
+>>> dict_y = {"first": "John", "last": "Smith"}
+>>> dict_z = {"address": "123 First St", "state": "Texas", "zip": 12345}
+>>> list_x
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+>>> list_x[3]
+4
+>>> list_y[0]
+Hello
+>>> dict_x["r"]
+world
+>>> dict_y["first"]
+John
+>>> dict_z["zip"]
+12345</code></pre>
+</div>
+
+
+<br />
+<h3>Control Flow Tools</h3>
+<p><code>if elif else</code> statements</p>
 <p class="indent1">
-  <code>while</code> loops
+  The <code>if</code> block is your program's mitochondria (mitochondria is the powerhouse of the
+  cell!). It allows for multiple paths to be taken through your code. The code inside of the first
+  <code>if</code> will be executed if the boolean check immediately after the <code>if</code> is
+  true. If it is false, then it will check the next <code>elif</code> boolean check to see if it
+  is true. If nothing evaluates to true, the <code>else</code> block will execute. The only
+  required piece is the <code>if</code> block. The following are all correct.
 </p>
 
+<div class="indent1">
+<pre class="line-numbers"><code class="language-python">
+x = 1
+if x < 5:
+  print "x is less than 5"</code></pre>
+</div>
+
+<div class="indent1">
+<pre class="line-numbers"><code class="language-python">
+x = 10
+if x < 5:
+  print "x is less than 5"
+else:
+  print "x is greater than or equal to 5"</code></pre>
+</div>
+
+<div class="indent1">
+<pre class="line-numbers"><code class="language-python">
+x = 10
+if x < 5:
+  print "x is less than 5"
+elif x > 5:
+  print "x is greater than 5"
+else:
+  print "x is equal to 5"</code></pre>
+</div>
+
+<div class="indent1">
+<p>Click <a onclick="toggleCollapse('output1')">here</a> to verify your outputs.</p>
+<div id="output1" class="collapse out">
+<pre><code>x is less than 5
+x is greater than or equal to 5
+x is greater than 5</code></pre>
+</div>
+</div>
+
+<br />
+<p><code>for</code> loops</p>
 <p class="indent1">
-  The <code>range()</code> function
+  The <code>for</code> loop is also a crucial part of controlling the flow of your program. If you
+  want to repeat the same block of code multiple times, or iterate through every element in a list,
+  then the <code>for</code> loop is for you!
+</p>
+<p class="indent1">
+  The <code>range()</code> function is a <a href="http://docs.python.org/2/library/functions.html">built-in</a>
+  function in python. It will create a list out of the integer parameter (we'll cover functions and
+  parameters soon). If you call <code>range(4)</code> a list will be created of integers from 0 to 3.
+  This is very useful with <code>for</code> loops in Python. There is an example below that makes use
+  of the <code>range()</code> function, a <code>for</code> loop, and an <code>if/else</code> block.
 </p>
 
+<div class="indent1">
+<pre class="line-numbers"><code class="language-python">
+words = ["hello", "my", "name", "is", "tod"]
+string = "hello"
+
+for word in words:
+  print word
+
+print ""
+
+for letter in string:
+  print letter
+
+print ""
+
+for i in range(10):
+  if i == 6:
+    print "i is 6"
+  else:
+    print "i is not 6"</code></pre>
+</div>
+
+<div class="indent1">
+<p>Click <a onclick="toggleCollapse('output2')">here</a> to verify your output.</p>
+<div id="output2" class="collapse out">
+<pre><code>hello
+my
+name
+is
+tod
+
+h
+e
+l
+l
+o
+
+i is not 6
+i is not 6
+i is not 6
+i is not 6
+i is not 6
+i is 6
+i is not 6
+i is not 6
+i is not 6
+i is not 6</code></pre>
+</div>
+</div>
+
+
+<br />
+<p><code>while</code> loops</p>
 <p class="indent1">
-  <code>def</code>ining functions
+  <code>while</code> loops are very similar to for loops. They allow you to repeat certain sections of
+  your code for the duration that some check is true. While loops perform a boolean check before every
+  iteration to make sure it should repeat, or break. The boolean check comes immediately after the
+  <code>while</code> keyword. Below is a simple example:
 </p>
 
+<div class="indent1">
+<pre class="line-numbers"><code class="language-python">
+x = 10
+while x > 4:
+  print x
+  x = x - 1</code></pre>
+</div>
+
+<div class="indent1">
+<p>Click <a onclick="toggleCollapse('output3')">here</a> to verify your output.</p>
+<div id="output3" class="collapse out">
+<pre><code>10
+9
+8
+7
+6
+5</code></pre>
+</div>
+</div>
+
+<br />
+<p><code>def</code> functions</p>
 <p class="indent1">
-  function arguments
+  Sometimes you might want to use the same block of code in multiple places and you'll be tempted
+  to copy and paste. Never ever copy and paste. If there is a piece of code that you would like to
+  reuse, turn it into a function! A function is your own custom set of commands that you can call
+  with a single command instead of copying and pasting multiple lines of code. Don't worry if your
+  output doesn't exactly match on this one; 5 random colors should be printed out.
 </p>
 
+<div class="indent1">
+<pre class="line-numbers"><code class="language-python">
+import random
 
+def print_random_color():
+  colors = ["red", "orange", "yellow", "green", "blue", "purple"]
+  print random.choice(colors)
+
+for i in range(5):
+  print_random_color()</code></pre>
+</div>
+
+<div class="indent1">
+<p>Click <a onclick="toggleCollapse('output4')">here</a> to verify your output.</p>
+<div id="output4" class="collapse out">
+<pre><code>orange
+red
+red
+red
+blue</code></pre>
+</div>
+</div>
+
+<br />
+<p>function arguments</p>
+<p class="indent1">
+  Functions become much more powerful if they can accept variables that you can then manipulate. If
+  we modify the previous function we wrote, we can have it accept incoming arguments, or parameters.
+  But we'll modify it so that the functionality stays the same. Again, don't worry about the output
+  being exactly the same.
+</p>
+
+<div class="indent1">
+<pre class="line-numbers"><code class="language-python">
+import random
+
+def print_random_color(times):
+  colors = ["red", "orange", "yellow", "green", "blue", "purple"]
+  for i in range(times):
+    print random.choice(colors)
+
+print_random_color(5)</code></pre>
+</div>
+
+<div class="indent1">
+<p>Click <a onclick="toggleCollapse('output5')">here</a> to verify your output.</p>
+<div id="output5" class="collapse out">
+<pre><code>yellow
+green
+green
+orange
+yellow</code></pre>
+</div>
+</div>
+
+
+<br />
+<h3>Custom Structures AKA Objects</h3>
+<p>classes</p>
+<p class="indent1">
+  If you would like to create your own object, like a string or int, you have to build it out of
+  the existing primary types. You could create and object called Person, and it could contain a
+  name, a birthday, and an ethnicity. And you could give it custom functions like
+  <code>get_age()</code>. Here's an example of what a Person class might look like.
+</p>
+
+<div class="indent1">
+<pre class="line-numbers"><code class="language-python">
+from datetime import datetime
+
+class Person():
+  def __init__(self, name, birth_year, ethnicity=None):
+    self.name = name
+    self.birth_year = birth_year
+    self.ethnicity = ethnicity
+    
+  def get_age(self):
+    age = datetime.now().year - self.birth_year
+    return age
+    
+john = Person("John", 1990)</code></pre>
+</div>
+
+<br />
+<hr />
 <p>
-  So let's review that block of code from before.
-
+  Hopefully by now, you should be able to figure out what this piece of code is doing quite easily.
 </p>
 
-<pre><code class="language-python">
+<pre class="line-numbers"><code class="language-python">
 def repeat(times):
   for i in range(times):
     print "Hello"
 
-repeat(4)
-</code></pre>
+repeat(4)</code></pre>
+
+<div>
+<p>Click <a onclick="toggleCollapse('output6')">here</a> to verify your output.</p>
+<div id="output6" class="collapse out">
+<pre><code>hello
+hello
+hello
+hello</code></pre>
+</div>
+</div>
 
 <h4 class="pull-right"><a href="#/gate/guide/html.html">HTML Basics <span class="glyphicon glyphicon-arrow-right"></span></a></h4>
 <h4 class="pull-left"><a href="/gate/guide/developing_shell.html"><span class="glyphicon glyphicon-arrow-left"></span> Developing in the Shell</a></h4>

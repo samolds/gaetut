@@ -159,3 +159,7 @@ p.pad-top-bot {
 .indent4 {
   padding-left: 40px;
 }
+
+.vocab {
+  color: #800;
+}
