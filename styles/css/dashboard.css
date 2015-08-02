@@ -118,11 +118,9 @@ body {
   background-attachment: fixed;
 }
 
-/*
 code {
-  white-space: normal;
+  white-space: nowrap;
 }
-*/
 
 code.button {
   color: #040;
