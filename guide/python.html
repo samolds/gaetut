@@ -21,7 +21,13 @@
   <div class="container-fluid">
     <div class="row">
       <div id="sidebar">
-        <div class="col-sm-3 col-md-2 sidebar">
+        <div class="mobile-navbar">
+  <h1>Gate<small>
+    <a class="indent4" href="/gate">Home</a>
+    <a class="indent3" href="http://github.com/samolds/gate">GitHub</a>
+  </small></h1>
+</div>
+<div class="sidebar">
   <h1 id="site-title">Gate</h1>
   <ul class="nav nav-sidebar">
     <li><a href="/gate">Home</a></li>
@@ -33,7 +39,7 @@
         <li><a href="/gate/guide/python.html">Python Basics</a></li>
         <li><a href="/gate/guide/html.html">HTML Basics</a></li>
         <li><a href="/gate/guide/hello_world.html">Hello World</a></li>
-        <li><a href="/gate/guide/#">MVC Pattern</a></li>
+        <li><a href="/gate/guide/mvc.html">MVC Pattern</a></li>
         <li><a href="/gate/guide/#">Design</a></li>
         <li><a href="/gate/guide/#">Databases</a></li>
         <li><a href="/gate/guide/#">Building Out</a></li>
@@ -43,12 +49,12 @@
 
     <li><a href="#" onclick="toggleCollapse('che')">Checkpoints <span class="caret"></span></a>
       <ul id="che" class="collapse out">
-        <li><a href="http://github.com/samolds/gate/tree/master/checkpoints/1-barebone">Barebone</a></li>
-        <li><a href="http://github.com/samolds/gate/tree/master/checkpoints/2-scaffolded">Scaffolded</a></li>
-        <li><a href="http://github.com/samolds/gate/tree/master/checkpoints/3-bootstrapped">Bootstrapped</a></li>
-        <li><a href="http://github.com/samolds/gate/tree/master/checkpoints/4-interactive">Interactive</a></li>
-        <li><a href="http://github.com/samolds/gate/tree/master/checkpoints/5-admin">Admin</a></li>
-        <li><a href="http://github.com/samolds/gate/tree/master/app">Built Out</a></li>
+        <li><a href="http://github.com/samolds/gate/tree/master/checkpoints/1-barebone">1 - Barebone</a></li>
+        <li><a href="http://github.com/samolds/gate/tree/master/checkpoints/2-scaffolded">2 - Scaffolded</a></li>
+        <li><a href="http://github.com/samolds/gate/tree/master/checkpoints/3-bootstrapped">3 - Bootstrapped</a></li>
+        <li><a href="http://github.com/samolds/gate/tree/master/checkpoints/4-interactive">4 - Interactive</a></li>
+        <li><a href="http://github.com/samolds/gate/tree/master/checkpoints/5-admin">5 - Admin</a></li>
+        <li><a href="http://github.com/samolds/gate/tree/master/app">6 - Built Out</a></li>
       </ul>
     </li>
 
@@ -79,8 +85,8 @@
   </ul>
 </div>
       </div>
-      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <div class="col-md-9 content">
+      <div class="main">
+        <div class="col-md-10 content">
           
 <h2>Python Basics</h2>
 <h4>Learning the logic</h4>
@@ -461,6 +467,7 @@ hello</code></pre>
 <h4 class="pull-right"><a href="/gate/guide/html.html">HTML Basics <span class="glyphicon glyphicon-arrow-right"></span></a></h4>
 <h4 class="pull-left"><a href="/gate/guide/developing_shell.html"><span class="glyphicon glyphicon-arrow-left"></span> Developing in the Shell</a></h4>
 
+          <div class="clearfix"></div>
         </div>
       </div>
     </div>

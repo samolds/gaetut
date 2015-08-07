@@ -26,28 +26,20 @@ body {
   margin-top: 0px;
 }
 
-/* Hide for mobile, show later */
 .sidebar {
-  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: block;
+  padding: 20px;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  background-color: #f5f5f5;
+  border-right: 1px solid #000;
+  width: 175px;
 }
 
-@media (min-width: 768px) {
-  .sidebar {
-    position: fixed;
-    top: 0px;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
-    display: block;
-    padding: 20px;
-    overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: #f5f5f5;
-    border-right: 1px solid #000;
-  }
-}
-
-/* Sidebar navigation */
 .nav-sidebar {
   margin-right: -21px; /* 20px padding + 1px border */
   margin-bottom: 20px;
@@ -66,26 +58,55 @@ body {
   background-color: #428bca;
 }
 
+.mobile-navbar {
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #000;
+  display: none;
+  height: 0;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-navbar h1 {
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-navbar h1 small a {
+  font-size: 0.75em;
+}
+
+@media (max-width: 989px) {
+  .sidebar {
+    display: none;
+  }
+
+  .mobile-navbar {
+    display: block;
+    height: 80px;
+    min-height: 50px;
+    padding: 20px 40px;
+  }
+}
 
 /*
  * Main content
  */
-
 .main {
   padding: 30px 20px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 990px) {
   .main {
-    padding-right: 40px;
-    padding-left: 40px;
+    padding-top: 30px;
+    padding-left: 205px;
   }
 }
 
 .main .page-header {
   margin-top: 0;
 }
-
 
 /*
  * Placeholder dashboard ideas
@@ -114,7 +135,7 @@ body {
 body {
   background-color: #bbb;
   background-image: url("../img/bg-light.png");
-  background-size: 100%;
+  background-size: cover;
   background-attachment: fixed;
 }
 
@@ -133,6 +154,7 @@ p, .main li {
 }
 
 .content {
+  margin-bottom: 20px;
   background-color: #fff;
   border: 1px solid #000;
 }

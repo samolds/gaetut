@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta name="content-type" content="text/html; charset=UTF-8" http-equiv="content-type" />
+  
+
+  
+  <link href="/gate/styles/img/favicon.ico" rel="icon" type="image/x-icon">
+  <link href="/gate/styles/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/gate/styles/css/dashboard.css" rel="stylesheet">
+  <link href="/gate/styles/css/prism.css" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Questrial" rel="stylesheet" type="text/css">
+  <script src="/gate/styles/js/prism.js"></script>
+  <script src="/gate/styles/js/sidebar.js"></script>
+  
+
+  <title>Gate</title>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div id="sidebar">
+        <div class="mobile-navbar">
+  <h1>Gate<small>
+    <a class="indent4" href="/gate">Home</a>
+    <a class="indent3" href="http://github.com/samolds/gate">GitHub</a>
+  </small></h1>
+</div>
+<div class="sidebar">
+  <h1 id="site-title">Gate</h1>
+  <ul class="nav nav-sidebar">
+    <li><a href="/gate">Home</a></li>
+    <li><a href="#" onclick="toggleCollapse('gui')">Guide <span class="caret"></span></a>
+      <ul id="gui" class="collapse out">
+        <li><a href="/gate/guide/overview.html">Overview</a></li>
+        <li><a href="/gate/guide/getting_started.html">Getting Started</a></li>
+        <li><a href="/gate/guide/developing_shell.html">Developing in the Shell</a></li>
+        <li><a href="/gate/guide/python.html">Python Basics</a></li>
+        <li><a href="/gate/guide/html.html">HTML Basics</a></li>
+        <li><a href="/gate/guide/hello_world.html">Hello World</a></li>
+        <li><a href="/gate/guide/mvc.html">MVC Pattern</a></li>
+        <li><a href="/gate/guide/#">Design</a></li>
+        <li><a href="/gate/guide/#">Databases</a></li>
+        <li><a href="/gate/guide/#">Building Out</a></li>
+        <li><a href="/gate/guide/publishing.html">Publishing on GAE</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#" onclick="toggleCollapse('che')">Checkpoints <span class="caret"></span></a>
+      <ul id="che" class="collapse out">
+        <li><a href="http://github.com/samolds/gate/tree/master/checkpoints/1-barebone">1 - Barebone</a></li>
+        <li><a href="http://github.com/samolds/gate/tree/master/checkpoints/2-scaffolded">2 - Scaffolded</a></li>
+        <li><a href="http://github.com/samolds/gate/tree/master/checkpoints/3-bootstrapped">3 - Bootstrapped</a></li>
+        <li><a href="http://github.com/samolds/gate/tree/master/checkpoints/4-interactive">4 - Interactive</a></li>
+        <li><a href="http://github.com/samolds/gate/tree/master/checkpoints/5-admin">5 - Admin</a></li>
+        <li><a href="http://github.com/samolds/gate/tree/master/app">6 - Built Out</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#" onclick="toggleCollapse('ref')">References <span class="caret"></span></a>
+      <ul id="ref" class="collapse out">
+        <li><a href="/gate/refs/command_line.html">Command Line</a></li>
+        <li><a href="/gate/refs/vim.html">Vim</a></li>
+        <li><a href="/gate/refs/#">Python</a></li>
+        <li><a href="/gate/refs/#">HTML</a></li>
+        <li><a href="/gate/refs/#">CSS</a></li>
+        <li><a href="/gate/refs/#">JavaScript</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#" onclick="toggleCollapse('res')">External Resources <span class="caret"></span></a>
+      <ul id="res" class="collapse out">
+        <li><a href="http://www.davidbaumgold.com/tutorials/command-line">Command Line Tutorial</a></li>
+        <li><a href="http://vim.wikia.com/wiki/Tutorial">Vim Tutorial</a></li>
+        <li><a href="http://docs.python.org/2/tutorial">Python 2.7 Tutorial</a></li>
+        <li><a href="http://www.codecademy.com/en/tracks/web">HTML Tutorial</a></li>
+        <li><a href="http://www.csstutorial.net/css-intro/introductioncss-part1.php">CSS Tutorial</a></li>
+        <li><a href="http://www.codecademy.com/en/tracks/javascript">Javascript Tutorial</a></li>
+        <li><a href="http://getbootstrap.com/css">Bootstrap Documentation</a></li>
+        <li><a href="http://jinja.pocoo.org/docs/dev/templates">Jinja Documentation</a></li>
+      </ul>
+    </li>
+    <li><a href="http://github.com/samolds/gate">GitHub Repository</a></li>
+  </ul>
+</div>
+      </div>
+      <div class="main">
+        <div class="col-md-10 content">
+          
+<h2>MVC Pattern</h2>
+<h4>Scaffolding your project</h4>
+<hr />
+
+<p>
+  If we wanted, we could build our entire application inside of that single barebones.py file.
+  But that would become a massive file and very hard to maintain. So instead, we are going to
+  break out all of the different parts. But first, lets talk about the Model View Controller,
+  or MVC, Pattern.
+</p>
+<p>
+  The MVC Pattern is very commonly used in web development. It is used to keep the different
+  components separate and modularized. Let's go through the three parts
+</p>
+
+<br />
+<h3>Goal</h3>
+<p>
+  By the end of this section, you should be caught up to
+  <a href="https://github.com/samolds/gate/tree/master/checkpoints/2-scaffolded">Checkpoint 2 - Scaffolded</a>.
+</p>
+
+<br />
+<h3>Model</h3>
+<p>
+  The model is your blueprint for how to structure all of your variables. If you're just building
+  a static website or some kind of portfolio, you won't need a model. But if you want to build a
+  blog or some application where you can upload photos or add new content, you will need to construct
+  a model. The model is essentially just the Classes or objects that your app will use. If you are
+  familiar with databases, the model is used to lay out the database and how values will be organized
+  in the database tables. We will go into more detail later because we won't actually be using one
+  just yet.
+</p>
+
+<br />
+<h3>View</h3>
+<p>
+  The Views are the HTML pages that the user will see and interact with. Generally, these HTML pages
+  will show the data that is being stored in the Model and provide some way for the user to create,
+  read, update, or delete the data. However, some of the pages can be static and don't need to display
+  any data from the Model.
+</p>
+
+<br />
+<h3>Controller</h3>
+<p>
+  The Controllers are where most of the logic happens. They directly of indirectly manage the data that
+  each view displays and then how any new or updated data translates to the Model.
+</p>
+
+<br />
+<h3>Interaction Pipeline</h3>
+<p>
+  Let's go through an example to illustrate how these three separate parts fit together. Let's assume
+  we have a blogging app and a user wants to add a comment to a blog post. Here's how I like to think
+  about the interaction pipeline:
+</p>
+<img src="/gate/styles/img/mvc.png" width=250 class="pull-right"
+  alt="The three parts of MVC working together" />
+<ol>
+  <li>
+    Using a routing process, a specific URL is tied to a specific Controller function
+  </li>
+  <li>
+    The correct Controller function performs the necessary logic, initializes the correct variables,
+    and loads required values from the Model
+  </li>
+  <li>
+    This data is passed to the View by the Controller in order to render a page for the user to interact
+    with
+  </li>
+  <li>
+    The user will submit a comment which is passed back to the Controller for that View
+  </li>
+  <li>
+    The Controller will then save the user's comment back to the Model to be loaded again the next time
+  </li>
+</ol>
+
+<br />
+<h3>Let the Games Begin</h3>
+<p>
+  So we want to to break out our current codebase into something that resembles and MVC Pattern. Right now,
+  we have all of our necessary code in one file: barebone.py. Let's start restructuring our directory to
+  easily add in MVC components.
+</p>
+<p>
+  Open up
+  <a href="https://github.com/samolds/gate/tree/master/checkpoints/2-scaffolded">Checkpoint 2 - Scaffolded</a>
+  so that you can examine the new project structure and follow along while I outline what each file
+  does and why the changes were made.
+</p>
+<p>
+  You'll notice there are a handful more files and folders, but about the same amount of code. All of
+  the code has been broken out of barebones.py into separate files or even separate directories. Lets
+  go through each item.
+</p>
+
+<br />
+<br />
+
+<code>controllers/__init__.py</code>
+<p class="indent2">
+  This file is empty. The purpose that this file serves is to let the Python language know that
+  the 'controllers' directory contains more Python files.
+</p>
+<code>controllers/base.py</code>
+<p class="indent2">
+  This file contains the "master controller" class. All of the other controllers will inherit
+  this controller so that code doesn't have to be duplicated. It sets up the Jinja2 environment,
+  which is what helps generate the Views, as well as passing any variables you want to the
+  View to be displayed.
+</p>
+<code>controllers/home.py</code>
+<p class="indent2">
+  This is the controller for the home.html view. As you can see, it's much more simple than the base.py
+  controller, but it inherits all of the functionality with <code>(BaseRequestHandler)</code>. And
+  using the <code>generate()</code> function, it will render the <code>home.html</code> view and
+  pass along a variable called "test".
+</p>
+<code>controllers/second.html</code>
+<p class="indent2">
+  This is the controller for the second.html view. It's just like the home controller, only it renders
+  a different view with different variables.
+</p>
+<code>static/</code>
+<p class="indent2">
+  This directory will contain all of the CSS, JavaScript, and images that your application might use.
+  But we are not going to cover this in too much detail right now. It's mostly just a placeholder.
+</p>
+<code>views/base.html</code>
+<p class="indent2">
+  Just like controller/base.py, views/base.html takes care of a lot of the boiler plate code that goes
+  into HTML pages. You can just extend this file with all of your other Views and not have to worry
+  about copying all of the code already in this file.
+</p>
+<code>views/home.html</code>
+<p class="indent2">
+  This is a much smaller HTML file because it's extending the base.html file. If you look at the base.html
+  file and the home.html file side-by-side, you can image just copying and pasting everything inside of the
+  corresponding <code>{&#37; block &#37;}</code> statements back into the base.html file.
+</p>
+<code>views/second.html</code>
+<p class="indent2">
+  This HTML file looks almost identical to the home.html file, except it has a different title.
+</p>
+<code>app.yaml</code>
+<p class="indent2">
+  This is the configuration file for the app. Notice how is now using the Jinja library to generate the
+  HTML pages.
+</p>
+<code>models.py</code>
+<p class="indent2">
+  This is a placeholder for where we will put our model, which we'll cover later.
+</p>
+<code>setting.py</code>
+<p class="indent2">
+  This is for general settings or variables that you want to be globally available in all Views. Make
+  sure to update the <code>values</code> dict in controllers/base.py with anything extra you add here.
+</p>
+<code>urls.py</code>
+<p class="indent2">
+  This is the routing mechanism and is very important. It tells your application which Controller to use
+  depending on the URL. Right now, we have the root address '/' going to the Home controller, and '/two'
+  pointing to the Second controller.
+</p>
+
+<h4 class="pull-right"><a href="#/gate/guide/design.html">Design <span class="glyphicon glyphicon-arrow-right"></span></a></h4>
+<h4 class="pull-left"><a href="/gate/guide/hello_world.html"><span class="glyphicon glyphicon-arrow-left"></span> Hello World</a></h4>
+
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  
+  <script href="/gate/styles/js/bootstrap.min.js"></script>
+  
+</body>
+</html>
