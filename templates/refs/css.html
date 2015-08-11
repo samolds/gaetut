@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Gate{% endblock %}
+
+{% block content %}
+<h2>CSS</h2>
+<h4>A reference</h4>
+<hr />
+<p>
+  CSS allows you to customize the look of any HTML element. You can use CSS to make the
+  background blue and the text to be a different font and more indented. The best way to
+  do this is to give an HTML element a CSS class. This is similar to giving an element
+  an attribute, you just add <code>class="whatever"</code> to the tag. Then you create
+  a CSS class named <em>whatever</em> and list what looks you want any element with that
+  class name to have.
+</p>
+<p>
+  This is a <a href="http://overapi.com/css/">great reference</a> for quickly seeing what
+  CSS attributes do what. Here are some examples.
+<div>
+
+<pre class="line-numbers"><code class="language-css">
+/* every 'a' element wont be underlined */
+a {
+  text-decoration: none;
+} 
+
+/* any element with the 'sub-header' class will have
+extra space below it and a border below it */
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+} 
+
+.toggle-area {
+  position: fixed;
+  right: 60px;
+  top: 30px;
+  width: 150px;
+}
+
+/* any element with the 'toggle-select id will be
+175 pixels tall */
+#toggle-select {
+  height: 175px;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: block;
+  padding: 20px;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  background-color: #f5f5f5;
+  border-right: 1px solid #000;
+  width: 175px;
+}
+
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+}</code></pre>
+</div>
+{% endblock %}

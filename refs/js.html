@@ -89,43 +89,93 @@
       <div class="main">
         <div class="col-md-10 content">
           
-<h2>Vim</h2>
+<h2>JavaScript</h2>
 <h4>A reference</h4>
 <hr />
+<p>
+  This reference guide will be very short because Javascript is used very little
+  in this guide.
+</p>
+<p>
+  Just like Python JavaScript is a full programming language. It has variables, data
+  structures, objects, and scope. But unlike Python, it can be called from within
+  your HTML. The other difference from Python is that it requires the use of curly
+  braces ({}) and semi-colons (;). We wont go into too much depth of the inner
+  workings of Javascript, but lets lay out some of the basics.
+</p>
 
-<h4>Open existing file</h4>
-  <p class="indent1"><code>vim &lt;existing-file.txt&gt;</code></p>
-  <p class="indent1">Starts a new Vim session to edit the existing file</p>
-
-<br />
-<h4>Open new file</h4>
-  <p class="indent1"><code>vim &lt;new-file.txt&gt;</code></p>
-  <p class="indent1">Starts a new Vim session to create a new file</p>
-
-<br />
-<h4>Enter Insert mode</h4>
-  <p class="indent1"><kbd>i</kbd></p>
-  <p class="indent1">Puts you into Insert mode so you can type</p>
-
-<br />
-<h4>Exit any active mode</h4>
-  <p class="indent1"><kbd>esc</kbd></p>
-  <p class="indent1">Exits any mode you might be in</p>
-
-<br />
-<h4>Save document</h4>
-  <p class="indent1"><code>:w</code></p>
-  <p class="indent1">After exiting any active modes, type <code>:w</code> to save</p>
+<h3>Basics</h3>
+<h5><code>var</code></h5>
+<div class="indent2">
+<p>
+  Any variable you create in JavaScript should be preceded by <code>var</code>, to
+  indicate that it is a variable.
+</p>
+<pre class="line-numbers"><code class="language-javascript">
+var x = "Hello, World!"</code></pre>
+</div>
 
 <br />
-<h4>Quit Vim</h4>
-  <p class="indent1"><code>:q</code></p>
-  <p class="indent1">After exiting any active modes, type <code>:q</code> to quit</p>
+<h5><code>function</code></h5>
+<div class="indent2">
+<p>
+  Functions are structured slightly different than in Python.
+</p>
+<pre class="line-numbers"><code class="language-javascript">
+function multiply(phrase, x) {
+  var i = 0;
+  var newPhrase = "";
+  for (i = 0; i &lt; x; i++) {
+    newPhrase += phrase;
+  }
+  return newPhrase;
+  }
+}</code></pre>
+<p>
+  So <code>multiply("hello", 5);</code> would return <code>"hellohellohellohellohello"</code>.
+</p>
+</div>
 
 <br />
-<h4>Save and quit</h4>
-  <p class="indent1"><code>:wq</code></p>
-  <p class="indent1">After exiting any active modes, type <code>:wq</code> to save and quit</p>
+<h5><code>document.getElementById</code></h5>
+<div class="indent2">
+<p>
+  This will be used in JavaScript functions to get HTML elements. You can then modify the
+  classes of the HTML element in the JavaScript to modify the visibility, for example. You
+  just have to make sure you've given the HTML element you want to get an ID.
+</p>
+<pre class="line-numbers"><code class="language-markup">
+...
+&lt;h1&gt;Welcome&lt;/h1&gt;
+&lt;div class="special-style" id="header1"&gt;
+  &lt;p&gt;Do you like my stylish webpage?&lt;/p&gt;
+&lt;/div&gt;
+...</code></pre>
+<pre class="line-numbers"><code class="language-javascript">
+var ele = document.getElementById("header1");
+ele.className = "not-special-style";</code></pre>
+</div>
+
+<br />
+<h5><code>onClick</code></h5>
+<div class="indent2">
+<p>
+  This is a very useful tool to use in your HTML. This is a keyword that says "when a user clicks
+  on this element, perform this JavaScript function". Here's an example.
+</p>
+<pre class="line-numbers"><code class="language-markup">
+...
+&lt;h1&gt;Welcome&lt;/h1&gt;
+&lt;img src="/static/img/funny.png" class="hide" id="image1" /&gt;
+&lt;p&gt;&lt;a href="#" onClick="showImg()"&gt;Show&lt;/a&gt; my funny picture&lt;/p&gt;
+...</code></pre>
+<pre class="line-numbers"><code class="language-javascript">
+function showImg() {
+  var ele = document.getElementById("image1");
+  ele.className = ""; // removes the 'hide' class to unhide
+}</code></pre>
+</div>
+
 
           <div class="clearfix"></div>
         </div>

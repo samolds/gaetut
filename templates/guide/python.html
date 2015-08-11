@@ -356,6 +356,33 @@ class Person():
 john = Person("John", 1990)</code></pre>
 </div>
 
+
+<br />
+<h3>Scope</h3>
+<p>visibility</p>
+<p class="indent1">
+  The scope is always something you have to keep in mind. All variables, functions, and data
+  structures maintain some kind of scope. The scope refers to what is visible in certain parts
+  of your code. If you declare a <span class="vocab">global variable</span> at the top of your
+  code, all of your functions will be able to see it. But if you declare a variable in one
+  function, only that function can see the variable. Here's a quick demo.
+</p>
+<div class="indent1">
+<pre class="line-numbers"><code class="language-python">
+x = "Hello, World!" # global variable
+
+def local_one():
+  y = "Hello locals."
+  print x # global variables are visible here
+
+def local_two():
+  z = "Howdy folks."
+  print z # printed from the same scope z was declared
+
+print x
+print y # error! local_one() scope has ended, along with y</code></pre>
+</div>
+
 <br />
 <hr />
 <p>

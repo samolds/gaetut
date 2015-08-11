@@ -143,7 +143,9 @@
 <p class="indent2">
   This is a much smaller HTML file because it's extending the base.html file. If you look at the base.html
   file and the home.html file side-by-side, you can image just copying and pasting everything inside of the
-  corresponding <code>{&#37; block &#37;}</code> statements back into the base.html file.
+  corresponding <code>{&#37; block &#37;}</code> statements back into the base.html file. Not all of the
+  block statements need to be filled. Notice how home.html uses the 'title' and 'body' blocks but not the
+  'head' block.
 </p>
 <code>views/second.html</code>
 <p class="indent2">
@@ -170,6 +172,6 @@
   pointing to the Second controller.
 </p>
 
-<h4 class="pull-right"><a href="#/gate/guide/design.html">Design <span class="glyphicon glyphicon-arrow-right"></span></a></h4>
+<h4 class="pull-right"><a href="/gate/guide/design.html">Design <span class="glyphicon glyphicon-arrow-right"></span></a></h4>
 <h4 class="pull-left"><a href="/gate/guide/hello_world.html"><span class="glyphicon glyphicon-arrow-left"></span> Hello World</a></h4>
 {% endblock %}

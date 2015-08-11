@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}Gate{% endblock %}
+
+{% block content %}
+<h2>HTML</h2>
+<h4>A reference</h4>
+<hr />
+
+<h3>Basic Tags</h3>
+<h5><code>&lt;head&gt;</code></h5>
+  <p class="indent2">
+    Everything that needs to be loaded before the page can render, like CSS and JavaScript,
+    goes inside of this tag, along with the favicon and any other meta information.
+  </p>
+<h5><code>&lt;title&gt;</code></h5>
+  <p class="indent2">
+    This will be the name that appears in the tab bar for your webpage.
+  </p>
+<h5><code>&lt;body&gt;</code></h5>
+  <p class="indent2">
+    The actual visual part of your webpage, everything that the user could see or interact
+    with, will go in this section.
+  </p>
+<h5><code>&lt;div&gt;</code></h5>
+  <p class="indent2">
+    These are useful, generic containers for other HTML elements. If you have multiple
+    elements that you want to modify in some way, lets say indent, you can nest them
+    all inside of a <code>&lt;div&gt;</code> element and then give it a CSS class
+    (we'll talk about CSS briefly at the end of this section).
+  </p>
+<h5><code>&lt;h1&gt;</code></h5>
+  <p class="indent2">
+    These are your header tags. If you were writing a newspaper, you would put your
+    headline within this tag. There are multiple levels as well so you can have subheadings.
+    <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code> are all valid header
+    tags, each becoming increasingly smaller.
+  </p>
+<h5><code>&lt;p&gt;</code></h5>
+  <p class="indent2">
+    The paragraph elements almost always just contain some text. They're pretty straight
+    forward and don't get too complicated.
+  </p>
+<h5><code>&lt;span&gt;</code></h5>
+  <p class="indent2">
+    The span elements are usually used to apply some CSS class to a single letter or small
+    phrase within a paragraph.
+  </p>
+<h5><code>&lt;img&gt;</code></h5>
+  <p class="indent2">
+    This tag is used for embedding images into a page, and it is one of the few exceptions
+    to the rule "all tags must be closed". The image tag doesn't need to be closed. Here
+    is what it normally looks like:
+    <code>&lt;img src="http://i.imgur.com/ME4Kf.gif" /&gt;</code>
+  </p>
+<h5><code>&lt;a&gt;</code></h5>
+  <p class="indent2">
+    The anchor tag is used for creating hyper links to other webpages. They're one of the
+    most important aspects to webpages, because linking to other pages is the what makes
+    the World Wide Web so powerful. Here is an example:
+    <code>&lt;a href="http://github.com/samolds"&gt;Click here!&lt;/a&gt;</code>
+  </p>
+<p>
+  This is a good <a href="http://htmldog.com/reference/htmltags/">reference</a> for more
+  HTML tags.
+</p>
+
+<br />
+<h3>Tag Attributes</h3>
+<p>
+  HTML tags can also have attributes. For example, the <code>&lt;img&gt;</code> tag will
+  need a <code>src</code> attribute to specify where the image file is located and the
+  <code>&lt;a&gt;</code> tag will need an <code>href</code> attribute for the link to the
+  page. Learn more about a specific tag's available attributes using the reference I just
+  mentioned.
+</p>
+
+<br />
+<h3>CSS Classes</h3>
+<p>
+  CSS allows you to customize the look of any HTML element. You can use CSS to make the
+  background blue and the text to be a different font and more indented. The best way to
+  do this is to give an HTML element a CSS class. This is similar to giving an element
+  an attribute, you just add <code>class="whatever"</code> to the tag. Then you create
+  a CSS class named <em>whatever</em> and list what looks you want any element with that
+  class name to have.
+</p>
+<p>
+  When modifying an HTML element with CSS, you can alter all elements by referencing a
+  general HTML tag, or a specific class name. General tags will just be the tag name,
+  like <code>p</code>, <code>body</code>, or <code>div</code> while class names will
+  start with a <code>.</code>. So altering an element with <code>class="banner"</code>
+  would looke like <code>.banner {padding: 20px;}</code>.
+  Here is an example:
+</p>
+
+<div>
+<pre class="line-numbers"><code class="language-markup">
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Gate&lt;/title&gt;
+    &lt;style&gt;
+      body {
+        padding: 40px;
+        background-color: gray;
+      }
+      .special-style {
+        padding-left: 80px;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Welcome&lt;/h1&gt;
+    &lt;div class="special-style"&gt;
+      &lt;p&gt;Do you like my stylish webpage?&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+{% endblock %}

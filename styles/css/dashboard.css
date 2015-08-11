@@ -139,16 +139,6 @@ body {
   background-attachment: fixed;
 }
 
-code {
-  white-space: nowrap;
-}
-
-code.button {
-  color: #040;
-  font-family: monospace;
-  background-color: #dfd;
-}
-
 p, .main li {
   line-height: 1.75em;
 }
@@ -182,4 +172,25 @@ p.pad-top-bot {
 
 .vocab {
   color: #800;
+}
+
+img.pull-right {
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+code {
+  white-space: normal;
+}
+
+code.button {
+  color: #040;
+  font-family: monospace;
+  background-color: #dfd;
+}
+
+pre {
+  overflow: auto;
+  word-wrap: normal;
+  white-space: pre;
 }

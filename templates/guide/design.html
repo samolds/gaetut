@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% block title %}Gate{% endblock %}
+
+{% block content %}
+<h2>Design</h2>
+<h4>Bootstrappin' teh stylez</h4>
+<hr />
+
+<p>
+  Now it's time to talk more about how your site looks. We've set up a very simple <span class="vocab">back
+  end</span>, now it's time to work more on the <span class="vocab">front end</span>. Remember that
+  <code>static/</code> directory that we setup as a placeholder? Lets start loading it up with some useful
+  CSS and JavaScript.
+</p>
+<p>
+  Remember, HTML is the code that's necessary for putting text and content on your page, but CSS is necessary
+  for making it look goood. It's used to change things from the margins of your document to the color and
+  font of your text. Once we're happy with our HTML and CSS, we'll add in some JavaScript. JavaScript is used
+  to make things happen on the webpage. If you click a dropdown button, a menu should appear - this is done
+  using JavaScript.
+</p>
+
+<br />
+<h3>Goal</h3>
+<p>
+  By the end of this section, you should be able to understand the changes made in
+  <a href="https://github.com/samolds/gate/tree/master/checkpoints/3-bootstrapped">Checkpoint 3 - Bootstrapped</a>.
+</p>
+
+<br />
+<h3>HTML with Jinja</h3>
+<p>
+  The most fundamental aspect of any website is the HTML. But HTML is static, meaning that it doesn't ever
+  change. You can't have logic in your HTML to make things dynamic (like <code>if</code> statements in
+  Python). You can't use variables in HTML to keep track of the active user's username, for example. But
+  there is a nifty templating language called Jinja that allows you to embed some Python into your HTML
+  pages (this is why there was some Jinja code in controllers/base.py). I highly recommend looking through
+  the <a href="http://jinja.pocoo.org/docs/dev/">Jinja Documentation</a> while you're figuring out how to
+  build your webpages.
+</p>
+<p>
+  If you want access to the variables in your Python Controller from your Jinja View, make sure to pass the
+  variables into the <code>self.generate()</code> call at the end of each Controller function.
+</p>
+<p>
+  Let's go though an example of how to pass variables from a Controller to a View and how to display them
+  with HTML and Jinja.
+</p>
+
+<br />
+<p>controllers/about.py</p>
+<div class="indent1">
+<pre class="line-numbers"><code class="language-python">
+from controllers.base import BaseRequestHandler
+import random
+
+class About(BaseRequestHandler):
+  def get(self):
+    name = "Teddy Roosevelt"
+    random_int = random.randint(0, 100) # generate random number between 0 and 100
+    if random_int % 2 == 0: # if random number is even
+      address = "1600 Pennsylvania Ave.\nNorthwest, Washington, DC 20500"
+      age = 43
+    else: # if random number is odd
+      address = "The Moon"
+      age = 51
+    self.generate("about.html", {
+      "name": name,
+      "address": address,
+      "age": age
+    })</code></pre>
+</div>
+
+
+<p>views/about.html</p>
+<div class="indent1">
+<pre class="line-numbers"><code class="language-markup">
+{&#37; extends "base.html" &#37;}
+
+{&#37; block title &#37;}About{&#37; endblock &#37;}
+
+{&#37; block body &#37;}
+  &lt;h2&gt;About&lt;/h2&gt;
+  &lt;p&gt;
+    Welcome to the about page. My name is {&#123; name &#125;}. I am {&#123; age &#125;}
+    years old and I live at this address:
+    {&#123; address &#125;}
+  &lt;/p&gt;
+{&#37; endblock &#37;}</code></pre>
+</div>
+
+<p>
+  And through the magic of Jinja, a full HTML page will be created that contains the variables
+  you passed to it from the controller.
+</p>
+
+<br />
+<h3>Bootstrap</h3>
+<img src="/gate/styles/img/css.gif" id="img1" width=250 alt="CSS"
+  class="collapse out pull-right" />
+<p>
+  CSS can become an unweildy beast. I feel that <a onclick="toggleCollapse('img1')">this GIF</a> perfectly
+  reflects my experience with it. Thankfully, the good folks at Twitter created a library of sorts for
+  including CSS in your project. You don't have to worry about writing any of your own CSS, you just have
+  to make sure you give certain elements the correct class names. However, if you want to customize it and
+  write some of your own CSS, you can tweak the styles however you want. The
+  <a href="http://getbootstrap.com/css">Bootstrap Documentation</a> is very helpful.
+</p>
+
+<br />
+<h3>JavaScript</h3>
+<p>
+  Alright, so you've got the tools to put dynamic content on your page before it loads, the tools to design
+  everything to look awesome, but now you want to make the pages dynamic after it loads. JavaScript is
+  powerful and can be used to build entire web apps, but we will only be using it at a very basic level.
+</p>
+<p>
+  So what might we want to do with JavaScript? Well, lets do one of the most basic things that can be done,
+  making something appear when something else is clicked (just like the GIF I related to CSS earlier (ahh,
+  full circle)).
+</p>
+<p>
+  Let's create the file <code>static/js/show.js</code> and write a small amount of JavaScript. This function
+  will take an element's ID, and then unhide it by removing the 'hide' class.
+</p>
+<div class="indent1">
+<pre class="line-numbers"><code class="language-javascript">
+function show(elementId) {
+  var ele = document.getElementById(elementId);
+  ele.className = ele.className.replace("hide", "");
+}</code></pre>
+</div>
+<br />
+
+<p>
+  Now, let's tweak <code>views/about.html</code> to take advantage of this JavaScript function we just wrote.
+  Let's also add a few CSS classes from Bootstrap to our page.
+</p>
+<div class="indent1">
+<pre class="line-numbers"><code class="language-markup">
+{&#37; extends "base.html" &#37;}
+
+{&#37; block head &#37;}
+&lt;script src="/static/js/show.js"&gt;&lt;/script&gt;
+{&#37; endblock &#37;}
+{&#37; block title &#37;}About{&#37; endblock &#37;}
+
+{&#37; block body &#37;}
+  &lt;h2&gt;About&lt;/h2&gt;
+  &lt;p class="col-md-3"&gt;
+    Welcome to the about page. My name is {&#123; name &#125;}. I am {&#123; age &#125;}
+    years old. Click &lt;a href="#" onClick="show('address')"&gt;here to see my address&lt;/a&gt;
+  &lt;/p&gt;
+  &lt;p class="hide" id="address"&gt;
+    {&#123; address &#125;}
+  &lt;/p&gt;
+{&#37; endblock &#37;}</code></pre>
+</div>
+
+<h4 class="pull-right"><a href="/gate/guide/database.html">The Database <span class="glyphicon glyphicon-arrow-right"></span></a></h4>
+<h4 class="pull-left"><a href="/gate/guide/mvc.html"><span class="glyphicon glyphicon-arrow-left"></span> MVC Pattern</a></h4>
+{% endblock %}
