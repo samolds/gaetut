@@ -150,9 +150,9 @@ p, .main li {
   border: 1px solid #000;
 }
 
-p.pad-top-bot {
-  padding-top: 15px;
-  padding-bottom: 15px;
+.pad-top-bot {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .indent1 {

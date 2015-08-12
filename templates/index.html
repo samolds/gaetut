@@ -3,27 +3,33 @@
 {% block title %}Gate{% endblock %}
 
 {% block content %}
-<h2>Hello</h2>
+<h2>Welcome Welcome</h2>
 <h4>Build your own website with no previous experience</h4>
 <hr />
 <h4 class="pull-right"><a href="http://gate-example.appspot.com">View the Final Code Deployed</a></h4>
 <h4 class="pull-left"><a href="/gate/guide/overview.html">Begin The Tutorial</a></h4>
 <div class="clearfix"></div>
 
-<p class="pad-top-bot">
-  Beyond this Gate is your very own personal website that you learned to code from the
-  ground up. This tutorial is aimed towards those with very minimal amounts of coding
-  background, but who are interested in coding their own personal website. Topics that
-  are covered include getting a development environment set up on Linux and OS X (and
-  kind of Windows), navigating with the command line, and using Vim as a text editor.
-  Python, HTML, CSS, and a small amount of Javascript will make up the bulk of the
-  tutorial, along with putting it all together using Google's webapp2 framework. This
-  will allow for the app to easily be hosted with Google App Engine with very minimal
-  further effort. By the end of the tutorial, you should have a simple blogging app
-  where you understand how all of the parts fit together and how to tweak them to make
-  it your own. If there is anything that is unclear or poorly documented, send me a
-  message or open up an Issue on GitHub.
-</p>
+<div class="pad-top-bot">
+  <p>
+    Beyond this Gate is your very own personal website that you learned to code from the
+    ground up. This tutorial is aimed towards those with very minimal amounts of coding
+    background, but who are interested in coding their own personal website.
+  </p>
+  <p>
+    Topics covered include getting a development environment set up on Linux and OS X
+    (and kind of Windows), navigating with the command line, and using Vim as a text
+    editor. Python, HTML, CSS, and a small amount of Javascript will make up the bulk
+    of the tutorial, along with putting it all together using Google's webapp2
+    framework. This will allow for the app to easily be hosted with Google App Engine
+    with very minimal further effort.
+  </p>
+  <p>
+    By the end of the tutorial, you should have a simple blogging app where you
+    understand how all of the parts fit together and how to tweak them to make it your
+    own.
+  </p>
+</div>
 
 <table class="table table-bordered">
   <thead>
@@ -111,6 +117,8 @@
 </table>
 
 <br />
+<hr id="faqs" />
+
 <h3>Already know how to code?</h3>
 <p>
   If you are already comfortable with you're development environment, coding in Python,
@@ -124,6 +132,19 @@
 <p>
   If you're just looking for how to deploy a webapp2 project, skip ahead to the
   <a href="/gate/guide/publishing.html">Publishing on GAE</a> section.
+</p>
+
+<br />
+<h3>Just want to host a simple, mostly static site?</h3>
+<p>
+  If you're not interested in learning about the whole MVC pattern and how to set up a full
+  blown application with webapp2, I created a checkpoint just for you!
+  <a href="https://github.com/samolds/gate/tree/master/checkpoints/3.5-portfolio">Checkpoint 3.5 - Portfolio</a>
+  is a single page, static app that has enough of the webapp2 components to easily be hosted
+  on Google App Engine. It uses Jinja templates and the MVC architecture still exists, but
+  it can easily be stripped down. Most of the content is in the static directory. This
+  is an <a href="http://gate-example.appspot.com/portfolio">example of Checkpoint 3.5</a>
+  hosted on Google App Engine.
 </p>
 
 <br />
@@ -146,4 +167,27 @@
   When I initially started working on this project, I considered it to be a Google App Engine
   Tutorial. I started calling it GAE-Tut for short which soon morphed into just 'Gate'.
 </p>
+
+<br />
+<h3>Don't like to read?</h3>
+<p>
+  Tough. However, I want the barrier to entry to be as low as possible so I have an Introduction
+  to Gate video on the way! I will explain the lay of the land, what resources I have tried to
+  provide, where all of the example code is and how to get it, and try to do a quick screencast
+  all the way up to the Hello World example.
+</p>
+<p>
+  Stay tuned for the video!
+</p>
+
+<br />
+<h3>Don't like something?</h3>
+<p>
+  I love feedback. If something is sucky or there is an error and something doesn't work, please
+  let me know. Open up an <a href="http://github.com/samolds/gate/issues">issue</a> if you
+  already have an account on GitHub, or just send me a
+  <a href="http://samolds.com/contact">message</a>.
+</p>
+
+<br />
 {% endblock %}
