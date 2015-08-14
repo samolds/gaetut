@@ -5,3 +5,11 @@
 .DS_Store
 
 /env/
+
+
+# for gh-pages branch
+base.html
+sidebar.html
+bin/
+include/
+lib/
