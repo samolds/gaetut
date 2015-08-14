@@ -119,8 +119,184 @@
 </p>
 <p>
   Well, for a few reasons. Having a database and forms allows for people to be able to interact with your
-  webpage. Sure, you could still write all of your blog posts with just static HTML, but if you want to
-  allow users to add comments you'd need a database.
+  webpage. Being able to Tweet or post a Status Update on Facebook requires the use of a database. Sure,
+  you could still write all of your blog posts with just static HTML, but if you want to allow users to
+  add comments you'd need a database. Using an HTML form also means that you don't have to push new
+  changes to your production environment, you can just click 'Post' or something on a user friendly web
+  page.
+</p>
+<p>
+  If you're still not convinced, if you don't want a blog or anything that allows for user's comments, or
+  if your content is not going to change very frequently then
+  <a href="https://github.com/samolds/gate/tree/master/checkpoints/3.5-portfolio">Checkpoint 3.5 - Portfolio</a>
+  is exactly what you're looking for. Static sites have plenty of great use cases. They can be used as an
+  e-Resume of sorts or as your central hub on the Internet that connects your separate profiles. In fact,
+  this entire tutorial is one giant static website!
+</p>
+
+<br />
+<h3>Pressing On</h3>
+<p>
+  So you've stuck around to see what's the business? Great! Let's start by setting up your Model. Then we
+  can hook it in with your View and Controller.
+</p>
+<p>
+  When you're setting up your model, think of it like creating a spreadsheet where the only columns that can
+  contain information have to be explicity defined by you. And every new blog post, comment, Tweet, or Status
+  Update is a new row.
+</p>
+
+<br />
+<p>models.py</p>
+<div>
+<pre class="line-numbers"><code class="language-python">
+from google.appengine.ext import ndb
+
+
+DEFAULT_GUESTBOOK_NAME = 'default_guestbook'
+
+
+def guestbook_key(guestbook_name=DEFAULT_GUESTBOOK_NAME):
+  """Constructs a Datastore key for a Guestbook entity.
+  We use guestbook_name as the key.
+  """
+  return ndb.Key('Guestbook', guestbook_name)
+
+
+class Author(ndb.Model):
+  """Sub model for representing an author."""
+  identity = ndb.StringProperty(indexed=False)
+  email = ndb.StringProperty(indexed=False)
+
+
+class Greeting(ndb.Model):
+  """A main model for representing an individual Guestbook entry."""
+  author = ndb.StructuredProperty(Author)
+  content = ndb.StringProperty(indexed=False)
+  date = ndb.DateTimeProperty(auto_now_add=True)</code></pre>
+</div>
+<p>
+  The model works in this way
+  ...........
+</p>
+
+<br />
+<h3>The Front End</h3>
+<p>
+  Now that we've got your model established, let's set up the View to handle user input.
+</p>
+
+<p>views/greet.html</p>
+<div class="indent1">
+<pre class="line-numbers"><code class="language-markup">
+{&#37; extends "base.html" &#37;}
+
+{&#37; block title &#37;}Greet{&#37; endblock &#37;}
+
+{&#37; block body &#37;}
+  &lt;h2&gt;Greet&lt;/h2&gt;
+
+  &lt;ul class="list-unstyled"&gt;
+    {&#37; for greeting in greetings &#37;}
+      &lt;li style="padding-bottom: 20px;"&gt;
+        {&#123; greeting.content &#125;}&lt;br /&gt;
+        - {&#123; greeting.author &#125;}
+      &lt;/li&gt;
+    {&#37; endfor &#37;}
+  &lt;/ul&gt;
+
+  &lt;hr /&gt;
+
+  &lt;form action="/greet?guestbook_name={&#123; guestbook_name &#125;}" method="post"&gt;
+    &lt;div&gt;&lt;textarea name="content" rows="3" cols="60"&gt;&lt;/textarea&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;input type="submit" value="Sign Guestbook"&gt;&lt;/div&gt;
+  &lt;/form&gt;
+  &lt;hr&gt;
+  &lt;form&gt;Guestbook name:
+    &lt;input value="{&#123; guestbook_name &#125;}" name="guestbook_name"&gt;
+    &lt;input type="submit" value="switch"&gt;
+  &lt;/form&gt;
+  &lt;a href="{&#123; url &#125;}"&gt;{&#123; url_linktext &#125;}&lt;/a&gt;
+{&#37; endblock &#37;}</code></pre>
+</div>
+<p>
+  This uses an HTML element called a <span class="vocab">form</span>.
+  ...........
+</p>
+
+<br />
+<h3>Tying It All Together</h3>
+<p>
+  Now we've got your model established, let's set up the View to handle user input.
+  ...........
+</p>
+
+<p>controllers/greet.py</p>
+<div class="indent1">
+<pre class="line-numbers"><code class="language-python">
+from google.appengine.api import users
+from controllers.base import BaseRequestHandler
+import urllib
+
+from models import DEFAULT_GUESTBOOK_NAME
+from models import guestbook_key
+from models import Author
+from models import Greeting
+
+
+class Greet(BaseRequestHandler):
+  def get(self):
+    guestbook_name = self.request.get('guestbook_name', DEFAULT_GUESTBOOK_NAME)
+    greetings_query = Greeting.query(ancestor=guestbook_key(guestbook_name)).order(-Greeting.date)
+    greetings_obj = greetings_query.fetch(10)
+
+    user = users.get_current_user()
+    greetings = []
+    for greeting in greetings_obj:
+      if greeting.author:
+        if user and user.user_id() == greeting.author.identity:
+          author = greeting.author.email + ' (You)'
+        else:
+          author = greeting.author.email
+      else:
+        author = "An anonymous person"
+      greetings.append({
+        "author": author,
+        "content": greeting.content,
+      })
+
+    if user:
+      url = users.create_logout_url(self.request.uri)
+      url_linktext = 'Logout'
+    else:
+      url = users.create_login_url(self.request.uri)
+      url_linktext = 'Login'
+
+    self.generate("greet.html", {
+      "greetings": greetings,
+      "guestbook_name": guestbook_name,
+      "url": url,
+      "url_linktext": url_linktext,
+    })
+
+
+  def post(self):
+    guestbook_name = self.request.get('guestbook_name', DEFAULT_GUESTBOOK_NAME)
+    greeting = Greeting(parent=guestbook_key(guestbook_name))
+
+    if users.get_current_user():
+      greeting.author = Author(
+          identity=users.get_current_user().user_id(),
+          email=users.get_current_user().email())
+
+    greeting.content = self.request.get('content')
+    greeting.put()
+
+    query_params = {'guestbook_name': guestbook_name}
+    self.redirect('/greet?' + urllib.urlencode(query_params))</code></pre>
+</div>
+<p>
+  ...........
 </p>
 
 <h4 class="pull-right"><a href="/gate/guide/admin.html">Admin <span class="glyphicon glyphicon-arrow-right"></span></a></h4>
