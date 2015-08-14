@@ -114,8 +114,8 @@
 <br />
 <h3>Justification</h3>
 <p>
-  But I like writing static HTML pages, and creating a database and dealing with forms and user's posting
-  data sounds hard! Why should I?
+  "But I like writing static HTML pages, and creating a database and dealing with forms and user's posting
+  data sounds hard! Why should I?"
 </p>
 <p>
   Well, for a few reasons. Having a database and forms allows for people to be able to interact with your
@@ -138,12 +138,13 @@
 <h3>Pressing On</h3>
 <p>
   So you've stuck around to see what's the business? Great! Let's start by setting up your Model. Then we
-  can hook it in with your View and Controller.
+  can hook it in with your View and Controller. Let's use the example of an online guestbook that anyone
+  can sign to help illustrate what's going on.
 </p>
 <p>
   When you're setting up your model, think of it like creating a spreadsheet where the only columns that can
   contain information have to be explicity defined by you. And every new blog post, comment, Tweet, or Status
-  Update is a new row.
+  Update is a new row. Let's set up a model in Google's webapp2 database.
 </p>
 
 <br />
@@ -153,13 +154,14 @@
 from google.appengine.ext import ndb
 import settings
 
-
+# Check if database name is specified in settings.py
 try:
   DB_NAME = settings.DB_NAME
 except AttributeError:
   DB_NAME = 'dev-guestbook'
 
 
+# Gets the name of the database
 def guestbook_key(guestbook_name=DB_NAME):
   return ndb.Key('Guestbook', guestbook_name)
 
@@ -172,21 +174,52 @@ class Author(ndb.Model):
 class Greeting(ndb.Model):
   author = ndb.StructuredProperty(Author)
   content = ndb.StringProperty(indexed=False)
-  date = ndb.DateTimeProperty(auto_now_add=True)</code></pre>
+  date = ndb.DateTimeProperty(auto_now_add=True) # Automagically adds a date/time stamp when a new object is created</code></pre>
 </div>
 <p>
-  The model works in this way
-  ...........
+  Let's ignore that first try/except block and the <code>guestbook_key</code> function for a second. The Author
+  and Greeting class are what we care about. So what information do we want to keep for this online guestbook?
+  We'll need to keep track of the user's greeting. Now what information makes up a greeting? The message, the
+  author, and a date. The message can just be stored as a <span class="vocab">string</span>, and the date can
+  be stored as a <span class="vocab">DateTime</span> object. But let's say we want the author to store both a
+  name and an email address; easy we just create a new Author class. Now, the author in the Greeting will be of
+  type Author which will contain two strings, one for the name and one for the email. Now we have a single
+  object that we can create or read from that has all of the information necessary for a single greeting from
+  a user.
+</p>
+
+<br />
+<h3>CRUD</h3>
+<p>
+  Now let's take a quick detour to explain <span class="vocab">CRUD</span>. CRUD stands for Create, Read, Update,
+  and Delete and is an important practice when it comes to web architecture. Right now, we're only going to worry
+  about two of them: Create and Read.
+</p>
+<p>
+  So how do you transport the data from the HTML page the user has just typed their greeting into, to your
+  database? CRUD doesn't just apply to databases, it also exists in web protocols. But instead of Create it's
+  called <span class="vocab">Post</span>, and instead of Read it's called <span class="vocab">Get</span>. Most
+  of your web traffic is likely Get requests. Just by loading a webpage you're performing a Get request. Get
+  requests are how you get any data in your web browser. And if you want to Create new data to be stored, you
+  have to Post that data.
+</p>
+<p>
+  Think of it like this: when you load up your Twitter homepage, you're actually performing a Get request for all
+  of that data. And that data is coming from a Read request from some database. When you have some bomb Tweet you
+  want the world to see, you have to Post that data back to Twitter. And when Twitter recieves that Post, it
+  performs a Create action back to the database.
 </p>
 
 <br />
 <h3>The Front End</h3>
 <p>
-  Now that we've got your model established, let's set up the View to handle user input.
+  You're now armed with the knowledge of how most information travels over the web, as well as an example for
+  how to layout your model. So let's set up the View to handle user input with a Form ready to Post. We'll also
+  want to display the existing greetings.
 </p>
 
 <p>views/greet.html</p>
-<div class="indent1">
+<div>
 <pre class="line-numbers"><code class="language-markup">
 {&#37; extends "base.html" &#37;}
 
@@ -209,46 +242,42 @@ class Greeting(ndb.Model):
   &lt;hr /&gt;
 
   &lt;form action="/greet" method="post"&gt;
-    &lt;div class="row"&gt;
-      &lt;div class="col-md-6"&gt;
-        &lt;div class="form-group"&gt;
-          &lt;label for="content"&gt;Sign&lt;/label&gt;
-          &lt;textarea class="form-control" id="content" name="content" rows="8"&gt;&lt;/textarea&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
+    &lt;div class="form-group"&gt;
+      &lt;label for="content"&gt;Sign&lt;/label&gt;
+      &lt;textarea class="form-control" id="content" name="content" rows="8"&gt;&lt;/textarea&gt;
     &lt;/div&gt;
-    &lt;div class="row"&gt;
-      &lt;div class="col-md-3"&gt;
-        &lt;div class="form-group"&gt;
-          &lt;label for="name"&gt;Name&lt;/label&gt;
-          &lt;input type="text" class="form-control" id="name" name="name" placeholder="(Optional)"&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;div class="col-md-3"&gt;
-        &lt;div class="form-group"&gt;
-          &lt;label for="email"&gt;Email&lt;/label&gt;
-          &lt;input type="text" class="form-control" id="email" name="email" placeholder="(Optional)"&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
+    &lt;div class="form-group"&gt;
+      &lt;label for="name"&gt;Name&lt;/label&gt;
+      &lt;input type="text" class="form-control" id="name" name="name" placeholder="(Optional)"&gt;
+    &lt;/div&gt;
+    &lt;div class="form-group"&gt;
+      &lt;label for="email"&gt;Email&lt;/label&gt;
+      &lt;input type="text" class="form-control" id="email" name="email" placeholder="(Optional)"&gt;
     &lt;/div&gt;
     &lt;button type="submit" class="btn btn-default"&gt;Sign Guestbook&lt;/button&gt;
   &lt;/form&gt;
 {&#37; endblock &#37;}</code></pre>
 </div>
 <p>
-  This uses an HTML element called a <span class="vocab">form</span>.
-  ...........
+  This uses an HTML <span class="vocab">form</span>. And from Line 21, you can see that's it is ready to Post
+  the data when the user hit's the submit button. We'll want to make sure each of the <code>input</code> and
+  <code>textarea</code> elements have <em>unique</em> ids.
+</p>
+<p>
+  This HTML page will render 3 text boxes for the user to enter their greeting, name, and email, along with
+  one submit button. When the button is clicked, a Post action will happen against the "/greet" endpoint
+  (make sure "/greet" points to the correct controller in urls.py).
 </p>
 
 <br />
 <h3>Tying It All Together</h3>
 <p>
-  Now we've got your model established, let's set up the View to handle user input.
-  ...........
+  You've got the two sides all hooked up, but now we need to glue them together. The user inputs their data
+  and it get's Posted, but it doesn't quite make it to the database yet. Enter Controller, stage center.
 </p>
 
 <p>controllers/greet.py</p>
-<div class="indent1">
+<div>
 <pre class="line-numbers"><code class="language-python">
 from controllers.base import BaseRequestHandler
 from models import DB_NAME
@@ -281,15 +310,27 @@ class Greet(BaseRequestHandler):
 
   def post(self):
     greeting = Greeting(parent=guestbook_key(DB_NAME))
-    user_name = self.request.get('name')
-    user_email = self.request.get('email')
+    user_name = self.request.get('name') # from HTML element with id='name'
+    user_email = self.request.get('email') # from HTML element with id='email'
     greeting.author = Author(name=user_name, email=user_email)
-    greeting.content = self.request.get('content')
+    greeting.content = self.request.get('content') # from HTML element with id='content'
     greeting.put()
     self.redirect('/greet')</code></pre>
 </div>
 <p>
-  ...........
+  Notice how the controller for the 'Greet' page now has two functions! Their names are very special as well.
+  The <code>get</code> function handles all Get requests, while the <code>post</code> function handles all
+  Post actions.
+</p>
+<p>
+  When you first load the greet page, the <code>get</code> function is executed. It performs a Read (or query)
+  on the database and gets a <code>greetings_obj</code>. Then some logic is performed to get the desirable
+  author name, and then returns that greetings object to the 'greet' View to be displayed.
+</p>
+<p>
+  The second function, the <code>post</code> function get's executed after a user has clicked that Submit button
+  on the page. It first creates a new Greeting object in the correct database. It gets the data from each of the
+  input elements from the form that was Posted, and then puts (or saves) the greeting to the database.
 </p>
 
 <h4 class="pull-right"><a href="/gate/guide/admin.html">Admin <span class="glyphicon glyphicon-arrow-right"></span></a></h4>

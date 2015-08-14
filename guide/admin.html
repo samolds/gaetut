@@ -95,7 +95,18 @@
 <hr />
 
 <p>
-  Time to build an Admin Panel.
+  "But I don't want to let just anyone Post data onto my website. I only want to allow the correct user to be able
+  to create stuff." Well it sounds like it's time to build an Admin panel.
+</p>
+<p>
+  Admin panels can be kind of annoying to build, because it might seem like you're building the same thing twice
+  and the fact that you're the only person who will see it. So you don't really have to worry about making it look
+  fancy, but you can if you'd like. Some web frameworks, like Django, come with a prebuilt admin panel which is
+  really nice.
+</p>
+<p>
+  But don't let any of that discourage you! There might only be a little extra effort, but the payoff is big in the
+  long run.
 </p>
 
 <br />
@@ -103,6 +114,20 @@
 <p>
   By the end of this section, you should be able to understand the changes made in
   <a href="https://github.com/samolds/gate/tree/master/checkpoints/5-admin">Checkpoint 5 - Admin</a>.
+</p>
+
+<br />
+<h3>Getting Close</h3>
+<p>
+  Hang in there. You're nearly to the end.
+</p>
+<p>
+  All we really need to do at this point is separate out the Post actions from the pages a normal user can Get.
+  Then we need to add some extra logic to the controllers to make sure only a specific user can Post data. Now,
+  trying to handle authentication (the process of a user 'logging in') can become very sticky. Making sure you've
+  kept the user's password safe is a topic that requires it's own separate tutorial. Luckily Google accounts are
+  available for use on Google App Engine. So instead of trying to handle all of that tricky icky authentication
+  stuff on our own, we're just going to use Google's existing stuff.
 </p>
 
 <h4 class="pull-right"><a href="/gate/guide/build_out.html">Build Out <span class="glyphicon glyphicon-arrow-right"></span></a></h4>
