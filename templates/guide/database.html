@@ -64,26 +64,25 @@
 <div>
 <pre class="line-numbers"><code class="language-python">
 from google.appengine.ext import ndb
+import settings
 
 
-DEFAULT_GUESTBOOK_NAME = 'default_guestbook'
+try:
+  DB_NAME = settings.DB_NAME
+except AttributeError:
+  DB_NAME = 'dev-guestbook'
 
 
-def guestbook_key(guestbook_name=DEFAULT_GUESTBOOK_NAME):
-  """Constructs a Datastore key for a Guestbook entity.
-  We use guestbook_name as the key.
-  """
+def guestbook_key(guestbook_name=DB_NAME):
   return ndb.Key('Guestbook', guestbook_name)
 
 
 class Author(ndb.Model):
-  """Sub model for representing an author."""
-  identity = ndb.StringProperty(indexed=False)
+  name = ndb.StringProperty(indexed=False)
   email = ndb.StringProperty(indexed=False)
 
 
 class Greeting(ndb.Model):
-  """A main model for representing an individual Guestbook entry."""
   author = ndb.StructuredProperty(Author)
   content = ndb.StringProperty(indexed=False)
   date = ndb.DateTimeProperty(auto_now_add=True)</code></pre>
@@ -108,7 +107,9 @@ class Greeting(ndb.Model):
 
 {&#37; block body &#37;}
   &lt;h2&gt;Greet&lt;/h2&gt;
+  &lt;hr /&gt;
 
+  &lt;br /&gt;
   &lt;ul class="list-unstyled"&gt;
     {&#37; for greeting in greetings &#37;}
       &lt;li style="padding-bottom: 20px;"&gt;
@@ -120,16 +121,31 @@ class Greeting(ndb.Model):
 
   &lt;hr /&gt;
 
-  &lt;form action="/greet?guestbook_name={&#123; guestbook_name &#125;}" method="post"&gt;
-    &lt;div&gt;&lt;textarea name="content" rows="3" cols="60"&gt;&lt;/textarea&gt;&lt;/div&gt;
-    &lt;div&gt;&lt;input type="submit" value="Sign Guestbook"&gt;&lt;/div&gt;
+  &lt;form action="/greet" method="post"&gt;
+    &lt;div class="row"&gt;
+      &lt;div class="col-md-6"&gt;
+        &lt;div class="form-group"&gt;
+          &lt;label for="content"&gt;Sign&lt;/label&gt;
+          &lt;textarea class="form-control" id="content" name="content" rows="8"&gt;&lt;/textarea&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="row"&gt;
+      &lt;div class="col-md-3"&gt;
+        &lt;div class="form-group"&gt;
+          &lt;label for="name"&gt;Name&lt;/label&gt;
+          &lt;input type="text" class="form-control" id="name" name="name" placeholder="(Optional)"&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="col-md-3"&gt;
+        &lt;div class="form-group"&gt;
+          &lt;label for="email"&gt;Email&lt;/label&gt;
+          &lt;input type="text" class="form-control" id="email" name="email" placeholder="(Optional)"&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button type="submit" class="btn btn-default"&gt;Sign Guestbook&lt;/button&gt;
   &lt;/form&gt;
-  &lt;hr&gt;
-  &lt;form&gt;Guestbook name:
-    &lt;input value="{&#123; guestbook_name &#125;}" name="guestbook_name"&gt;
-    &lt;input type="submit" value="switch"&gt;
-  &lt;/form&gt;
-  &lt;a href="{&#123; url &#125;}"&gt;{&#123; url_linktext &#125;}&lt;/a&gt;
 {&#37; endblock &#37;}</code></pre>
 </div>
 <p>
@@ -147,11 +163,8 @@ class Greeting(ndb.Model):
 <p>controllers/greet.py</p>
 <div class="indent1">
 <pre class="line-numbers"><code class="language-python">
-from google.appengine.api import users
 from controllers.base import BaseRequestHandler
-import urllib
-
-from models import DEFAULT_GUESTBOOK_NAME
+from models import DB_NAME
 from models import guestbook_key
 from models import Author
 from models import Greeting
@@ -159,54 +172,34 @@ from models import Greeting
 
 class Greet(BaseRequestHandler):
   def get(self):
-    guestbook_name = self.request.get('guestbook_name', DEFAULT_GUESTBOOK_NAME)
-    greetings_query = Greeting.query(ancestor=guestbook_key(guestbook_name)).order(-Greeting.date)
-    greetings_obj = greetings_query.fetch(10)
+    query = Greeting.query(ancestor=guestbook_key(DB_NAME)).order(-Greeting.date)
+    greetings_obj = query.fetch(10)
 
-    user = users.get_current_user()
     greetings = []
     for greeting in greetings_obj:
-      if greeting.author:
-        if user and user.user_id() == greeting.author.identity:
-          author = greeting.author.email + ' (You)'
-        else:
-          author = greeting.author.email
+      if greeting.author and greeting.author.name:
+        author = greeting.author.name
+      elif greeting.author and greeting.author.email:
+        author = greeting.author.email
       else:
-        author = "An anonymous person"
+        author = "Anonymous"
+
       greetings.append({
         "author": author,
         "content": greeting.content,
       })
 
-    if user:
-      url = users.create_logout_url(self.request.uri)
-      url_linktext = 'Logout'
-    else:
-      url = users.create_login_url(self.request.uri)
-      url_linktext = 'Login'
-
-    self.generate("greet.html", {
-      "greetings": greetings,
-      "guestbook_name": guestbook_name,
-      "url": url,
-      "url_linktext": url_linktext,
-    })
+    self.generate("greet.html", {"greetings": greetings})
 
 
   def post(self):
-    guestbook_name = self.request.get('guestbook_name', DEFAULT_GUESTBOOK_NAME)
-    greeting = Greeting(parent=guestbook_key(guestbook_name))
-
-    if users.get_current_user():
-      greeting.author = Author(
-          identity=users.get_current_user().user_id(),
-          email=users.get_current_user().email())
-
+    greeting = Greeting(parent=guestbook_key(DB_NAME))
+    user_name = self.request.get('name')
+    user_email = self.request.get('email')
+    greeting.author = Author(name=user_name, email=user_email)
     greeting.content = self.request.get('content')
     greeting.put()
-
-    query_params = {'guestbook_name': guestbook_name}
-    self.redirect('/greet?' + urllib.urlencode(query_params))</code></pre>
+    self.redirect('/greet')</code></pre>
 </div>
 <p>
   ...........
