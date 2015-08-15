@@ -117,7 +117,7 @@
 </p>
 
 <br />
-<h3>Getting Close</h3>
+<h3>Overview</h3>
 <p>
   Hang in there. You're nearly to the end.
 </p>
@@ -128,6 +128,247 @@
   kept the user's password safe is a topic that requires it's own separate tutorial. Luckily Google accounts are
   available for use on Google App Engine. So instead of trying to handle all of that tricky icky authentication
   stuff on our own, we're just going to use Google's existing stuff.
+</p>
+
+<br />
+<h3>Non-Admins</h3>
+<p>
+  By reserving all of the Posting functionality for the Admin panel, the normal blog controller becomes very simple.
+  We don't have to worry about any of the Posting logic or the authentication of users.
+</p>
+
+<p>controllers/blog.py</p>
+<div>
+<pre class="line-numbers"><code class="language-python">
+from controllers.base import BaseRequestHandler
+from google.appengine.ext import ndb
+from models import DB_NAME
+from models import blog_key
+from models import Post
+
+
+
+# Returns the 10 most recent blog posts
+class All(BaseRequestHandler):
+  def get(self):
+    query = Post.query(ancestor=blog_key(DB_NAME)).order(-Post.date)
+    posts = query.fetch(10)
+    self.generate("blog.html", {
+      "posts": posts,
+    })
+
+
+# Returns a specific blog post by requesting it's id
+class Blog_Post(BaseRequestHandler):
+  def get(self, post_id): # the post_id becomes an available parameter because of it's routing in urls.py
+    post_key = ndb.Key(urlsafe=post_id)
+    post = post_key.get()
+    self.generate("post.html", {
+      "post": post
+    })</code></pre>
+</div>
+<p>
+  Just some pretty simple controllers to handle Get requests of one or all blog posts.
+</p>
+
+
+<br />
+<h3>Admins</h3>
+<p>
+  Now, the Admin controller is going to look more complex, so we'll go through it more in depth.
+</p>
+
+<p>controllers/admin.py</p>
+<div>
+<pre class="line-numbers"><code class="language-python">
+from controllers.base import BaseRequestHandler
+from google.appengine.api import users
+from google.appengine.ext import ndb
+from models import DB_NAME
+from models import blog_key
+from models import Post
+
+
+class Panel(BaseRequestHandler):
+  def get(self):
+    self.generate("admin/panel.html")
+
+
+class Blog_All(BaseRequestHandler):
+  def get(self):
+    query = Post.query(ancestor=blog_key(DB_NAME)).order(-Post.date)
+    posts = query.fetch()
+
+    self.generate("admin/blog_all.html", {
+      "posts": posts,
+    })
+
+
+class Blog_New(BaseRequestHandler):
+  def get(self):
+    self.generate("admin/blog_new.html")
+
+  def post(self):
+    post = Post(parent=blog_key(DB_NAME))
+    post.title = self.request.get('title')
+    post.content = self.request.get('content')
+    post.put()
+    self.redirect('/admin/blog')
+
+
+class Blog_Edit(BaseRequestHandler):
+  def get(self, post_id):
+    post_key = ndb.Key(urlsafe=post_id)
+    post = post_key.get()
+
+    self.generate("admin/blog_edit.html", {
+      "post": post
+    })
+
+  def post(self, post_id):
+    post_key = ndb.Key(urlsafe=post_id)
+    post = post_key.get()
+
+    post.title = self.request.get('title')
+    post.content = self.request.get('content')
+    post.put()
+    self.redirect('/admin/blog')
+
+
+# The blog post will be deleted upon a get request to this page.
+class Blog_Delete(BaseRequestHandler):
+  def get(self, post_id):
+    post_key = ndb.Key(urlsafe=post_id)
+    post_key.delete()
+    self.redirect('/admin/blog')</code></pre>
+</div>
+<p>
+  Oh boy. It looks like a lot, but it's really not too bad. Everything here shouldn't be anything new, it
+  just happens to be a lot all at one time.
+
+</p>
+
+<br />
+<h3>Authentication</h3>
+<p>
+  "But wait... where was the logic to check if the user is authenticated?" In all honesty, there should probably
+  be an <code>if</code> check in the <code>post</code> functions before the <code>put()</code>. However, I was
+  lazy and bad and just did it in controller/base.py. Remember this file? It's sort of the parent file for all of
+  the controllers. Right now, it's checking if an admin is logged in or not using Google's user library.
+</p>
+
+<p>controllers/base.py</p>
+<div>
+<pre class="line-numbers"><code class="language-python">
+from google.appengine.api import users
+import settings
+import webapp2
+import jinja2
+import os
+
+
+JINJA_ENVIRONMENT = jinja2.Environment(
+  loader=jinja2.FileSystemLoader(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'views')),
+  extensions=['jinja2.ext.autoescape'],
+  autoescape=True)
+
+
+class BaseRequestHandler(webapp2.RequestHandler):
+  def generate(self, template_name, template_values={}):
+    is_admin = False
+    loginout_url = users.create_login_url(self.request.uri)
+    loginout_linktext = 'Login'
+
+    if users.is_current_user_admin():
+      is_admin = True
+      loginout_url = users.create_logout_url("/")
+      loginout_linktext = 'Logout'
+
+    values = {
+      "APP_NAME": settings.APP_NAME,
+      "IS_ADMIN": is_admin,
+      "LOGINOUT_URL": loginout_url,
+      "LOGINOUT_LINKTEXT": loginout_linktext,
+    }
+    values.update(template_values)
+    template = JINJA_ENVIRONMENT.get_template(template_name)
+    self.response.out.write(template.render(values, debug=settings.DEBUG))</code></pre>
+</div>
+<p>
+  Because all of the other controllers <span class="vocab">inherit</span> from this class, 'values' is available in
+  all of the views. So the View will take care of showing some things or not depending on the value of "IS_ADMIN".
+  Another thing we should look at is app.yaml (the other file we haven't looked at since Hello World).
+</p>
+
+<p>app.yaml</p>
+<div>
+<pre class="line-numbers"><code class="language-clike">
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest
+
+handlers:
+- url: /static
+  static_dir: static
+- url: /admin/.*
+  script: urls.app
+  login: admin
+- url: /.*
+  script: urls.app</code></pre>
+</div>
+<p>
+  The important thing to notice is line #17. It's basically saying that for all urls after /admin/, the user has
+  to be logged in as an admin. Now what this means is that it's important that all of the admin controllers are
+  only hit from urls that are preceded with '/admin/'. So now let's take a look at urls.py.
+</p>
+
+
+<p>urls.py</p>
+<div>
+<pre class="line-numbers"><code class="language-python">
+import webapp2
+import settings
+from controllers import home
+from controllers import blog
+from controllers import admin
+
+
+app = webapp2.WSGIApplication([
+  webapp2.Route(r'/', home.Home),
+  webapp2.Route(r'/blog', blog.All),
+  webapp2.Route(r'/blog/all', blog.All),
+  webapp2.Route(r'/blog/post/&lt;post_id:[A-Za-z0-9_\-]+$&gt;', blog.Blog_Post),
+
+  webapp2.Route(r'/admin', admin.Panel),
+
+  # All of these controllers will require an admin to log in first because of line #17 in app.yaml
+  webapp2.Route(r'/admin/blog', admin.Blog_All),
+  webapp2.Route(r'/admin/blog/all', admin.Blog_All),
+  webapp2.Route(r'/admin/blog/new', admin.Blog_New),
+  webapp2.Route(r'/admin/blog/edit/&lt;post_id:[A-Za-z0-9_\-]+$&gt;', admin.Blog_Edit),
+  webapp2.Route(r'/admin/blog/delete/&lt;post_id:[A-Za-z0-9_\-]+$&gt;', admin.Blog_Delete),
+], debug=settings.DEBUG)</code></pre>
+</div>
+
+<p>
+  The routes will match each url to a controller. There are the normal blog routes that you can Get without
+  being logged in, but everything past line #16 is 'locked off' to normal users.
+</p>
+
+<br />
+<h3>Overwhelmed?</h3>
+<p>
+  It's perfectly natural. This is a ton of information that's being thrown at you. And it's not even covering anything
+  in much depth (I haven't even had the chance to mention the <span class="vocab">regular expressions</span> on line
+  #12, #20, and #21). I highly recommend you spend some time going through all of this code and tweaking it to get a
+  better idea of what's going on.
 </p>
 
 <h4 class="pull-right"><a href="/gate/guide/build_out.html">Build Out <span class="glyphicon glyphicon-arrow-right"></span></a></h4>
