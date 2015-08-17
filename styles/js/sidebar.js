@@ -5,4 +5,5 @@ function toggleCollapse(id) {
   } else {
     element.className = element.className.replace("in", "out");
   }
+  return false;
 }
