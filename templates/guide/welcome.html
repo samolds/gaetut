@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Gate{% endblock %}
+
+{% block content %}
+<h2>Welcome</h2>
+<h4>Breaking the ice</h4>
+<hr />
+
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/b6jDJVPOivI"></iframe>
+</div>
+<small>
+  Yes, I know this video is of kittens and is totally unrelated. It's
+  just a placeholder video until the actual one is done.
+</small>
+
+<br />
+<p><a onClick="toggleCollapse('windows')">Using Windows?</a></p>
+<p id="windows" class="collapse out indent2">
+  Skip ahead to the <a href="/gate/guide/getting_started.html">Getting Started</a>
+  section and select the "Windows" tab to get ready. Then come on back and watch
+  this video.
+</p>
+
+<hr />
+
+<p>
+  This video skims over the Overview, Getting Started, Developing in the Shell,
+  Python Basics, and HTML Basics sections very briefly. Let's jump back into it
+  all in a bit more depth.
+</p>
+
+<h4 class="pull-right"><a href="/gate/guide/overview.html">Overview <span class="glyphicon glyphicon-arrow-right"></span></a></h4>
+{% endblock %}
