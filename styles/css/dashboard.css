@@ -195,3 +195,7 @@ pre {
   word-wrap: normal;
   white-space: pre;
 }
+
+h3 .glyphicon-link {
+  font-size: 0.7em;
+}

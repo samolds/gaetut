@@ -30,7 +30,10 @@
 </p>
 
 <br />
-<h3>Overview</h3>
+<h3 id="overview">Overview
+  <a href="#overview"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></a>
+</h3>
+<hr />
 <p>
   Hang in there. You're nearly to the end.
 </p>
@@ -44,7 +47,10 @@
 </p>
 
 <br />
-<h3>Non-Admins</h3>
+<h3 id="non-admins">Non-Admins
+  <a href="#non-admins"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></a>
+</h3>
+<hr />
 <p>
   By reserving all of the Posting functionality for the Admin panel, the normal blog controller becomes very simple.
   We don't have to worry about any of the Posting logic or the authentication of users.
@@ -86,7 +92,10 @@ class Blog_Post(BaseRequestHandler):
 
 
 <br />
-<h3>Admins</h3>
+<h3 id="admins">Admins
+  <a href="#admins"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></a>
+</h3>
+<hr />
 <p>
   Now, the Admin controller is going to look more complex, so we'll go through it more in depth.
 </p>
@@ -162,7 +171,10 @@ class Blog_Delete(BaseRequestHandler):
 </p>
 
 <br />
-<h3>Authentication</h3>
+<h3 id="authentication">Authentication
+  <a href="#authentication"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></a>
+</h3>
+<hr />
 <p>
   "But wait... where was the logic to check if the user is authenticated?" In all honesty, there should probably
   be an <code>if</code> check in the <code>post</code> functions before the <code>put()</code>. However, I was
@@ -276,7 +288,10 @@ app = webapp2.WSGIApplication([
 </p>
 
 <br />
-<h3>Overwhelmed?</h3>
+<h3 id="overwhelmed">Overwhelmed?
+  <a href="#overwhelmed"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></a>
+</h3>
+<hr />
 <p>
   It's perfectly natural. This is a ton of information that's being thrown at you. And it's not even covering anything
   in much depth (I haven't even had the chance to mention the <span class="vocab">regular expressions</span> on line
